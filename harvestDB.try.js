@@ -77,8 +77,8 @@ var writeToDB = function(screenName, callback) {
       }
     });
   }
-  sleep.sleep(6);
-  callback();
+  setTimeout(function(){callback();}, 10000); //wait 10 seconds before next person
+
 };
 
 var processAllPoliticians = function(politicians) {
