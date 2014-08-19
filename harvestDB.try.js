@@ -83,9 +83,14 @@ var writeToDB = function(screenName, callback) {
 
 var processAllPoliticians = function(politicians) {
   async.eachSeries(politicians, writeToDB(politician, callback), function(err) {
-      console.log('some error occurred');
-    } else {
-      console.log('All good, done!');
-    }
+      if (err){
+        console.log('some error occurred');
+      } else {
+        console.log('All good, done!');
+      }
   });
 };
+
+
+
+
