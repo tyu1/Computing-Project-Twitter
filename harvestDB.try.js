@@ -77,7 +77,7 @@ var writeToDB = function(screenName, callback) {
       }
     });
   }
-  sleep.sleep(8);
+  sleep.sleep(6);
   callback();
 };
 
