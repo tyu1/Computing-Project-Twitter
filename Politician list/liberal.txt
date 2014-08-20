@@ -1,0 +1,137 @@
+ASHER, Louise	MLA	LIB	Minister	Minister for Innovation, Services & Small Business	2/12/2010	17/3/2014
+ASHER, Louise	MLA	LIB	Minister	Minister for Tourism and Major Events	2/12/2010	
+ASHER, Louise	MLA	LIB	Shadow Minister	Skills and Workplace Participation	16/8/2007	13/2/2008
+ASHER, Louise	MLA	LIB	Shadow Minister	Water	16/8/2007	13/2/2008
+ASHER, Louise	MLA	LIB	Shadow Minister	Deputy Leader of the Opposition	28/3/2006	2/12/2010
+ASHER, Louise	MLA	LIB	Shadow Minister	Small Business	16/8/2007	2/12/2010
+ASHER, Louise	MLA	LIB	Shadow Minister	Tourism and Major Events	16/8/2007	2/12/2010
+ASHER, Louise	MLA	LIB	Shadow Minister	Urban Water	13/2/2008	2/12/2010
+ASHER, Louise	MLA	LIB	Shadow Minister	Women's Affairs	5/11/2009	2/12/2010
+ASHER, Louise	MLA	LIB	Minister	Minister for Employment and Trade	13/3/2013	
+ASHER, Louise	MLA	LIB	Minister	Minister for Innovation	17/3/2014	
+BAILLIEU, Edward (Ted)	MLA	LIB	Shadow Minister	Leader of the Opposition	8/5/2006	2/12/2010
+BAILLIEU, Edward (Ted)	MLA	LIB	Shadow Minister	Minister for the Arts	6/12/2006	2/12/2010
+BAILLIEU, Edward (Ted)	MLA	LIB	Minister	Premier	2/12/2010	6/3/2013
+BAILLIEU, Edward (Ted)	MLA	LIB	Minister	Minister for the Arts	2/12/2010	6/3/2013
+CLARK, Robert	MLA	LIB	Shadow Minister	Industrial Relations	6/12/2006	5/11/2009
+CLARK, Robert	MLA	LIB	Shadow Minister	Energy and Resources	6/12/2006	5/11/2009
+CLARK, Robert	MLA	LIB	Shadow Minister	Attorney-General	6/12/2006	2/12/2010
+CLARK, Robert	MLA	LIB	Shadow Minister	Finance	5/11/2009	2/12/2010
+CLARK, Robert	MLA	LIB	Minister	Attorney-General	2/12/2010	
+CLARK, Robert	MLA	LIB	Minister	Minister for Finance	2/12/2010	
+CLARK, Robert	MLA	LIB	Minister	Minister for Industrial Relations	13/3/2013	
+COOTE, Andrea	MLC	LIB	Shadow Minister	Environment & Climate Change	16/8/2007	5/2/2008
+DALLA-RIVA, Richard	MLC	LIB	Shadow Minister	Community Development	16/8/2007	13/2/2008
+DALLA-RIVA, Richard	MLC	LIB	Shadow Minister	Innovation	16/8/2007	13/2/2008
+DALLA-RIVA, Richard	MLC	LIB	Shadow Minister	Freedom of Information	16/8/2007	5/11/2009
+DALLA-RIVA, Richard	MLC	LIB	Shadow Minister	Industry & State Development	13/2/2008	2/12/2010
+DALLA-RIVA, Richard	MLC	LIB	Shadow Minister	Major Projects	13/2/2008	2/12/2010
+DALLA-RIVA, Richard	MLC	LIB	Minister	Minister for Employment and Industrial Relations	2/12/2010	13/3/2013
+DALLA-RIVA, Richard	MLC	LIB	Minister	Minister for Manufacturing, Exports and Trade	2/12/2010	13/3/2013
+DAVIS, David	MLC	LIB	Shadow Minister	Industry and State Development	6/12/2006	13/2/2008
+DAVIS, David	MLC	LIB	Shadow Minister	Major Projects	6/12/2006	13/2/2008
+DAVIS, David	MLC	LIB	Shadow Minister	Environment & Climate Change	13/2/2008	5/11/2009
+DAVIS, David	MLC	LIB	Shadow Minister	Scrutiny of Government	16/8/2007	2/12/2010
+DAVIS, David	MLC	LIB	Shadow Minister	Ageing	5/11/2009	2/12/2010
+DAVIS, David	MLC	LIB	Shadow Minister	Minister for Health	5/11/2009	2/12/2010
+DAVIS, David	MLC	LIB	Minister	Minister for Ageing	2/12/2010	
+DAVIS, David	MLC	LIB	Minister	Health	2/12/2010	
+DAVIS, Philip	MLC	LIB	Shadow Minister	Finance	16/8/2007	5/2/2008
+DAVIS, Philip	MLC	LIB	Shadow Minister	Manufacturing, Exports & Trade	16/8/2007	5/2/2008
+DIXON, Martin	MLA	LIB	Shadow Minister	Education	16/8/2007	2/12/2010
+DIXON, Martin	MLA	LIB	Minister	Minister for Education	2/12/2010	
+GUY, Matthew	MLC	LIB	Shadow Minister	Planning	6/12/2006	2/12/2010
+GUY, Matthew	MLC	LIB	Minister	Minister for Planning	2/12/2010	
+GUY, Matthew	MLC	LIB	Minister	Minister for Multicultural Affairs and Citizenship	17/3/2014	
+HODGETT, David	MLA	LIB	Minister	Cabinet Secretary	2/12/2010	13/3/2013
+HODGETT, David	MLA	LIB	Minister	Minister for Ports	13/3/2013	
+HODGETT, David	MLA	LIB	Minister	Minister for Major Projects	13/3/2013	
+HODGETT, David	MLA	LIB	Minister	Minister for Manufacturing	13/3/2013	
+KOTSIRAS, Nicholas	MLA	LIB	Shadow Minister	Multicultural Affairs	6/12/2006	13/2/2008
+KOTSIRAS, Nicholas	MLA	LIB	Shadow Minister	Youth Affairs	16/8/2007	13/2/2008
+KOTSIRAS, Nicholas	MLA	LIB	Shadow Minister	Sport & Recreation	16/8/2007	13/2/2008
+KOTSIRAS, Nicholas	MLA	LIB	Shadow Minister	Innovation	13/2/2008	2/12/2010
+KOTSIRAS, Nicholas	MLA	LIB	Shadow Minister	Multicultural Affairs & Citizenship	13/2/2008	2/12/2010
+KOTSIRAS, Nicholas	MLA	LIB	Minister	Minister for Multicultural Affairs and Citizenship	2/12/2010	17/3/2014
+KOTSIRAS, Nicholas	MLA	LIB	Minister	Minister for Energy and Resources	13/3/2013	17/3/2014
+LOVELL, Wendy	MLC	LIB	Shadow Minister	Women's Affairs	13/12/2002	13/2/2008
+LOVELL, Wendy	MLC	LIB	Shadow Minister	Housing	6/12/2006	2/12/2010
+LOVELL, Wendy	MLC	LIB	Shadow Minister	Country Victoria	6/12/2006	2/12/2010
+LOVELL, Wendy	MLC	LIB	Shadow Minister	Children & Early Childhood Development	16/8/2007	2/12/2010
+LOVELL, Wendy	MLC	LIB	Minister	Minister for Housing	2/12/2010	
+LOVELL, Wendy	MLC	LIB	Minister	Minister for Children and Early Childhood Development	2/12/2010	
+McINTOSH, Andrew	MLA	LIB	Shadow Minister	Police and Emergency Services	6/12/2006	5/11/2009
+McINTOSH, Andrew	MLA	LIB	Shadow Minister	Corrections	6/12/2006	2/12/2010
+McINTOSH, Andrew	MLA	LIB	Shadow Minister	Crime Prevention	5/11/2009	2/12/2010
+McINTOSH, Andrew	MLA	LIB	Shadow Minister	Freedom of Information	5/11/2009	2/12/2010
+McINTOSH, Andrew	MLA	LIB	Shadow Minister	Integrity of Government	5/11/2009	2/12/2010
+McINTOSH, Andrew	MLA	LIB	Minister	Minister for Corrections	2/12/2010	16/4/2013
+McINTOSH, Andrew	MLA	LIB	Minister	Minister for Crime Prevention	2/12/2010	16/4/2013
+McINTOSH, Andrew	MLA	LIB	Minister	Minister responsible for the establishment of an anti-corruption commission	2/12/2010	13/3/2013
+McINTOSH, Andrew	MLA	LIB	Minister	Minister responsible for IBAC	13/3/2013	16/4/2013
+McINTOSH, Andrew	MLA	LIB	Minister	Minister for Gaming Regulation	13/3/2013	16/4/2013
+MULDER, Terry	MLA	LIB	Shadow Minister	Public Transport	13/12/2002	2/12/2010
+MULDER, Terry	MLA	LIB	Shadow Minister	Roads	6/12/2006	2/12/2010
+MULDER, Terry	MLA	LIB	Minister	Minister for Public Transport	2/12/2010	
+MULDER, Terry	MLA	LIB	Minister	Minister for Roads	2/12/2010	
+NAPTHINE, Denis	MLA	LIB	Shadow Minister	Regional & Rural Development	6/12/2006	13/2/2008
+NAPTHINE, Denis	MLA	LIB	Shadow Minister	Ports	6/12/2006	2/12/2010
+NAPTHINE, Denis	MLA	LIB	Shadow Minister	Racing	6/12/2006	2/12/2010
+NAPTHINE, Denis	MLA	LIB	Shadow Minister	Regional Cities	13/2/2008	2/12/2010
+NAPTHINE, Denis	MLA	LIB	Minister	Minister for Ports	2/12/2010	13/3/2013
+NAPTHINE, Denis	MLA	LIB	Minister	Minister for Major Projects	2/12/2010	13/3/2013
+NAPTHINE, Denis	MLA	LIB	Minister	Minister for Regional Cities	2/12/2010	
+NAPTHINE, Denis	MLA	LIB	Minister	Minister for Racing	2/12/2010	
+NAPTHINE, Denis	MLA	LIB	Minister	Premier	6/3/2013	
+NAPTHINE, Denis	MLA	LIB	Minister	Minister for the Arts	6/3/2013	13/3/2013
+O'BRIEN, Michael	MLA	LIB	Shadow Minister	Gaming	6/12/2006	2/12/2010
+O'BRIEN, Michael	MLA	LIB	Shadow Minister	Consumer Affairs	16/8/2007	2/12/2010
+O'BRIEN, Michael	MLA	LIB	Shadow Minister	Energy and Resources	5/11/2009	2/12/2010
+O'BRIEN, Michael	MLA	LIB	Shadow Minister	Exports and Trade	5/11/2009	2/12/2010
+O'BRIEN, Michael	MLA	LIB	Shadow Minister	Infrastructure and Public Private Partnerships	5/11/2009	2/12/2010
+O'BRIEN, Michael	MLA	LIB	Minister	Minister for Gaming	2/12/2010	13/3/2013
+O'BRIEN, Michael	MLA	LIB	Minister	Minister for Consumer Affairs	2/12/2010	13/3/2013
+O'BRIEN, Michael	MLA	LIB	Minister	Minister for Energy and Resources	2/12/2010	13/3/2013
+O'BRIEN, Michael	MLA	LIB	Minister	Treasurer	13/3/2013	
+O'DONOHUE, Edward	MLC	LIB	Minister	Minister for Corrections	22/4/2013	
+O'DONOHUE, Edward	MLC	LIB	Minister	Minister for Crime Prevention	22/4/2013	
+O'DONOHUE, Edward	MLC	LIB	Minister	Minister for Liquor and Gaming Regulation	22/4/2013	
+RICH-PHILLIPS, Gordon	MLC	LIB	Shadow Minister	Assistant Treasurer	16/8/2007	13/2/2008
+RICH-PHILLIPS, Gordon	MLC	LIB	Shadow Minister	Finance	13/2/2008	5/11/2009
+RICH-PHILLIPS, Gordon	MLC	LIB	Shadow Minister	TAC	22/12/2005	2/12/2010
+RICH-PHILLIPS, Gordon	MLC	LIB	Shadow Minister	Workcover	6/12/2006	2/12/2010
+RICH-PHILLIPS, Gordon	MLC	LIB	Shadow Minister	Information Technology	16/8/2007	2/12/2010
+RICH-PHILLIPS, Gordon	MLC	LIB	Shadow Minister	Community Development	13/2/2008	2/12/2010
+RICH-PHILLIPS, Gordon	MLC	LIB	Shadow Minister	Aviation Industry	5/11/2009	2/12/2010
+RICH-PHILLIPS, Gordon	MLC	LIB	Shadow Minister	Federal State Relations	5/11/2009	2/12/2010
+RICH-PHILLIPS, Gordon	MLC	LIB	Minister	Assistant Treasurer	2/12/2010	
+RICH-PHILLIPS, Gordon	MLC	LIB	Minister	Minister for Technology	2/12/2010	
+RICH-PHILLIPS, Gordon	MLC	LIB	Minister	Minister responsible for the Aviation Industry	2/12/2010	
+SHARDEY, Helen	MLA	LIB	Shadow Minister	Health	22/12/2005	5/11/2009
+SMITH, Ken	MLA	LIB	Shadow Minister	Local Government	6/12/2006	13/2/2008
+SMITH, Ryan	MLA	LIB	Shadow Minister	Industrial Relations	5/11/2009	2/12/2010
+SMITH, Ryan	MLA	LIB	Shadow Minister	Manufacturing	5/11/2009	2/12/2010
+SMITH, Ryan	MLA	LIB	Minister	Minister for Environment & Climate Change	2/12/2010	
+SMITH, Ryan	MLA	LIB	Minister	Minister for Youth Affairs	2/12/2010	
+THOMPSON, Murray	MLA	LIB	Shadow Minister	Veteran Affairs	16/8/2007	13/2/2008
+THOMPSON, Murray	MLA	LIB	Shadow Minister	Aboriginal Affairs	16/8/2007	13/2/2008
+VICTORIA, Heidi	MLA	LIB	Minister	Minister for the Arts	13/3/2013	
+VICTORIA, Heidi	MLA	LIB	Minister	Minister for Women's Affairs	13/3/2013	
+VICTORIA, Heidi	MLA	LIB	Minister	Minister for Consumer Affairs	13/3/2013	
+VOGELS, John	MLC	LIB	Shadow Minister	Agriculture	6/12/2006	13/2/2008
+WAKELING, Nick	MLA	LIB	Minister	Cabinet Secretary	13/3/2013	
+WAKELING, Nick	MLA	LIB	Minister	Minister for Higher Education and Skills	17/3/2014	
+WELLS, Kim	MLA	LIB	Shadow Minister	Treasurer	6/12/2006	2/12/2010
+WELLS, Kim	MLA	LIB	Minister	Treasurer	2/12/2010	13/3/2013
+WELLS, Kim	MLA	LIB	Minister	Minister for Police and Emergency Services	13/3/2013	
+WELLS, Kim	MLA	LIB	Minister	Minister for Bushfire Response	13/3/2013	
+WOOLDRIDGE, Mary	MLA	LIB	Shadow Minister	Ageing	16/8/2007	5/11/2009
+WOOLDRIDGE, Mary	MLA	LIB	Shadow Minister	Women's Affairs	13/2/2008	5/11/2009
+WOOLDRIDGE, Mary	MLA	LIB	Shadow Minister	Mental Health	6/12/2006	2/12/2010
+WOOLDRIDGE, Mary	MLA	LIB	Shadow Minister	Drug Abuse	6/12/2006	2/12/2010
+WOOLDRIDGE, Mary	MLA	LIB	Shadow Minister	Community Services	16/8/2007	2/12/2010
+WOOLDRIDGE, Mary	MLA	LIB	Shadow Minister	Environment and Climate Change	5/11/2009	2/12/2010
+WOOLDRIDGE, Mary	MLA	LIB	Minister	Minister for Mental Health	2/12/2010	
+WOOLDRIDGE, Mary	MLA	LIB	Minister	Minister for Women’s Affairs	2/12/2010	13/3/2013
+WOOLDRIDGE, Mary	MLA	LIB	Minister	Minister for Community Services	2/12/2010	
+WOOLDRIDGE, Mary	MLA	LIB	Minister	Minister for Disability Services and Reform	13/3/2013	

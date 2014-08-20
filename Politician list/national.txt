@@ -1,0 +1,32 @@
+BULL, Tim	MLA	NAT	Minister	Minister for Local Government	17/3/2014	
+BULL, Tim	MLA	NAT	Minister	Minister for Aboriginal Affairs	17/3/2014	
+DELAHUNTY, Hugh	MLA	NAT	Shadow Minister	Youth Affairs	13/2/2008	2/12/2010
+DELAHUNTY, Hugh	MLA	NAT	Shadow Minister	Sport & Recreation	13/2/2008	2/12/2010
+DELAHUNTY, Hugh	MLA	NAT	Shadow Minister	Veteran Affairs	13/2/2008	2/12/2010
+DELAHUNTY, Hugh	MLA	NAT	Minister	Minister for Sport and Recreation	2/12/2010	17/3/2014
+DELAHUNTY, Hugh	MLA	NAT	Minister	Minister for Veterans' Affairs	2/12/2010	17/3/2014
+DRUM, Damian	MLA	NAT	Minister	Minister for Sport and Recreation	17/3/2014	
+DRUM, Damian	MLA	NAT	Minister	Minister for Veterans' Affairs	17/3/2014	
+HALL, Peter	MLC	NAT	Shadow Minister	Skills and Workplace Participation	13/2/2008	2/12/2010
+HALL, Peter	MLC	NAT	Shadow Minister	Tertiary, Education and Training	5/11/2009	2/12/2010
+HALL, Peter	MLC	NAT	Minister	Minister for Higher Education & Skills	2/12/2010	17/3/2014
+HALL, Peter	MLC	NAT	Minister	Minister responsible for the Teaching Profession	2/12/2010	17/3/2014
+NORTHE, Russell	MLA	NAT	Minister	Minister for Energy and Resources	17/3/2014	
+NORTHE, Russell	MLA	NAT	Minister	Minister for Small Business	17/3/2014	
+POWELL, Jeanette	MLA	NAT	Shadow Minister	Local Government	13/2/2008	2/12/2010
+POWELL, Jeanette	MLA	NAT	Shadow Minister	Aboriginal Affairs	13/2/2008	2/12/2010
+POWELL, Jeanette	MLA	NAT	Minister	Minister for Local Government	2/12/2010	17/3/2014
+POWELL, Jeanette	MLA	NAT	Minister	Minister for Aboriginal Affairs	2/12/2010	17/3/2014
+RYAN, Peter	MLA	NAT	Shadow Minister	Manufacturing, Exports & Trade	13/2/2008	5/11/2009
+RYAN, Peter	MLA	NAT	Shadow Minister	Regional & Rural Development	13/2/2008	2/12/2010
+RYAN, Peter	MLA	NAT	Shadow Minister	Bushfire Response	12/3/2009	2/12/2010
+RYAN, Peter	MLA	NAT	Shadow Minister	Police and Emergency Services	5/11/2009	2/12/2010
+RYAN, Peter	MLA	NAT	Minister	Minister for Bushfire Response	2/12/2010	13/3/2013
+RYAN, Peter	MLA	NAT	Minister	Minister for Police and Emergency Services	2/12/2010	13/3/2013
+RYAN, Peter	MLA	NAT	Minister	Minister for Regional and Rural Development	2/12/2010	
+RYAN, Peter	MLA	NAT	Minister	Deputy Premier	2/12/2010	
+RYAN, Peter	MLA	NAT	Minister	Minister for State Development	13/3/2013	
+WALSH, Peter	MLA	NAT	Shadow Minister	Agriculture	13/2/2008	2/12/2010
+WALSH, Peter	MLA	NAT	Shadow Minister	Country Water Resources	13/2/2008	2/12/2010
+WALSH, Peter	MLA	NAT	Minister	Minister for Agriculture and Food Security	2/12/2010	
+WALSH, Peter	MLA	NAT	Minister	Minister for Water	2/12/2010	

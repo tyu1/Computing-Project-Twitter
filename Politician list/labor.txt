@@ -1,0 +1,158 @@
+ALLAN, Jacinta	MLA	ALP	Minister	Minister for Skills and Workforce Participation	3/8/2007	20/1/2010
+ALLAN, Jacinta	MLA	ALP	Minister	Minister for Regional and Rural Development	3/8/2007	2/12/2010
+ALLAN, Jacinta	MLA	ALP	Minister	Minister for Industry and Trade	20/1/2010	2/12/2010
+ALLAN, Jacinta	MLA	ALP	Shadow Minister	Regional and Rural Development	7/12/2010	
+ALLAN, Jacinta	MLA	ALP	Shadow Minister	Bushfire Response	7/12/2010	19/12/2013
+ALLAN, Jacinta	MLA	ALP	Shadow Minister	Roads	7/12/2010	6/2/2012
+ALLAN, Jacinta	MLA	ALP	Shadow Minister	Police and Emergency Services	6/2/2012	19/12/2013
+ALLAN, Jacinta	MLA	ALP	Shadow Minister	Regional Cities	19/12/2013	
+ALLAN, Jacinta	MLC	ALP	Shadow Minister	Agriculture	19/12/2013	
+ANDREWS, Daniel	MLA	ALP	Minister	Minister for Health	3/8/2007	2/12/2010
+ANDREWS, Daniel	MLA	ALP	Shadow Minister	Leader of the Opposition	7/12/2010	
+ANDREWS, Daniel	MLA	ALP	Shadow Minister	Veteran Affairs	7/12/2010	
+ANDREWS, Daniel	MLA	ALP	Shadow Minister	Multicultural Affairs	7/12/2010	
+ANDREWS, Daniel	MLA	ALP	Shadow Minister	Children & Young Adults	7/12/2010	19/12/2013
+BATCHELOR, Peter	MLA	ALP	Minister	Minister for Community Development	3/8/2007	20/1/2010
+BATCHELOR, Peter	MLA	ALP	Minister	Minister for Energy and Resources	1/12/2006	2/12/2010
+BATCHELOR, Peter	MLA	ALP	Minister	Minister for the Arts	20/1/2010	2/12/2010
+BRUMBY, John	MLA	ALP	Minister	Premier	30/7/2007	2/12/2010
+BRUMBY, John	MLA	ALP	Minister	Minister for Veterans' Affairs	30/7/2007	2/12/2010
+BRUMBY, John	MLA	ALP	Minister	Minister for Multicultural Affairs	30/7/2007	2/12/2010
+CAMERON, Robert (Bob)	MLA	ALP	Minister	Minister for Police and Emergency Services	1/12/2006	11/10/2010
+CAMERON, Robert (Bob)	MLA	ALP	Minister	Minister for Corrections	1/12/2006	11/10/2010
+CAMERON, Robert (Bob)	MLA	ALP	Minister	Minister for Emergency Services	11/10/2010	2/12/2010
+D'AMBROSIO, Lily	MLA	ALP	Minister	Minister for Community Development	20/1/2010	2/12/2010
+D'AMBROSIO, Lily	MLA	ALP	Shadow Minister	Consumer Protection	7/12/2010	19/12/2013
+D'AMBROSIO, Lily	MLA	ALP	Shadow Minister	Energy	7/12/2010	19/12/2013
+D'AMBROSIO, Lily	MLA	ALP	Shadow Minister	Cost of Living	7/12/2010	
+D'AMBROSIO, Lily	MLA	ALP	Shadow Minister	Suburbs	7/12/2010	
+D'AMBROSIO, Lily	MLA	ALP	Shadow Minister	Energy & Resources	19/12/2013	
+DONNELLAN, Luke	MLA	ALP	Shadow Minister	Child Safety	7/12/2010	6/2/2012
+DONNELLAN, Luke	MLA	ALP	Shadow Minister	Sport and Recreation	7/12/2010	6/2/2012
+DONNELLAN, Luke	MLA	ALP	Shadow Minister	Roads	6/2/2012	
+DONNELLAN, Luke	MLA	ALP	Shadow Minister	Road Safety & the TAC	6/2/2012	
+EREN, John	MLA	ALP	Shadow Minister	Sport & Recreation	6/2/2012	
+EREN, John	MLA	ALP	Shadow Minister	Volunteers	6/2/2012	
+EREN, John	MLA	ALP	Shadow Minister	Tourism & Major Events	19/12/2013	
+FOLEY, Martin	MLA	ALP	Shadow Minister	Water	19/12/2013	
+FOLEY, Martin	MLA	ALP	Shadow Minister	Arts	19/12/2013	
+FOLEY, Martin	MLA	ALP	Shadow Minister	Youth Affairs	19/12/2013	
+GREEN, Danielle	MLA	ALP	Shadow Minister	Emergency Services	7/12/2010	6/2/2012
+GREEN, Danielle	MLA	ALP	Shadow Minister	Disability Services	7/12/2010	19/12/2013
+GREEN, Danielle	MLA	ALP	Shadow Minister	Health Promotion	7/12/2010	
+GREEN, Danielle	MLA	ALP	Shadow Minister	Volunteers	7/12/2010	6/2/2012
+GREEN, Danielle	MLA	ALP	Shadow Minister	Child Safety	6/2/2012	19/12/2013
+GREEN, Danielle	MLA	ALP	Shadow Minister	Women	6/2/2012	
+GREEN, Danielle	MLA	ALP	Shadow Minister	Prevention of Family Violence	19/12/2013	
+HELPER, Joe	MLA	ALP	Minister	Minister for Agriculture	1/12/2006	2/12/2010
+HELPER, Joe	MLA	ALP	Minister	Minister for Small Business	3/8/2007	2/12/2010
+HENNESSY, Jill	MLA	ALP	Shadow Minister	Corrections	7/12/2010	19/12/2013
+HENNESSY, Jill	MLA	ALP	Shadow Minister	Crime Prevention	7/12/2010	19/12/2013
+HENNESSY, Jill	MLA	ALP	Shadow Minister	Anti Corruption Commission	7/12/2010	19/12/2013
+HENNESSY, Jill	MLA	ALP	Shadow Minister	Women	7/12/2010	6/2/2012
+HENNESSY, Jill	MLA	ALP	Shadow Minister	Public Transport	19/12/2013	
+HERBERT, Steve	MLA	ALP	Shadow Minister	Higher Education	7/12/2010	
+HERBERT, Steve	MLA	ALP	Shadow Minister	Skills and Apprenticeships	7/12/2010	
+HERBERT, Steve	MLA	ALP	Shadow Minister	Teaching Profession	7/12/2010	19/12/2013
+HOLDING, Tim	MLA	ALP	Minister	Minister for Finance, WorkCover and TAC	1/12/2006	2/12/2010
+HOLDING, Tim	MLA	ALP	Minister	Minister for Tourism and Major Events	3/8/2007	2/12/2010
+HOLDING, Tim	MLA	ALP	Minister	Minister for Water	3/8/2007	2/12/2010
+HOLDING, Tim	MLA	ALP	Shadow Minister	Treasurer	7/12/2010	15/2/2013
+HOLDING, Tim	MLA	ALP	Shadow Minister	Industry	7/12/2010	15/2/2013
+HULLS, Rob	MLA	ALP	Minister	Minister for Industrial Relations	5/12/2002	29/12/2008
+HULLS, Rob	MLA	ALP	Minister	Attorney-General	20/10/1999	2/12/2010
+HULLS, Rob	MLA	ALP	Minister	Minister for Racing	1/12/2006	2/12/2010
+HULLS, Rob	MLA	ALP	Shadow Minister	Deputy Leader of the Opposition	7/12/2010	27/1/2012
+HULLS, Rob	MLA	ALP	Shadow Minister	Education	7/12/2010	27/1/2012
+HULLS, Rob	MLA	ALP	Minister	Deputy Premier	30/7/2007	2/12/2010
+HUTCHINS, Natalie	MLA	ALP	Shadow Minister	Industrial Relations	19/2/2013	
+HUTCHINS, Natalie	MLA	ALP	Shadow Minister	Ports, Freight & Logistics	19/2/2013	
+JENNINGS, Gavin	MLC	ALP	Minister	Minister for Environment and Climate Change	3/8/2007	2/12/2010
+JENNINGS, Gavin	MLC	ALP	Minister	Minister for Innovation	3/8/2007	2/12/2010
+JENNINGS, Gavin	MLC	ALP	Shadow Minister	Health	7/12/2010	
+JENNINGS, Gavin	MLC	ALP	Shadow Minister	Mental Health	7/12/2010	
+JENNINGS, Gavin	MLA	ALP	Shadow Minister	Ambulance Services	19/12/2013	
+KOSKY, Lynne	MLA	ALP	Minister	Minister for Public Transport	1/12/2006	18/1/2010
+KOSKY, Lynne	MLA	ALP	Minister	Minister for the Arts	1/12/2006	18/1/2010
+LENDERS, John	MLC	ALP	Minister	Treasurer	3/8/2007	2/12/2010
+LENDERS, John	MLC	ALP	Minister	Minister for Information and Communication Technology	29/12/2008	2/12/2010
+LENDERS, John	MLC	ALP	Minister	Minister for Financial Services	29/12/2008	2/12/2010
+LENDERS, John	MLC	ALP	Shadow Minister	Agriculture & Food Security	7/12/2010	19/12/2013
+LENDERS, John	MLC	ALP	Shadow Minister	Water	7/12/2010	19/12/2013
+LENDERS, John	MLC	ALP	Shadow Minister	Resources	7/12/2010	19/12/2013
+LENDERS, John	MLC	ALP	Shadow Minister	Commonwealth State Relations	7/12/2010	19/12/2013
+LENDERS, John	MLC	ALP	Shadow Minister	Policy Coordination	19/12/2013	
+LUPTON, Tony	MLA	ALP	Minister	Cabinet Secretary	20/1/2010	2/12/2010
+MADDEN, Justin	MLC	ALP	Minister	Minister for Planning	1/12/2006	2/12/2010
+MADDEN, Justin	MLC	ALP	Minister	Minister for the Respect Agenda	20/1/2010	2/12/2010
+MADDEN, Justin	MLA	ALP	Shadow Minister	Innovation	7/12/2010	19/12/2013
+MADDEN, Justin	MLA	ALP	Shadow Minister	Small Business	7/12/2010	19/12/2013
+MADDEN, Justin	MLA	ALP	Shadow Minister	Tourism & Major Events	7/12/2010	19/12/2013
+MERLINO, James	MLA	ALP	Minister	Minister for Sport, Recreation and Youth Affairs	1/12/2006	2/12/2010
+MERLINO, James	MLA	ALP	Minister	Minister Assisting the Premier on Multicultural Affairs	3/8/2007	2/12/2010
+MERLINO, James	MLA	ALP	Minister	Minister for Police	11/10/2010	2/12/2010
+MERLINO, James	MLA	ALP	Minister	Minister for Corrections	11/10/2010	2/12/2010
+MERLINO, James	MLA	ALP	Shadow Minister	Police	7/12/2010	6/2/2012
+MERLINO, James	MLA	ALP	Shadow Minister	TAC & Road Safety	7/12/2010	6/2/2012
+MERLINO, James	MLA	ALP	Shadow Minister	Deputy Leader of the Opposition	2/2/2012	
+MERLINO, James	MLA	ALP	Shadow Minister	Education	6/2/2012	
+MIKAKOS, Jenny	MLC	ALP	Shadow Minister	Seniors & Ageing	7/12/2010	
+MIKAKOS, Jenny	MLC	ALP	Shadow Minister	Assisting the Leader on Children & Young Adults	7/12/2010	6/2/2012
+MIKAKOS, Jenny	MLC	ALP	Shadow Minister	Youth Justice	7/12/2010	19/12/2013
+MIKAKOS, Jenny	MLC	ALP	Shadow Minister	Children & Young Adults	6/2/2012	19/12/2013
+MIKAKOS, Jenny	MLC	ALP	Shadow Minister	Community Services	19/12/2013	
+MIKAKOS, Jenny	MLC	ALP	Shadow Minister	Children	19/12/2013	
+MORAND, Maxine	MLA	ALP	Minister	Minister for Women's Affairs	3/8/2007	2/12/2010
+MORAND, Maxine	MLA	ALP	Minister	Minister for Children and Early Childhood Development	3/8/2007	2/12/2010
+NEVILLE, Lisa	MLA	ALP	Minister	Minister for Mental Health	1/12/2006	2/12/2010
+NEVILLE, Lisa	MLA	ALP	Minister	Minister for Community Services	3/8/2007	2/12/2010
+NEVILLE, Lisa	MLA	ALP	Minister	Minister for Senior Victorians	3/8/2007	2/12/2010
+NEVILLE, Lisa	MLA	ALP	Shadow Minister	Environment & Climate Change	7/12/2010	
+NEVILLE, Lisa	MLA	ALP	Shadow Minister	Arts	7/12/2010	19/12/2013
+NOONAN, Wade	MLA	ALP	Shadow Minister	Police	19/12/2013	
+NOONAN, Wade	MLA	ALP	Shadow Minister	Emergency Services	19/12/2013	
+NOONAN, Wade	MLA	ALP	Shadow Minister	Bushfire Response	19/12/2013	
+PAKULA, Martin	MLC	ALP	Minister	Minister for Industry and Trade	29/12/2008	20/1/2010
+PAKULA, Martin	MLC	ALP	Minister	Minister for Industrial Relations	29/12/2008	2/12/2010
+PAKULA, Martin	MLC	ALP	Minister	Minister for Public Transport	20/1/2010	2/12/2010
+PAKULA, Martin	MLC	ALP	Shadow Minister	Attorney General	7/12/2010	
+PAKULA, Martin	MLC	ALP	Shadow Minister	Gaming & Racing	7/12/2010	
+PAKULA, Martin	MLC	ALP	Shadow Minister	Scrutiny of Government	7/12/2010	
+PAKULA, Martin	MLA	ALP	Shadow Minister	Corrections	19/12/2013	
+PALLAS, Tim	MLA	ALP	Minister	Minister for Roads and Ports	1/12/2006	2/12/2010
+PALLAS, Tim	MLA	ALP	Minister	Minister for Major Projects	29/12/2008	2/12/2010
+PALLAS, Tim	MLA	ALP	Shadow Minister	Employment	7/12/2010	
+PALLAS, Tim	MLA	ALP	Shadow Minister	Industrial Relations	7/12/2010	19/2/2013
+PALLAS, Tim	MLA	ALP	Shadow Minister	Ports	7/12/2010	19/2/2013
+PALLAS, Tim	MLA	ALP	Shadow Minister	Major Projects & Infrastructure	7/12/2010	19/2/2013
+PALLAS, Tim	MLA	ALP	Shadow Minister	Treasurer	18/2/2013	
+PIKE, Bronwyn	MLA	ALP	Minister	Minister for Education	3/8/2007	2/12/2010
+PIKE, Bronwyn	MLA	ALP	Minister	Minister for Skills and Workforce Participation	20/1/2010	2/12/2010
+RICHARDSON, Fiona	MLA	ALP	Shadow Minister	Public Transport	7/12/2010	19/12/2013
+RICHARDSON, Fiona	MLA	ALP	Shadow Minister	Small Business	19/12/2013	
+RICHARDSON, Fiona	MLA	ALP	Shadow Minister	Innovation	19/12/2013	
+ROBINSON, Tony	MLA	ALP	Minister	Cabinet Secretary	1/12/2006	20/1/2010
+ROBINSON, Tony	MLA	ALP	Minister	Minister for Gaming	3/8/2007	2/12/2010
+ROBINSON, Tony	MLA	ALP	Minister	Minister for Consumer Affairs	3/8/2007	2/12/2010
+ROBINSON, Tony	MLA	ALP	Minister	Minister Assisting the Premier on Veteran Affairs	3/8/2007	2/12/2010
+SCOTT, Robin	MLA	ALP	Shadow Minister	Finance	7/12/2010	
+SCOTT, Robin	MLA	ALP	Shadow Minister	Workcover	7/12/2010	
+SCOTT,Robin	MLA	ALP	Shadow Minister	Consumer Affairs	19/12/2013	
+SOMYUREK, Adem	MLC	ALP	Shadow Minister	Technology	7/12/2010	
+SOMYUREK, Adem	MLC	ALP	Shadow Minister	Manufacturing	7/12/2010	19/2/2013
+SOMYUREK, Adem	MLC	ALP	Shadow Minister	Electoral Reform	7/12/2010	
+SOMYUREK, Adem	MLA	ALP	Shadow Minister	Manufacturing & Services	19/2/2013	
+SOMYUREK, Adem	MLA	ALP	Shadow Minister	Government Procurement	19/2/2013	
+TEE, Brian	MLA	ALP	Shadow Minister	Planning	7/12/2010	
+TEE, Brian	MLA	ALP	Shadow Minister	Sustainable Growth	7/12/2010	
+TEE, Brian	MLA	ALP	Shadow Minister	Major Projects & Infrastructure	19/2/2013	
+THEOPHANOUS, Theo	MLC	ALP	Minister	Minister for Major Projects	1/12/2006	24/12/2008
+THEOPHANOUS, Theo	MLC	ALP	Minister	Minister for Information and Communication Technology	3/8/2007	24/12/2008
+THEOPHANOUS, Theo	MLC	ALP	Minister	Minister for Industry and Trade	3/8/2007	24/12/2008
+WYNNE, Richard	MLA	ALP	Minister	Minister for Housing	1/12/2006	2/12/2010
+WYNNE, Richard	MLA	ALP	Minister	Minister for Local Government	1/12/2006	2/12/2010
+WYNNE, Richard	MLA	ALP	Minister	Minister for Aboriginal Affairs	3/8/2007	2/12/2010
+WYNNE, Richard	MLA	ALP	Shadow Minister	Housing	7/12/2010	
+WYNNE, Richard	MLA	ALP	Shadow Minister	Local Government	7/12/2010	
+WYNNE, Richard	MLA	ALP	Shadow Minister	Aboriginal Affairs and Closing the Gap	7/12/2010	
+WYNNE, Richard	MLA	ALP	Shadow Minister	A Fairer Victoria	7/12/2010
