@@ -1,0 +1,18 @@
+consumer_key: "HtOkLlq07rkGkQMOMAODqv9Y0",
+consumer_secret: "AL7o9Veqr6vW5hq9hulgEWLMCnZePVAv2hXRxznM4TkcsqbaS0",
+access_token: "2744104364-yFG2aec3oIc9lTZxQGwr2oHw9tkHCmHVNMb75CD",
+access_token_secret: "7JQ58n9MRTQ8TMNDi4i5W7u8Wu1ik0N161wtmbyCrwgkT"
+
+
+
+consumer_key: "O5DDzLfQJBnmaUVwmy69irD52",
+consumer_secret: "35uoTYTzOrvmwIYWAadilrAUrugYIfs20ZGDtFRcWFUVnY4Gop",
+access_token: "2725430768-Zf83AmBnMi7AZKhe2HycZkPPHT41lhNttGHH0d2",
+access_token_secret: "9SDibQ5eKzCFDglhxM0qrNP2zn149lL5fHr1xquWdofiz"
+
+
+
+consumer_key: "FcdEDqHRwv8vHBIEPPyZpxd4A",
+consumer_secret: "0oYOIQAMXTbhugEcByquevvY5x5mdL8DvniwHKhqlpxVqW2pTr",
+access_token: "2743929504-dGCAWtLBZdIOkBhWAFc1RdOpKPsRHNTtAJIyQBI",
+access_token_secret: "IioHaCxBBmQIEcPB32X8kUWFmzNJiVoI4lKYryDFxc9EC"
