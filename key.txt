@@ -21,3 +21,8 @@ consumer_key: "EUsHG5YwWK8o4PJEN5Bk7Vvxl",
 consumer_secret: "787MHn5pagBqKzv6ZBTMvDu99k8CSlzmhLMDJrlOkH9aCDmYsO",
 access_token: "2778006524-r86CBqfd33hP9dx5vxgFSnTvX2XMYfwsLFrv0jn",
 access_token_secret: "TDgSIQ8mv1b8SPAtgbSKWrFOqK5RPIPjpfYbh5IxW3pvx"
+
+consumer_key: "UkKA0dWY8mIFgHkDZpFmp9T9N",
+consumer_secret: "4yLPtTge691pFJklxyq8soaqn3TWpoZ5NQdwnGeoT4EhCZ4z2e",
+access_token: "2778018176-wZehYXzBmFewCQ2IXTSpTWfCxKUU6UajJ11v7El",
+access_token_secret: "4W18xEW9h9tpXCdhYyPJbo4mFpXGuLUq4HHbltRcsWVog"
