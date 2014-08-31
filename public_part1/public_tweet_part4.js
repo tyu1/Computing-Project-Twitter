@@ -6,10 +6,10 @@ var util = require('util'),
 var sleep = require('sleep');
 var humanInterval = require('human-interval');
 var T = new twitter({
-consumer_key: "FcdEDqHRwv8vHBIEPPyZpxd4A",
-consumer_secret: "0oYOIQAMXTbhugEcByquevvY5x5mdL8DvniwHKhqlpxVqW2pTr",
-access_token: "2743929504-dGCAWtLBZdIOkBhWAFc1RdOpKPsRHNTtAJIyQBI",
-access_token_secret: "IioHaCxBBmQIEcPB32X8kUWFmzNJiVoI4lKYryDFxc9EC"
+consumer_key: "UkKA0dWY8mIFgHkDZpFmp9T9N",
+consumer_secret: "4yLPtTge691pFJklxyq8soaqn3TWpoZ5NQdwnGeoT4EhCZ4z2e",
+access_token: "2778018176-wZehYXzBmFewCQ2IXTSpTWfCxKUU6UajJ11v7El",
+access_token_secret: "4W18xEW9h9tpXCdhYyPJbo4mFpXGuLUq4HHbltRcsWVog"
 
 });
 
