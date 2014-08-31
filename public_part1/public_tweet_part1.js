@@ -44,10 +44,10 @@ var liberalPoliticians_name = ['Louise Asher MP','Ted Baillieu','Robert Clark MP
                            'Ryan SmithMP','Heidi Victoria MP','Nick Wakeling MP','Kim Wells MP','Mary Wooldridge'];
 var laborPoliticians_name = ['Jacinta Allan MP','Daniel Andrews MP','Brumby','Lily DAmbrosio MP','Luke Donnellan','johnerenmp','Martin Foley MP',
                         'Danielle Green MP','Joe Helper','Jill Hennessy MP','Steve Herbert MP','Tim Holding','Hulls Rob','Nat Hutchins',
-                        'Gavin Jennings','John Lenders MP','Madden MP','James Merlino MP','Jenny Mikakos','max Vmor','Lisaneville MP','wadenoonan',
-                        'Martin Pakula MP','timpallas','Bronwyn Pike','Richardson Fiona','Adem Somyurek','Brian Tee MP','rwynne mp'];
-var greenPoliticians_name = ['Greg MLC','Colleen Hartland','sue MLC'];
-var nationalsPoliticians_name = ['Tim Bull MP','Hugh Delahunty','D Drum MP','Russell Northe MP','Powell MP','peterryan MP','Peter Walsh MP'];
+                        'Gavin Jennings','John Lenders MP','Madden MP','James Merlino MP','Jenny Mikakos','max Vmor','Lisa neville','wade noonan',
+                        'Martin Pakula MP','tim pallas','Bronwyn Pike','Richardson Fiona','Adem Somyurek','Brian Tee MP','Richard Wynne'];
+var greenPoliticians_name = ['Greg MLC','Colleen Hartland','Sue Pennicuik'];
+var nationalsPoliticians_name = ['Tim Bull MP','Hugh Delahunty','Damian Drum','Russell Northe MP','Jeanette Powell MP','peterryan MP','Peter Walsh MP'];
 
 
 var politicians = _.union(

@@ -1,0 +1,9 @@
+var liberalPoliticians = ['LouiseAsherMP 622','TedBaillieu 5000','RobertClarkMP 2082','PhilipDaviesMP 5000','MatthewGuyMP 4508','DavidHodgettMP 945',
+                          'WendyLovellMP 601','TerryMulderMP 946','Vic_Premier 5000','michaelobrienmp 3429','ODonohueMLC 459','RichPhillipsMLC 1228',
+                           'RyanSmithMP 1224','heidivic 1148','NickWakelingMP 1339','KimWellsMP 1044','Mary_Wooldridge 1140'];
+var laborPoliticians = ['JacintaAllanMP 2566','DanielAndrewsMP 5000','JBrumby 5000','LilyDAmbrosioMP 2081','LukeDonnellan 578','johnerenmp 1644','MartinFoleyMP 3061',
+                        'DanielleGreenMP 2344','JoeHelper1 67','JillHennessyMP 2978','SteveHerbertMP 840','Tim_Holding 1677','HullsRob 1551','NatHutchins 795',
+                        'GavinJennings 2698','JohnLendersMP 1162','JMaddenMP 1049','JamesMerlinoMP 1925','JennyMikakos 2513','maxVmor 70','LisanevilleMP 687','wadenoonan 583',
+                        'MartinPakulaMP 3707','timpallas 2066','Bronwyn_Pike 998','RichardsonFiona 700','AdemSomyurek 574','BrianTeeMP 1795','rwynnemp 1827'];
+var greenPoliticians = ['GregMLC 4294','ColleenHartland 697 ','sueMLC 1220'];
+var nationalsPoliticians = ['TimBullMP 598','HughDelahunty 1749','DDrumMP 806','RussellNortheMP 826','JPowellMP 568','peterryanMP 3944','PeterWalshMP 1650'];
