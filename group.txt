@@ -1,0 +1,95 @@
+ 
+
+politicians = [maxVmor 70 JoeHelper1 67     ]
+
+
+  
+JBrumby 5000  
+Vic_Premier 5000 
+
+TedBaillieu 5000 
+PhilipDaviesMP 5000 
+
+DanielAndrewsMP 5000 
+MatthewGuyMP 4508
+
+GregMLC 4294 
+peterryanMP 3944   
+
+
+MartinPakulaMP 3707 
+michaelobrienmp 3429
+MartinFoleyMP 3061  
+JillHennessyMP 2978 
+
+
+GavinJennings 2698
+JacintaAllanMP 2566 
+JennyMikakos 2513
+DanielleGreenMP 2344
+
+
+RobertClarkMP 2082 
+LilyDAmbrosioMP 2081 
+impallas 2066 
+JamesMerlinoMP 1925
+
+
+rwynnemp 1827
+HughDelahunty 1749 
+BrianTeeMP 1795 
+Tim_Holding 1677 
+PeterWalshMP 1650
+johnerenmp 1644
+
+
+ickWakelingMP 1339 
+RyanSmithMP 1224
+RichPhillipsMLC 1228
+HullsRob 1551 sueMLC 1220
+JMaddenMP 1049
+heidivic 1148 
+JohnLendersMP 1162 
+Mary_Wooldridge 1140
+
+
+KimWellsMP 1044  
+Bronwyn_Pike 998 
+TerryMulderMP 946 
+DavidHodgettMP 945
+RussellNortheMP 826
+SteveHerbertMP 840 
+DDrumMP 806 
+NatHutchins 795
+
+
+
+RichardsonFiona 700
+ColleenHartland 697
+LisanevilleMP 687
+LouiseAsherMP 622
+WendyLovellMP 601  
+TimBullMP 598 
+LukeDonnellan 578 
+wadenoonan 583   
+AdemSomyurek 574 
+JPowellMP 568 
+ODonohueMLC 459
+politicians = [         ]
+      
+ politicians =[           ]
+
+
+politicians = [       ]
+
+politicians = [    ]
+
+poloticians = [   ]
+
+ politicians = [     ]
+
+
+poloticians =  [   ]
+
+ politicians = [   ]
+
