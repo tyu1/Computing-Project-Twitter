@@ -3,8 +3,6 @@ var twitter = require('twit')
 var util = require('util'),
     async = require('async'),
     CronJob = require('cron').CronJob;
-var sleep = require('sleep');
-var humanInterval = require('human-interval');
 var T = new twitter({
 consumer_key: "O5DDzLfQJBnmaUVwmy69irD52",
 consumer_secret: "35uoTYTzOrvmwIYWAadilrAUrugYIfs20ZGDtFRcWFUVnY4Gop",
