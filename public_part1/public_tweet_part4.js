@@ -6,10 +6,11 @@ var util = require('util'),
 var sleep = require('sleep');
 var humanInterval = require('human-interval');
 var T = new twitter({
-consumer_key: "O5DDzLfQJBnmaUVwmy69irD52",
-consumer_secret: "35uoTYTzOrvmwIYWAadilrAUrugYIfs20ZGDtFRcWFUVnY4Gop",
-access_token: "2725430768-Zf83AmBnMi7AZKhe2HycZkPPHT41lhNttGHH0d2",
-access_token_secret: "9SDibQ5eKzCFDglhxM0qrNP2zn149lL5fHr1xquWdofiz"
+consumer_key: "FcdEDqHRwv8vHBIEPPyZpxd4A",
+consumer_secret: "0oYOIQAMXTbhugEcByquevvY5x5mdL8DvniwHKhqlpxVqW2pTr",
+access_token: "2743929504-dGCAWtLBZdIOkBhWAFc1RdOpKPsRHNTtAJIyQBI",
+access_token_secret: "IioHaCxBBmQIEcPB32X8kUWFmzNJiVoI4lKYryDFxc9EC"
+
 });
 
 var dbName = 'public_tweets';
@@ -26,7 +27,7 @@ public_tweetDB = nano.use(dbName);
        console.log('create db error=' + err); 
     }
     //writeToDB('melbourne');
-    processAllPoliticians(politicians_part3);
+    processAllPoliticians(politicians_part4);
 
   });  
 
@@ -45,9 +46,9 @@ var liberalPoliticians_name = ['Louise Asher MP','Ted Baillieu','Robert Clark MP
 var laborPoliticians_name = ['Jacinta Allan MP','Daniel Andrews MP','Brumby','Lily DAmbrosio MP','Luke Donnellan','johnerenmp','Martin Foley MP',
                         'Danielle Green MP','Joe Helper','Jill Hennessy MP','Steve Herbert MP','Tim Holding','Hulls Rob','Nat Hutchins',
                         'Gavin Jennings','John Lenders MP','Madden MP','James Merlino MP','Jenny Mikakos','max Vmor','Lisa neville','wade noonan',
-                        'Martin Pakula MP','timp allas','Bronwyn Pike','Richardson Fiona','Adem Somyurek','Brian Tee MP','Richard Wynne'];
+                        'Martin Pakula MP','tim pallas','Bronwyn Pike','Richardson Fiona','Adem Somyurek','Brian Tee MP','Richard Wynne'];
 var greenPoliticians_name = ['Greg MLC','Colleen Hartland','Sue Pennicuik'];
-var nationalsPoliticians_name = ['Tim Bull MP','Hugh Delahunty','Damian Drum','Russell Northe MP','Jeanette Powell MP','peterryan MP','Peter Walsh MP'];
+var nationalsPoliticians_name = ['Tim Bull MP','Hugh Delahunty','Damian Drum','Jeanette Powell MP','Powell MP','peterryan MP','Peter Walsh MP'];
 
 
 var politicians = _.union(
@@ -59,12 +60,14 @@ var politicians = _.union(
    laborPoliticians_name,
    greenPoliticians_name,
    nationalsPoliticians_name
+  
  
 );
-var politicians_part3 = _.union(
-   greenPoliticians, 
-   nationalsPoliticians,
-   liberalPoliticians_name);
+
+var politicians_part4 = _.union( 
+   laborPoliticians_name,
+   greenPoliticians_name,
+   nationalsPoliticians_name);
 
 
 var processStatuses = function (tweet, callback) {
@@ -78,9 +81,10 @@ var processStatuses = function (tweet, callback) {
                 console.log(tweet.user.id+' tweet into db');
               }
             });
+
       getTweets(tweet.user.id);
       
-      setTimeout(function(){callback();}, 120000);
+      setTimeout(function(){callback();}, 60000);
 }
 
 var writeToDB = function(politician, callback){
@@ -91,7 +95,7 @@ var writeToDB = function(politician, callback){
       
      },
     function(err1, items){
-      //console.log(items);
+      
           if(err1){
           console.log('err1'+ err1);
           } else{
@@ -107,7 +111,7 @@ var writeToDB = function(politician, callback){
 });
 //}
 
-  setTimeout(function(){callback();}, 12000000);
+  setTimeout(function(){callback();}, 6000000);
 
 }
 
