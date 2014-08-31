@@ -42,7 +42,7 @@ var greenPoliticians = ['GregMLC','ColleenHartland','sueMLC'];
 var nationalsPoliticians = ['TimBullMP','HughDelahunty','DDrumMP','RussellNortheMP','JPowellMP','peterryanMP','PeterWalshMP'];
 var liberalPoliticians_name = ['Louise Asher MP','Ted Baillieu','Robert Clark MP','Philip Davies MP','Matthew Guy MP','David Hodgett MP',
                           'Wendy Lovell MP','Terry Mulder MP','Denis Napthine','michaelobrienmp','Donohue MLC','Rich Phillips MLC',
-                           'Ryan SmithMP','hei divic','Nick Wakeling MP','Kim Wells MP','Mary Wooldridge'];
+                           'Ryan SmithMP','Heidi Victoria MP','Nick Wakeling MP','Kim Wells MP','Mary Wooldridge'];
 var laborPoliticians_name = ['Jacinta Allan MP','Daniel Andrews MP','Brumby','Lily DAmbrosio MP','Luke Donnellan','johnerenmp','Martin Foley MP',
                         'Danielle Green MP','Joe Helper','Jill Hennessy MP','Steve Herbert MP','Tim Holding','Hulls Rob','Nat Hutchins',
                         'Gavin Jennings','John Lenders MP','Madden MP','James Merlino MP','Jenny Mikakos','max Vmor','Lisaneville MP','wadenoonan',
@@ -127,7 +127,7 @@ var getTweets = function(id){
         _.each(tweets, function(tweet) {
           
           for(i = 0; i< politicians.length; i++){
-          if(tweet.text.toString().toLowerCase().indexOf(politicians[i])>-1){
+          if(tweet.text.toString().toLowerCase().indexOf(politicians[i].toLowerCase())>-1){
            // console.log(item.coordinates.coordinates);
           //  var location = new Object();
           //  if(tweet.coordinates != null && tweet.coordinates != 'null'){
