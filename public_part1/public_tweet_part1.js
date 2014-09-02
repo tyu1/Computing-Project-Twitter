@@ -94,7 +94,7 @@ var writeToDB = function(politician, callback){
             if (err){
               console.log('some error occurred');
             } else {
-              console.log('All good, done!');
+              console.log( politician + ' tweet finish!');
             }
           });
             // Do something crazy!
