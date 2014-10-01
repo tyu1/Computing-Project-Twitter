@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Tweet day</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <script src="js/libs/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/libs/markerclusterer.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.ui.map.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=[key]=false"></script>
+    <script type="text/javascript">
+        console.log('111');
+
+        $(function(){
+            $('#map_canvas').gmap({ 'center': '-25.363882,131.044922','scrollwheel':true});
+            var jsonData = $.ajax({
+                url: "/geoLocation",
+                dataType: "json",
+                async: false
+            }).responseText;
+            var obj = jQuery.parseJSON(jsonData);
+
+            $('#map_canvas').gmap({'zoom': 2, 'disableDefaultUI':true}).bind('init', function(evt, map) {
+                console.log("map=" + map);
+
+                $.each(obj, function(i, item) {
+
+
+                    $('#map_canvas').gmap('addMarker', {
+                        'position': new google.maps.LatLng(item.lat, item.lng)
+                    }).click(function() {
+                        $('#map_canvas').gmap('openInfoWindow', { content : item.content }, this);
+                    });
+                });
+                $('#map_canvas').gmap('set', 'MarkerClusterer', new MarkerClusterer(map, $(this).gmap('get', 'markers')));
+
+            });
+
+        });
+
+
+    </script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Political Tweets Analysis</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+
+                <li><a href="index.html">Politician List</a></li>
+
+                <li ><a href="followers_count.html">Popular Politicians</a></li>
+                <li ><a href="retweet_count.html">Most Retweeted Politicians</a></li>
+            </ul>
+
+            <ul class="nav nav-sidebar">
+
+                <li ><a href="weekday_report.html">Tweet Weekday</a></li>
+                <li ><a href="tweet_time_report.html">Tweet Time</a></li>
+                <li><a href="tweetsource_report.html">Tweet Source</a></li>
+                <li  class="active"><a href="geolocation_report.html">Tweet Geolocation</a></li>
+
+
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li ><a href="tweet_sentiment.html">Tweet Sentiment</a></li>
+                <li><a href="tweet_sentiment2.html">Tweet Sentiment2</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div id="map_canvas" style="width: 1200px; height: 800px;"></div>
+
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
