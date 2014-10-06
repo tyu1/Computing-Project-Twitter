@@ -1,0 +1,86 @@
+Basic couchdb install (more or less)
+------------------------------------
+
+I.  Bare system, from source (Debian-style systems,  Slackware 12+ instructions forthcoming)
+
+1.  wget http://mirrors.ibiblio.org/apache//couchdb/1.1.1/apache-couchdb-1.1.1.tar.gz
+2.  tar xvzf apache-couchdb-1.1.1.tar.gz
+3.  cd apache-couchdb-1.1.1.tar.gz
+4.  apt-get install erlang libicu44 libicu-dev openssl libcurl spidermonkey-bin libmozjs-dev \
+    curl libcurl3 libcurl4-openssl-dev
+5  ./configure
+6.  make && make install
+
+
+II.  Couchdb install with geoquery
+
+Note the instructions for geocouch on github (https://github.com/couchbase/geocouch/) 
+are OK, *except* they don't work.  You need to: 
+
+a) make sure you have all the dependencies (see the apt-get line below), 
+b) ensure sure your compiled *.beam files make it to the right install directory (which they won't), and 
+c) make sure your config lines corresponding to your spatial handlers go 
+into default.ini (not geocouch.ini, like the instructions incorrectly say)
+
+Note: I'm doing all this work in /root/Software, YMMV:
+
+1.   wget http://mirrors.ibiblio.org/apache//couchdb/1.1.1/apache-couchdb-1.1.1.tar.gz
+2.   wget https://github.com/couchbase/geocouch/zipball/couchdb1.1.x
+3.   tar xvzf apache-couchdb-1.1.1.tar.gz
+4.   unzip couchdb1.1.x
+5.   cd couch
+6.   couchbase-geocouch-d9c32ae/                # this is straight out of the github instructions
+7.   export COUCH_SRC=/src/couchdb
+     (e.g.  export COUCH_SRC=~/Software/apache-couchdb-1.1.1/src/couchdb/ )
+8.   make
+9.   mkdir /root/Software/apache-couchdb-1.1.1/etc/couchdb/local.d ; cp ./etc/couchdb/local.d/geocouch.ini /root/Software/apache-couchdb-1.1.1/etc/couchdb/local.d
+10.  export ERL_FLAGS="-pa /root/Software/couchbase-geocouch-d9c32ae/build/"
+11.  cd ../apache-couchdb-1.1.1
+12.  apt-get install erlang libicu44 libicu-dev openssl libcurl spidermonkey-bin libmozjs-dev \
+     curl libcurl3 libcurl4-openssl-dev
+13.  ./configure
+14.  make && make install          # this works pretty well, but your spatial stuff won't work until you
+                                   # merge geocouch.ini into default.ini, *AND* copy the missing *.beam files
+                                   # into the install directory (this is left out of the original instructions)
+
+15.  ls src/couchdb/*.beam         # look: these are files like 'couch_spatial.beam' (they'll be in the  directory but aren't
+                                   # copied to  (probably a bug in the makefile)
+
+16.  cp src/couchdb/*.beam  /usr/local/lib/couchdb/erlang/lib/couch-1.1.1/ebin/  # good, copy them into the install directory
+17.  couchdb -b                        # this should work
+18.  curl -X PUT http://127.0.0.1:5984/places   # so should all this
+19.  curl -X PUT -d '{"spatial":{"points":"function(doc) {\n if (doc.loc) {\n emit({\n type: \"Point\",\n coordinates: [doc.loc[0], doc.loc[1]]\n  }, [doc._id, doc.loc]);\n   }};"}}' http://127.0.0.1:5984/places/_design/main
+20.  curl -X PUT -d '{"loc": [-122.270833, 37.804444]}' http://127.0.0.1:5984/places/oakland
+21.  curl -X PUT -d '{"loc": [10.898333, 48.371667]}' http://127.0.0.1:5984/places/augsburg
+22.  curl -X GET 'http://localhost:5984/places/_design/main/_spatial/points?bbox=0,0,180,90'    # this will bomb unless you merged geocouch.ini into default.ini
+
+
+23.  vi /usr/local/etc/couchdb/default.ini  # so, grab the stuff from geocouch.ini and move it, copypaste into here
+
+
+Other Notes
+-----------
+
+You're going to have a bunch of *.beam files in the geocouch install directory, those need to get into the main couchdb install as well
+
+~/Software/couchbase-geocouch-d9c32ae/build# ls
+couch_httpd_spatial.beam       couch_spatial_compactor.beam  geocouch_duplicates.beam  vtree.beam           vtreestats.beam
+couch_httpd_spatial_list.beam  couch_spatial_group.beam      run_vtreestats.beam       vtree_bulk.beam      vtreeviz.beam
+couch_spatial.beam             couch_spatial_updater.beam    run_vtreeviz.beam         vtree_insbench.beam
+
+
+(so, using the geocouch directory with all these BEAM files, you could do something like this)
+
+cp * /usr/local/lib/couchdb/erlang/lib/couch-1.1.1/ebin/  # <-- this is where all the new .beam files need to live
+
+
+--------------------------------------------------------------------+---------------------------
+The Dojo is Open!                                                   |   GNU/Linux, Unix, Solaris )
+info@opendojo.com                                                   |         Operations, Sysadmin )
+Lincoln, Nebraska                                                   |           Performance Tuning )
+--------------------------------------------------------------------+           System Programming )
+                                                                    |         Backup/Restore )
+                                                                    +-----------------------
+
+
+back to main page
