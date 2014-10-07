@@ -44,7 +44,6 @@ Ember.Handlebars.helper('format-number', function(number) {
     } else {
         return '0';
     }
-
 });
 
 Ember.Handlebars.helper('format-date', function(date) {
