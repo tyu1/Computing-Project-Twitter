@@ -67,6 +67,24 @@ exports.followerCounts = function (req, res) {
             res.send(200, []);
         }
     });
+};
+
+
+exports.partyDistro = function (req, res) {
+    var params = {group_level: 1};
+    politicianInfoDB.view('analysis', 'party_distro', params, function (err, body) {
+        var parties = [];
+        if (!err) {
+            parties = body.rows;
+
+            console.log(parties);
+
+            res.send(200, parties);
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
 
 
 };

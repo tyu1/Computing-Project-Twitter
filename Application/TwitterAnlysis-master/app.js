@@ -31,6 +31,7 @@ app.get('/', routes.index);
 app.get('/list', politician.list);
 app.get('/politicians', politician.list);
 app.get('/followersCounts', politician.followerCounts);
+app.get('/partyDistro', politician.partyDistro);
 app.get('/tweetsCounts', politician.tweetsCounts);
 app.get('/friendsCounts', politician.friendsCounts);
 app.get('/retweetCounts', politician.retweetCounts);
