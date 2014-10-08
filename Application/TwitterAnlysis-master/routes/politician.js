@@ -4,7 +4,7 @@
 
 var dbName = 'polit_info';
 
-var nano = require('nano')('http://115.146.86.169:5984');
+var nano = require('nano')('http://115.146.85.249:5984');
 var politicianInfoDB = nano.use(dbName);
 var politicians = [];
 var natural = require('natural'),

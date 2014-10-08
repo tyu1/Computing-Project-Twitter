@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Maniadmin</title>
+        <title>VIC Politicians</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -12,6 +12,8 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
          <!-- base css -->
         <link class="links-css" href="css/base.css" rel="stylesheet">
+        <!-- font awesome -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
          <!-- home page css -->
         <link href="css/home-page.css" rel="stylesheet">
         <style type="text/css">
@@ -21,6 +23,10 @@
             }
             .sidebar-nav {
                 padding: 9px 0;
+            }
+
+            .ui-state-highlight {
+                background-color: #c8d9ed;
             }
 
         </style>
@@ -156,36 +162,10 @@
                 </div>
                 <div id='content' class="span6 section-body">
                     <div id="section-body" class="tabbable">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab">Dashboard</a></li>
-                        </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
                                 <div class="row-fluid">
                                     <div class="span12">
-                                        <div id="block-top" class="">
-                                            <ul class="thumbnails">
-                                                <li class="">
-                                                    <a class="btn btn-maniadmin-6" href="#"  data-original-title="Inbox"><img src="img/icon/iconset-contact.png"  alt=''/><span class="badge badge-important">6</span></a>
-                                                </li>
-
-                                                <li class="">
-                                                    <a class="btn btn-maniadmin-6" href="#"  data-original-title="first tooltip"><img src="img/icon/icons-pic2.png" alt='' /><span class="label label-important">Important</span></a>
-                                                </li>
-
-                                                <li class="">
-                                                    <a class="btn btn-maniadmin-6" href="#myModal" data-toggle="modal" data-original-title="Open modal"><img src="img/icon/iconset-info.png"  alt=''/>
-                                                        <span class="label label-success">Open Modal</span></a>
-                                                </li>
-
-                                                <li class="">
-                                                    <a class="btn btn-maniadmin-6" href="#"  data-original-title="first tooltip"><img src="img/icon/iconset-promo.png" alt='' /><span class="badge badge-warning">6</span></a>
-                                                </li>
-
-                                                <li class="">
-                                                    <a class="btn btn-maniadmin-6" href="#" data-original-title="first tooltip"><img src="img/icon/iconset-bio.png" alt='' /><span class="badge badge-success">2</span></a>
-                                                </li>
-                                            </ul>
                                             <div class="modal hide fade" id="myModal" style="display: none;">
                                                 <div class="modal-header">
                                                     <button data-dismiss="modal" class="close">×</button>
@@ -240,7 +220,6 @@
 
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -282,7 +261,7 @@
                                             <div class="accordion-group">
                                                 <div class="accordion-heading">
                                                     <a href="#widget-tabs" data-toggle="collapse" class="accordion-toggle in">
-                                                        <i class="icon-bullhorn icon-white"></i> <span class="divider-vertical"></span> Order <i class="icon-chevron-down icon-white pull-right"></i>
+                                                        <i class="icon-bullhorn icon-white"></i> <span class="divider-vertical"></span> Top Twitters <i class="icon-chevron-down icon-white pull-right"></i>
                                                     </a>
                                                 </div>
                                                 <div class="accordion-body collapse in" id="widget-tabs">
@@ -291,49 +270,41 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>#</th>
-                                                                    <th>Last week</th>
-                                                                    <th>This week</th>
-                                                                    <th>Actions</th>
+                                                                    <th>Party</th>
+                                                                    <th>Politician</th>
+                                                                    <th>Tweets</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
                                                                     <td>1</td>
-                                                                    <td>$11.00</td>
-                                                                    <td>$99.00</td>
-                                                                    <td><a data-original-title="Validate" class="btn btn-small" href="javascript:;">
-                                                                            <i class="icon-ok"></i> 
-                                                                        </a>
-
-                                                                        <a data-original-title="Remove"  class="btn btn-small btn-danger" onclick="return confirm('Are you sure  ?');" href="javascript:;">
-                                                                            <i class="icon-white icon-remove"></i>
-                                                                        </a></td>
+                                                                    <td>Tony</td>
+                                                                    <td>Labor</td>
+                                                                    <td>100</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>2</td>
-                                                                    <td>$56.00</td>
-                                                                    <td>$3344.00</td>
-                                                                    <td>
-                                                                        <a data-original-title="Validate"  class="btn btn-small" href="javascript:;">
-                                                                            <i class="icon-ok"></i> 
-                                                                        </a>
-
-                                                                        <a data-original-title="Remove" class="btn btn-small btn-danger" onclick="return confirm('Are you sure  ?');" href="javascript:;">
-                                                                            <i class="icon-white icon-remove"></i>
-                                                                        </a>
-                                                                    </td>
+                                                                    <td>Aboot</td>
+                                                                    <td>Liberal</td>
+                                                                    <td>90</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>3</td>
-                                                                    <td>$76.00</td>
-                                                                    <td>$889.00</td>
-                                                                    <td><a data-original-title="Validate"  class="btn btn-small" href="javascript:;">
-                                                                            <i class="icon-ok"></i> 
-                                                                        </a>
-
-                                                                        <a data-original-title="Remove"  class="btn btn-small btn-danger" onclick="return confirm('Are you sure  ?');" href="javascript:;">
-                                                                            <i class="icon-white icon-remove"></i>
-                                                                        </a></td>
+                                                                    <td>Juli</td>
+                                                                    <td>Green</td>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>4</td>
+                                                                    <td>Rudd</td>
+                                                                    <td>labor</td>
+                                                                    <td>8</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5</td>
+                                                                    <td>Keivn</td>
+                                                                    <td>Labor</td>
+                                                                    <td>5</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -371,12 +342,12 @@
                         <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a href="#event" data-toggle="collapse" class="accordion-toggle">
-                                    <i class="icon-bookmark icon-white"></i> <span class="divider-vertical"></span> Earning <i class="icon-chevron-down icon-white pull-right"></i>
+                                    <i class="icon-bookmark icon-white"></i> <span class="divider-vertical"></span> Party Distribution <i class="icon-chevron-down icon-white pull-right"></i>
                                 </a>
                             </div>
                             <div class="accordion-body collapse in" id="event">
                                 <div class="accordion-inner">
-                                    <div id="earning" class="graph" style="height: 350px;
+                                    <div id="partyDistro" class="graph" style="height: 350px;
     width: 100%;"></div>
                                 </div>
                             </div>
@@ -384,96 +355,41 @@
                         <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a href="#statements" data-toggle="collapse" class="accordion-toggle">
-                                    <i class="icon-globe icon-white"></i> <span class="divider-vertical"></span> Notifications <i class="icon-chevron-down icon-white pull-right"></i>
+                                    <i class="icon-globe icon-white"></i> <span class="divider-vertical"></span> Party Distribution <i class="icon-chevron-down icon-white pull-right"></i>
                                 </a>
                             </div>
                             <div class="accordion-body collapse in" id="statements">
                                 <div class="accordion-inner">
                                     <table class="table table-striped">
 
-                                        <tbody>
+                                        <tbody id="partyDistroNumber">
                                             <tr>
-                                                <td><i class="icon-user"></i></td>
-                                                <td><a href=""><strong>Hanafi ALMOJRIM</strong> added <strong>23 users</strong> </a><em>4 hours ago</em></td>
+                                                <td><i class="fa fa-male fa-2x"></i></td>
+                                                <td><a href=""><h3>Labor</h3></td>
+                                                <td><h3 id="laborPoliticianNo"></h3></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="icon-envelope"></i></td>
-                                                <td><a href=""><strong>Abderrahim NIBET</strong> sent you  <strong>message</strong> </a><em>Yesterday</em></td>
+                                                <td><i class="fa fa-male fa-2x"></i></td>
+                                                <td><a href=""><h3>Liberal</h3></td>
+                                                <td><h3 id="liberalPoliticianNo"></h3></td>
                                             </tr>
                                             <tr>
-                                                <td><i class="icon-tag"></i></td>
-                                                <td><a href=""><strong>Youssef BASSIR</strong> invite you to  <strong>dinner</strong> </a><em>2 days ago</em></td>
+                                                <td><i class="fa fa-male fa-2x"></i></td>
+                                                <td><a href=""><h3>Nationals</h3></td>
+                                                <td><h3 id="nationalPoliticianNo"></h3></td>
                                             </tr>
                                             <tr>
-                                                <td></td>
-                                                <td><a class="pull-right" href="">Show all</a></td>
+                                                <td><i class="fa fa-male fa-2x"></i></td>
+                                                <td><a href=""><h3>Green</h3></td>
+                                                <td><h3 id="greenPoliticianNo"></h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fa fa-male fa-2x"></i></td>
+                                                <td><a href=""><h3>IND</h3></td>
+                                                <td><h3 id="indPoliticianNo">0</h3></td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-group">
-                            <div class="accordion-heading">
-                                <a href="#latest" data-toggle="collapse" class="accordion-toggle">
-                                    <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Tabbed Container <i class="icon-chevron-down icon-white pull-right"></i>
-                                </a>
-                            </div>
-                            <div class="accordion-body collapse in" id="latest">
-                                <div class="accordion-inner">
-                                    <div class="tabbable"> <!-- Only required for left/right tabs -->
-                                        <ul class="nav nav-tabs">
-                                            <li><a href="#t1" data-toggle="tab">Products</a></li>
-                                            <li class="active"><a href="#t2" data-toggle="tab">Posts</a></li>
-                                            <li><a href="#t3" data-toggle="tab">Media</a></li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div class="tab-pane" id="t1">
-                                                <ul>
-                                                    <li><a href="">Proin elit arcu, rutrum commodo</a></li>
-                                                    <li><a href="">Aenean tempor ullamcorper leo</a></li>
-                                                    <li><a href="">Vehicula tempus, commodo a, risus</a></li>
-                                                    <li><a href="">Donec sollicitudin mi sit amet mauris</a></li>
-                                                    <li><a href="">Curabitur nec arcu</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="tab-pane active" id="t2">
-                                                <ul class="nav nav-list">
-                                                    <li><a href="#"><img src="img/small/thumb1.png" alt="" /> button groups for a toolbar, navigation</a></li>
-                                                    <li><a href="#"><img src="img/small/thumb2.png" alt="" /> Use them in buttons, button groups for a toolbar, navigation</a></li>
-                                                    <li><a href="#"><img src="img/small/thumb3.png" alt="" /> button groups for a toolbar, navigation</a></li>
-                                                    <li><a href="#"><img src="img/small/thumb4.png" alt="" /> Use them in buttons, button groups for a toolbar, navigation</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="tab-pane" id="t3">
-                                                <ul class="unstyled flickr">
-                                                    <li><a href="http://farm8.staticflickr.com/7153/6839672369_687f2c49e8_b.jpg" title="Down the rabbit hole [Framed]"><img src="http://farm8.staticflickr.com/7153/6839672369_687f2c49e8_s.jpg" alt="" class="img_nofade"></a></li>
-                                                    <li><a href="http://farm6.staticflickr.com/5235/7156342506_3180179c4d_b.jpg" title="Looking Up"><img src="http://farm6.staticflickr.com/5235/7156342506_3180179c4d_s.jpg" alt="" class="img_nofade"></a></li><li><a href="http://farm8.staticflickr.com/7248/6894937942_475bce7076_b.jpg" title="Your eyes are open"><img src="http://farm8.staticflickr.com/7248/6894937942_475bce7076_s.jpg" alt="" class="img_nofade"></a></li><li><a href="http://farm8.staticflickr.com/7280/7023103445_62489017a0_b.jpg" title="Mel McGowan"><img src="http://farm8.staticflickr.com/7280/7023103445_62489017a0_s.jpg" alt="" class="img_nofade"></a></li><li><a href="http://farm8.staticflickr.com/7243/6853027310_00cdd402ee_b.jpg" title="We will be forever calm"><img src="http://farm8.staticflickr.com/7243/6853027310_00cdd402ee_s.jpg" alt="" class="img_nofade"></a></li><li><a href="http://farm8.staticflickr.com/7196/6837771770_6d771aa7cf_b.jpg" title="Videographer"><img src="http://farm8.staticflickr.com/7196/6837771770_6d771aa7cf_s.jpg" alt="" class="img_nofade"></a></li><li><a href="http://farm8.staticflickr.com/7200/6829158646_d4f32ea229_b.jpg" title="Daylight Reveals Colors"><img src="http://farm8.staticflickr.com/7200/6829158646_d4f32ea229_s.jpg" alt="" class="img_nofade"></a></li><li><a href="http://farm8.staticflickr.com/7200/6950787615_65517ec924_b.jpg" title="Jennifer Ziliotto x3"><img src="http://farm8.staticflickr.com/7200/6950787615_65517ec924_s.jpg" alt="" class="img_nofade"></a></li><li><a href="http://farm8.staticflickr.com/7186/6937410907_234f15a111_b.jpg" title="Broadway St. Santa Monica"><img src="http://farm8.staticflickr.com/7186/6937410907_234f15a111_s.jpg" alt="" class="img_nofade"></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-group">
-                            <div class="accordion-heading">
-                                <a href="#elements" data-toggle="collapse" class="accordion-toggle">
-                                    <i class="icon-star-empty icon-white"></i> <span class="divider-vertical"></span> Events <i class="icon-chevron-down icon-white pull-right"></i>
-                                </a>
-                            </div>
-                            <div class="accordion-body collapse in" id="elements">
-                                <div class="accordion-inner paddind">
-                                    <span class="label">23/12/2012</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
-
-                                    <span class="label label-warning">23/02/2012</span>
-                                    <p>Lorem ipsum dolor sit amet dolore.</p>
-
-                                    <span class="label label-important">13/02/2012</span> 
-                                    <p>Lorem ipsum dolor sit amet dolore.</p>
-                                    <br />   
                                 </div>
                             </div>
                         </div>
@@ -496,9 +412,11 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="js/jquery.min.js"></script>
+        <script src="js/lodash.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/highcharts.js"></script>
         
+
         <script src="js/charts/jquery.flot.js"></script>
         <script src="js/charts/jquery.flot.resize.js"></script>
         <script src="js/charts/jquery.flot.pie.js"></script>
@@ -531,7 +449,12 @@
                 $('a').tooltip('hide');
 
         //datePciker
+                var today = new Date(2014,10,12);
+                // $("#datepicker").datepicker(
+                //     "setDate", today
+                // );
                 $("#datepicker").datepicker();
+
 // switch style 
                 $('a.style').click(function(){
                     var style = $(this).attr('href');
