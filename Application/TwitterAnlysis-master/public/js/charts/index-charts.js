@@ -1,4 +1,4 @@
-    // *********************************** Party Distro *******************************************
+// *********************************** Party Distro *******************************************
 
     $(function() {
 
@@ -75,6 +75,35 @@
         });
     });
 
+// *********************************** Politician Tweets Leaderboard *******************************************
+
+    $(function() {
+
+        $(document).ready(function() {
+
+            var jsonData = $.ajax({
+                url: "/tweetsCounts",
+                dataType: "json",
+                async: false
+            }).responseText;
+
+            var results = jQuery.parseJSON(jsonData);
+            var counter = 0;
+            _.forEach(_.initial(results, 5), function(polTweetsInfo) {
+                counter++;
+                var tweetsNo = polTweetsInfo.key;
+                var polName = polTweetsInfo.value.name.substring(0, 13);
+                var polParty = polTweetsInfo.value.party;
+                polParty = polParty.charAt(0).toUpperCase() + polParty.slice(1);
+                $("#polTweetsLeaderBoard").append(
+                    "<tr><td>"+counter+"</td> \
+                    <td>"+polName+"</td> \
+                    <td>"+polParty+"</td> \
+                    <td>"+tweetsNo+"</td></tr>");
+            });
+
+        });
+    });
 
 
 // ******************************** VISITS  ********************************************

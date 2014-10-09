@@ -85,20 +85,18 @@ exports.partyDistro = function (req, res) {
             res.send(200, []);
         }
     });
-
-
 };
 
 
 exports.tweetsCounts = function (req, res) {
     var params = {descending: true};
     politicianInfoDB.view('analysis', 'tweets_count', params, function (err, body) {
-        var followers = [];
+        var politicians = [];
         if (!err) {
-            followers = body.rows;
+            politicians = body.rows;
 
-            console.log(followers);
-            var slicedFollows = followers.slice(0, 10);
+            console.log(politicians);
+            var slicedFollows = politicians.slice(0, 10);
             console.log(slicedFollows);
 
             res.send(200, slicedFollows);
