@@ -47,6 +47,7 @@ app.get('/tweetHourByNameReport',politician.tweetHourByNameReport);
 app.get('/tweetSentimentByKeyword',politician.tweetSentimentByKeyword);
 app.get('/tweetSentiment2ByKeyword',politician.tweetSentiment2ByKeyword);
 app.get('/geoLocation',politician.geoLocation);
+app.get('/partyTweetTime', politician.partyTweetTime);
 
 
 app.param('politicianId', politician.politician);
