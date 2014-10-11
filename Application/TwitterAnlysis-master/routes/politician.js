@@ -37,9 +37,7 @@ exports.list = function (req, res) {
                 if (doc.doc._id != '_design/analysis') {
                     politicians.push(doc.doc);
                 }
-
             });
-
         } else {
             console.log(err);
         }
@@ -84,6 +82,23 @@ exports.partyDistro = function (req, res) {
             console.log(err);
             res.send(200, []);
         }
+    });
+};
+
+
+exports.partyTweetTime = function (req, res) {
+    var params = {group_level: 1};
+    var politicianDB = nano.use('politicians');
+    politicianDB.view('analysis', 'party_tweet_time', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
     });
 };
 
