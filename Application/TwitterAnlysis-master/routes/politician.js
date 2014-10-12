@@ -9,7 +9,7 @@ var politicianInfoDB = nano.use(dbName);
 var politicians = [];
 var natural = require('natural'),
     tokenizer = new natural.WordTokenizer(),
-    _ = require('underscore');
+    _ = require('lodash');
 
 var liberalPoliticians = ['TonyAbbottMHR', 'SenatorAbetz', 'JohnAlexanderMP', 'KarenAndrewsMP', 'senatorback', 'bobbaldwinmp', 'GuyBarnett', 'corybernardi', 'Birmo',
     'JulieBishopMP', 'SenatorSue', 'BriggsJamie', 'SenatorBushby', 'steveciobo', 'richardmcolbeck', 'helencoonan', 'MathiasCormann', 'PeterDutton_MP', 'pilbaraboy', 'paulwfletcher',
@@ -102,6 +102,21 @@ exports.partyTweetTime = function (req, res) {
     });
 };
 
+exports.partyRetweetCount = function (req, res) {
+    var params = {group_level: 1};
+    var politicianDB = nano.use('politician');
+    politicianDB.view('analysis', 'public_retweet_count_party', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
 
 exports.tweetsCounts = function (req, res) {
     var params = {descending: true};
@@ -112,6 +127,26 @@ exports.tweetsCounts = function (req, res) {
 
             console.log(politicians);
             var slicedFollows = politicians.slice(0, 10);
+            console.log(slicedFollows);
+
+            res.send(200, slicedFollows);
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
+};
+
+exports.publicRetweetCountPerson = function (req, res) {
+    var params = {descending: true};
+    var politicianDB = nano.use('politician');
+        politicianDB.view('analysis', 'public_retweet_count_person', params, function (err, body) {
+        var results = [];
+        if (!err) {
+            results = body.rows;
+
+            console.log(results);
+            var slicedFollows = results.slice(0, 10);
             console.log(slicedFollows);
 
             res.send(200, slicedFollows);
@@ -689,6 +724,23 @@ exports.tweetSentiment2ByKeyword = function (req, res) {
             });
             //console.log(list);
 
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
+};
+
+exports.partySentiment = function (req, res) {
+    var params = {group_level: 2};
+    var politicianDB = nano.use('politician');
+    politicianDB.view('analysis', 'party_sentiment', params, function (err, body) {
+        var list = [];
+        if (!err) {
+            list = body.rows;
+
+            //console.log(list);
+            res.send(200, list);
         } else {
             console.log(err);
             res.send(200, []);
