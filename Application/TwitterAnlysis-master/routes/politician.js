@@ -87,8 +87,8 @@ exports.partyDistro = function (req, res) {
 
 
 exports.partyTweetTime = function (req, res) {
-    var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var params = {group_level: 2};
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'party_tweet_time', params, function (err, body) {
         var results = [];
         if (err) {
