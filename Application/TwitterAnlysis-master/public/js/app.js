@@ -15,27 +15,49 @@ App.IndexRoute = Ember.Route.extend({
 });
 
 
+App.DashboardRoute = Ember.Route.extend({
+  beforeModel: function() {
+     this.transitionTo('/');
+   },
+   afterModel: function() {
+  	console.log("I enter DashboardRoute model");
+    return ['red', 'yellow', 'blue'];
+  }
+});
+
+
+$.ajax({
+   url: '../dashboard.html',
+   dataType: 'text',
+   success: function (res) {
+       App.DashboardView = Ember.View.extend({
+           DashboardTemplate: Ember.Handlebars.compile(res),
+           didInsertElement: function() {
+           		debugger;
+					    console.log("Enter didInsertElement ajax");
+					    fuckAwsome();
+					 }
+       });
+   }
+});
+
+
+
 $.ajax({
    url: '../party-members.html',
    dataType: 'text',
    success: function (res) {
        App.PartyMembersView = Ember.View.extend({
            PartyMembersTemplate: Ember.Handlebars.compile(res),
+           didInsertElement: function() {
+           		debugger;
+					    console.log("Enter didInsertElement ajax");
+					    fuckAwsome();
+					 }
        });
    }
 });
 
-App.DashboardRoute = Ember.Route.extend({
-  beforeModel: function() {
-     this.transitionTo('/');
-   },
-   afterModel: function() {
-  	fuckAwsome();
-  	console.log("I enter DashboardRoute model");
-    return ['red', 'yellow', 'blue'];
-  }
-
-});
 
 App.PartyMembersRoute = Ember.Route.extend({
 	model: function() {
