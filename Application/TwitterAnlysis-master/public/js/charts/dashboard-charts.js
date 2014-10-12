@@ -1,9 +1,7 @@
 // *********************************** Party Distro *******************************************
 
     $(function() {
-
         $(document).ready(function() {
-
             var jsonData = $.ajax({
                 url: "/partyDistro",
                 dataType: "json",
