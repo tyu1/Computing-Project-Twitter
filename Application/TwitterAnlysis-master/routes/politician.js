@@ -118,6 +118,68 @@ exports.partyRetweetCount = function (req, res) {
     });
 };
 
+exports.retweetTimeZoneParty = function (req, res) {
+    var params = {group_level: 2};
+    var politicianDB = nano.use('politician');
+    politicianDB.view('analysis', 'retweet_time_zone_party', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
+exports.partySourceDistro = function (req, res) {
+    var params = {group_level: 2};
+    var politicianDB = nano.use('politician');
+    politicianDB.view('analysis', 'party_source_distro', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
+exports.tweetDistro = function (req, res) {
+    var params = {group_level: 1};
+    var politicianDB = nano.use('politician');
+    politicianDB.view('analysis', 'tweet_source', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
+exports.partyFollowerCount = function (req, res) {
+    var params = {group_level: 2};
+    var politicianDB = nano.use('politician_relation');
+    politicianDB.view('analysis', 'party_follower_count', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
+
+
 exports.tweetsCounts = function (req, res) {
     var params = {descending: true};
     politicianInfoDB.view('analysis', 'tweets_count', params, function (err, body) {
