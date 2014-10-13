@@ -101,6 +101,21 @@ exports.partyTweetTime = function (req, res) {
         res.send(200, results)
     });
 };
+exports.publicPartyTweetTime = function (req, res) {
+    var params = {group_level: 2};
+    var politicianDB = nano.use('public');
+    politicianDB.view('analysis', 'public_party_tweet_time', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
 
 exports.partyRetweetCount = function (req, res) {
     var params = {group_level: 1};
@@ -148,6 +163,22 @@ exports.partySourceDistro = function (req, res) {
         res.send(200, results)
     });
 };
+
+exports.publicTweetSource = function (req, res) {
+    var params = {group_level: 1};
+    var politicianDB = nano.use('public');
+    politicianDB.view('analysis', 'public_tweet_source', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
 exports.tweetDistro = function (req, res) {
     var params = {group_level: 1};
     var politicianDB = nano.use('politician');
@@ -167,6 +198,21 @@ exports.partyFollowerCount = function (req, res) {
     var params = {group_level: 2};
     var politicianDB = nano.use('politician_relation');
     politicianDB.view('analysis', 'party_follower_count', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
+exports.partyTweetTimeDay = function (req, res) {
+    var params = {group_level: 1};
+    var politicianDB = nano.use('politician');
+    politicianDB.view('analysis', 'ActivenessDuringWeek', params, function (err, body) {
         var results = [];
         if (err) {
             console.log("err:", err);
@@ -218,6 +264,7 @@ exports.publicRetweetCountPerson = function (req, res) {
         }
     });
 };
+
 
 
 exports.friendsCounts = function (req, res) {

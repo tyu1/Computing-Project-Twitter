@@ -55,6 +55,10 @@ app.get('/retweetTimeZoneParty', politician.retweetTimeZoneParty);
 app.get('/partySourceDistro', politician.partySourceDistro);
 app.get('/tweetDistro',politician.tweetDistro);
 app.get('/partyFollowerCount', politician.partyFollowerCount);
+app.get('/partyTweetTimeDay', politician.partyTweetTimeDay);
+app.get('/publicPartyTweetTime', politician.publicPartyTweetTime);
+app.get('/publicTweetSource', politician.publicTweetSource);
+
 
 app.param('politicianId', politician.politician);
 
