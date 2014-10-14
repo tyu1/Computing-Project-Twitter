@@ -65,7 +65,7 @@ $(function () {
                     }]
                 },
                 tooltip: {
-                    valueSuffix: '°C'
+                    valueSuffix: ''
                 },
                 legend: {
                     layout: 'vertical',
@@ -138,7 +138,7 @@ $(function () {
             $('#publicTweetSource').highcharts({
                 chart: {
                     plotBackgroundColor: null,
-                    plotBorderWidth: 0,
+                    plotBorderWidth: 1,
                     plotShadow: false
                 },
                 title: {

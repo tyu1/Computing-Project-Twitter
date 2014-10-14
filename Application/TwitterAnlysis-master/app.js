@@ -58,6 +58,8 @@ app.get('/partyFollowerCount', politician.partyFollowerCount);
 app.get('/partyTweetTimeDay', politician.partyTweetTimeDay);
 app.get('/publicPartyTweetTime', politician.publicPartyTweetTime);
 app.get('/publicTweetSource', politician.publicTweetSource);
+app.get('/publicTweetsSentiment', politician.publicTweetsSentiment);
+app.get('/publicTweetsSentimentTimeChange', politician.publicTweetsSentimentTimeChange)
 
 
 app.param('politicianId', politician.politician);

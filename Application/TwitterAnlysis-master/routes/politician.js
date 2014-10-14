@@ -857,6 +857,40 @@ exports.partySentiment = function (req, res) {
     });
 };
 
+exports.publicTweetsSentiment = function (req, res) {
+    var params = {group_level: 2};
+    var politicianDB = nano.use('public');
+    politicianDB.view('analysis', 'public _party_sentiment', params, function (err, body) {
+        var list = [];
+        if (!err) {
+            list = body.rows;
+
+            //console.log(list);
+            res.send(200, list);
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
+};
+exports.publicTweetsSentimentTimeChange = function (req, res) {
+    var params = {group_level: 3};
+    var politicianDB = nano.use('public');
+    politicianDB.view('analysis', 'public_party_counts', params, function (err, body) {
+        var list = [];
+        if (!err) {
+            list = body.rows;
+
+            //console.log(list);
+            res.send(200, list);
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
+};
+
+
 
 exports.tweetSentimentByKeyword = function (req, res) {
     var keyword = req.query.keyword;
