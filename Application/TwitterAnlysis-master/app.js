@@ -49,6 +49,8 @@ app.get('/tweetSentiment2ByKeyword',politician.tweetSentiment2ByKeyword);
 app.get('/geoLocation',politician.geoLocation);
 app.get('/partyTweetTime', politician.partyTweetTime);
 
+app.get('/tweetSentimentByKeywordAndPolitician',politician.tweetSentimentByKeywordAndPolitician);
+
 
 app.param('politicianId', politician.politician);
 
