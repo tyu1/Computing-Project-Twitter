@@ -31,6 +31,8 @@
          <!-- media query css -->
         <link href="css/media-fluid.css" rel="stylesheet">
 
+        <link href="css/style.css" rel="stylesheet"/>
+
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -205,7 +207,7 @@
              {{#each item in laborList}}
                 <tr>
                     <td><img {{bind-attr src=item.profile_image_url}} /> </td>
-                    <td>{{#link-to 'politicianDetail' this}}{{item.name}}{{/link-to}}</td>
+                    <td>{{#link-to 'politicianDetail' item}}{{item.name}}{{/link-to}}</td>
                     <td>{{item.party}}</td>
                     <td>{{format-number item.followers_count}}</td>
                     <td>{{format-number item.friends_count}}</td>
@@ -250,7 +252,7 @@
              {{#each item in liberalList}}
                 <tr>
                     <td><img {{bind-attr src=item.profile_image_url}} /> </td>
-                    <td>{{#link-to 'politicianDetail' this}}{{item.name}}{{/link-to}}</td>
+                    <td>{{#link-to 'politicianDetail' item}}{{item.name}}{{/link-to}}</td>
                     <td>{{item.party}}</td>
                     <td>{{format-number item.followers_count}}</td>
                     <td>{{format-number item.friends_count}}</td>
@@ -296,7 +298,7 @@
              {{#each item in nationList}}
                 <tr>
                     <td><img {{bind-attr src=item.profile_image_url}} /> </td>
-                    <td>{{#link-to 'politicianDetail' this}}{{item.name}}{{/link-to}}</td>
+                    <td>{{#link-to 'politicianDetail' item}}{{item.name}}{{/link-to}}</td>
                     <td>{{item.party}}</td>
                     <td>{{format-number item.followers_count}}</td>
                     <td>{{format-number item.friends_count}}</td>
@@ -367,45 +369,174 @@
                 </div>
 </script>
 
-<script type="text/x-handlebars" data-template-name="politicianDetail">
-    <h1 class="page-header">{{name}}</h1>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="ProfileAvatar">
-                <img {{bind-attr src=detail_image_url}} class="ProfileAvatar-image" >
-            </div>
-            <br/><br/>
 
-        </div>
-        <div class="col-md-5">
-            <div class="form-group">
-                <label>Account Create: </label>
-                {{format-date created_at}}
+
+<script type="text/x-handlebars" data-template-name="politicianDetail">
+<div id="content" class="span9 section-body">
+    <div id="section-body" class="tabbable">
+            <div class="row-fluid">
+                <!--Tabs2-->
+                
+                <div class="span6">
+                    <div id="accordion2" class="accordion">
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#politicianName" data-original-title="">
+                                    <i class="icon-adjust icon-white"></i> <span class="divider-vertical"></span> {{name}}  <i class="icon-chevron-down icon-white pull-right"></i>
+                                </a>
+                            </div>
+                            <div id="politicianName" class="accordion-body collapse in">
+                                <div class="accordion-inner paddind">
+                                    <img {{bind-attr src=detail_image_url}} class="ProfileAvatar-image" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                <div id="accordion1" class="accordion">
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#politicianInfo" data-original-title="">
+                                    <i class="icon-adjust icon-white"></i> <span class="divider-vertical"></span> Profile Info<i class="icon-chevron-down icon-white pull-right"></i>
+                                </a>
+                            </div>
+                            <div id="politicianInfo" class="accordion-body collapse in">
+                                <div id="event" class="accordion-body collapse in">
+                                                    <div class="accordion-inner">
+                                                        <table class="table table-striped">
+                                                            <tbody>
+                                                                <tr>
+                                                                   <td><h4>Account Create: </h4></td>
+
+                                                                    <td>{{format-date created_at}}
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                        <td><h4>Tweets per day:</h4> </td>
+
+                                                    <td>{{average_tweet}} </td>
+
+                                                                </tr>
+
+                                                                <tr>
+                                                        <td><h4>Description: </h4></td>
+
+                                                                    <td>{{description}}
+                                                                    </td>
+
+                                                                </tr>
+
+
+                                                                <tr>
+                                                        <td><h4>Party: </h4></td>
+
+                                                                    <td>{{party}}
+                                                                    </td>
+
+                                                                </tr>
+                                                               
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div id="accordion1" class="accordion">
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#latest" data-original-title="">
+                                    <i class="icon-adjust icon-white"></i> <span class="divider-vertical"></span>Links<i class="icon-chevron-down icon-white pull-right"></i>
+                                </a>
+                            </div>
+                            <div id="latest" class="accordion-body collapse in">
+                                <div id="event2" class="accordion-body collapse in">
+                                                    <div class="accordion-inner">
+                                                        <table class="table table-striped">
+                                                            <tbody>
+                                                                <tr>
+                                                                   <td>
+<div class="alert alert-info no-bottom-margin">
+                                                            <strong>Most frequently used words</strong>
+                                                        </div>
+                                                                   </td>
+
+                                                                    <td><a {{bind-attr class=":btn :btn-primary :link-btn" href=frequentWords_url}}>View</a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                        <td>
+<div class="alert alert-info no-bottom-margin">
+                                                            <strong>Most frequently used hashtags</strong>
+                                                        </div>
+                                                        </td>
+
+                                                                    <td><a {{bind-attr class=":btn :btn-primary :link-btn" href=frequentHashtags_url}}>View</a>
+                                                                    </td>
+
+                                                                </tr>
+
+                                                                <tr>
+                                                        <td>
+<div class="alert alert-info no-bottom-margin">
+                                                            <strong>Mentioned people</strong>
+                                                        </div>
+                                                        </td>
+
+                                                                    <td><a {{bind-attr class=":btn :btn-primary :link-btn" href=mentionedPeople_url}}>View</a>
+                                                                    </td>
+
+                                                                </tr>
+
+
+                                                                <tr>
+                                                        <td>
+<div class="alert alert-info no-bottom-margin">
+                                                            <strong>Tweet time</strong></div>
+                                                        </td>
+
+                                                                    <td><a {{bind-attr class=":btn :btn-primary :link-btn" href=tweetTime_url}}>View</a>
+                                                                    </td>
+
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+<div class="alert alert-info no-bottom-margin">
+                                                            <strong>Follower relationshi</strong>
+                                                        </div>
+                                                                    </td>
+
+                                                                    <td><a {{bind-attr class=":btn :btn-primary :link-btn" href=relationship_url}}>View</a>
+                                                                    </td>
+                                                                </tr>
+                                                               
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Tweets per day: </label>
-                {{average_tweet}}
-            </div>
-            <div class="form-group">
-                <label>Description: </label>
-                {{description}}
-            </div>
-            <div class="form-group">
-                <label>Party: </label>
-                {{party}}
-            </div>
-        </div>
-        <div class="col-md-3">
-            <ul class="list-group">
-                <li class="list-group-item"><a {{bind-attr href=frequentWords_url}}>Most frequently used words</a></li>
-                <li class="list-group-item"><a {{bind-attr href=frequentHashtags_url}}>Most frequently used hashtags</a></li>
-                <li class="list-group-item"><a {{bind-attr href=mentionedPeople_url}}>Mentioned people</a></li>
-                <li class="list-group-item"><a {{bind-attr href=tweetTime_url}}>Tweet time</a></li>
-                <li class="list-group-item"><a {{bind-attr href=relationship_url}}>Follower relationship</a></li>
-            </ul>
-        </div>
-    </div>
-</script> 
+
+
+</div>
+</div>
+  </script>
+
+
+
+
 
         <!-- Le javascript
         ================================================== -->
