@@ -21,7 +21,6 @@ App.IndexRoute = Ember.Route.extend({
 
 App.PoliticianDetailRoute = Ember.Route.extend({
     model: function(params) {
-    	 console.log("params la:", params);
        return this.store.find('politician', params.politician_id);
     }
 });
