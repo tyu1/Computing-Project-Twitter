@@ -22,7 +22,7 @@
             .sidebar-nav {
                 padding: 9px 0;
             }
-            .result_wrapper, .result_wrapper_overview{
+            .result_wrapper, .result_wrapper_overview, .result_wrapper_overview_sum{
                 display: none;
             }
         </style>
@@ -157,11 +157,12 @@
 
                     <div id="section-body" class="tabbable"> <!-- Only required for left/right tabs -->
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab">Sentiment Overview in Political Parties</a></li>
+                            <li class="active"><a href="#tab3" data-toggle="tab">Sentiment Overview</a></li>
+                            <li><a href="#tab1" data-toggle="tab">Sentiment Overview in Political Parties</a></li>
                             <li><a href="#tab2" data-toggle="tab">Keyword Sentiment Analysis in Political Parties</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tab1">
+                            <div class="tab-pane" id="tab1">
 
                                  <div class="row-fluid loading_overview">
                                     <div class="span10 offset1">
@@ -278,7 +279,36 @@
 
                             </div>
 
-                            
+                            <div class="tab-pane active" id="tab3">
+
+                                 <div class="row-fluid loading_overview_sum">
+                                    <div class="span10 offset1">
+                                        <img style="height:100px;" src="img/loading.gif" alt="loading">
+                                    </div>
+                                </div>
+
+                                <div class="row-fluid result_wrapper_overview_sum">
+                                    <div class="span12">
+                                        <div id="accordionOverviewSum" class="accordion">
+                                            <div class="accordion-group">
+                                                <div class="accordion-heading">
+                                                    <a class="accordion-toggle" data-toggle="collapse" href="#notificationOverviewSum" data-original-title="">
+                                                        <i class="fa fa-smile-o"></i> <i class="fa fa-frown-o"></i> <span class="divider-vertical"></span> Sentiment Overview <i class="icon-chevron-down icon-white pull-right"></i>
+                                                    </a>
+                                                </div>
+                                                <div id="notificationOverviewSum" class="accordion-body collapse in">
+                                                    <div class="accordion-inner paddind">
+                                                        <div id="chart_sentiment_overview" style="width:880px"></div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>                             
+                                
+                            </div>       
 
                         </div>
                     </div>
@@ -366,6 +396,8 @@
                     
                 });
                 PopulateOverviewChart();
+
+                PopulateOverviewSumChart();
             });
 
             function PopulateKeywordChart()
@@ -455,6 +487,48 @@
                         reversed: true
                     },
                     series: data.positive_series
+                });
+            }
+
+            function PopulateOverviewSumChart()
+            {
+                $.ajax({
+                    url : "/tweetSentimentOverview",
+                    type: "GET",
+                    success: function(result)
+                    {
+                        PopulateBarChart(result);
+                        $(".loading_overview_sum").css("display","none");
+                        $(".result_wrapper_overview_sum").css("display","block");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
+                        alert("Something went wrong!");
+                    }
+                });
+            }
+            function PopulateBarChart(data)
+            {
+                $('#chart_sentiment_overview').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories: data.categories
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Counts'
+                        }
+                    },
+                    legend: {
+                        reversed: true
+                    },
+                    series: data.final_series_data
                 });
             }
         </script>

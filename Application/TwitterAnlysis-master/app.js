@@ -50,6 +50,7 @@ app.get('/geoLocation',politician.geoLocation);
 app.get('/partyTweetTime', politician.partyTweetTime);
 
 app.get('/tweetSentimentByKeywordAndPolitician',politician.tweetSentimentByKeywordAndPolitician);
+app.get('/tweetSentimentOverview',politician.tweetSentimentOverview);
 
 
 app.param('politicianId', politician.politician);

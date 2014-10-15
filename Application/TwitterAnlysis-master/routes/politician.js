@@ -837,11 +837,11 @@ exports.tweetSentimentByKeywordAndPolitician = function (req, res) {
                 
                 if(doc.value[1].toLowerCase().indexOf(keyword.toLowerCase()) > -1) {
 
-                    if(doc.value[0] == 1)
+                    if(doc.value[0] == 1 && categories.indexOf(doc.value[2].split(" ")[5]) > -1)
                     {
                         positive_counts_array[doc.value[2].split(" ")[5]] ++;
                     }
-                    if(doc.value[0] == 0)
+                    if(doc.value[0] == 0&& categories.indexOf(doc.value[2].split(" ")[5]) > -1)
                     {
                         negative_counts_array[doc.value[2].split(" ")[5]] ++;
                     }
@@ -870,6 +870,51 @@ exports.tweetSentimentByKeywordAndPolitician = function (req, res) {
     });
 };
 
+exports.tweetSentimentOverview = function (req, res) {
+
+    var politicianDB = nano.use('politician');
+
+    politicianDB.view('analysis', 'tweet_sentiment', function (err, body) {
+        if (!err) {
+            var categories =["2009","2010","2011","2012","2013","2014"];
+
+            var positive_counts_array = {"2009": 0, "2010": 0, "2011":0, "2012": 0, "2013": 0, "2014": 0};
+            var negative_counts_array = {"2009": 0, "2010": 0, "2011":0, "2012": 0, "2013": 0, "2014": 0};
+
+            body.rows.forEach(function (doc) {
+                
+                    if(doc.value[0] == 1 && categories.indexOf(doc.value[2].split(" ")[5]) > -1)
+                    {
+                            positive_counts_array[doc.value[2].split(" ")[5]] ++;
+                    }
+                    if(doc.value[0] == 0 && categories.indexOf(doc.value[2].split(" ")[5]) > -1)
+                    {
+                        negative_counts_array[doc.value[2].split(" ")[5]] ++;
+                    }
+                
+            });
+
+            var positive_series = [];
+            var negative_series = [];
+
+            for(var positive_counts_obj in positive_counts_array) {
+              positive_series.push(positive_counts_array[positive_counts_obj]);
+            }
+
+            for(var negative_counts_obj in negative_counts_array) {
+              negative_series.push(negative_counts_array[negative_counts_obj]);
+            }
+
+            var final_series_data = [{name: 'Positive',data: positive_series},{name: 'Negative',data: negative_series}];
+
+            
+            res.send(200, {categories:categories,final_series_data:final_series_data});
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
+};
 
 
 
