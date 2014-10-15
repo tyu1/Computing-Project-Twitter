@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Frequent Hashtags By Name</title>
+        <title>Frequent Words By Name</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -75,7 +75,7 @@
 
                 $('#cp3').colorpicker();
 
-                var bodyStyle = $('#frequentWordsByNameD3')[0].style;
+                var bodyStyle = $('#personProfileD3')[0].style;
                 $('#cp4').colorpicker().on('changeColor', function(ev){
                     bodyStyle.backgroundColor = ev.color.toHex();
                 });
@@ -170,10 +170,10 @@
 
                     <div  class="sidebar-nav">
                         <ul class="nav nav-list">
-                            <li><a href="dashboard.html"><i class="icon-th-large"></i><span> Dashboard</span></a></li>
-                            <li><a href="index.html" class="current"><i class="icon-th"></i><span>Party Members</span></a></li>
+                            <li><a href="dashboard.html" class="current"><i class="icon-th-large"></i><span> Dashboard</span></a></li>
+                            <li><a href="index.html"><i class="icon-th"></i><span>Party Members</span></a></li>
                             <li><a href="tables.html"><i class="icon-list-alt"></i><span> Tables</span></a></li>
-                            <li><a href="elements.html"><i class="icon-tasks icon-white"></i><span> Elements</span></a></li>
+                            <li><a href="elements.html"  class="current"><i class="icon-tasks icon-white"></i><span> Elements</span></a></li>
                             <li><a href="media.html"><i class="icon-picture"></i><span> Media</span></a></li>
                             <li><a href="forms.html"><i class="icon-align-center"></i><span> Forms</span></a></li>
                             <li><a href="grid.html"><i class="icon-indent-left"></i><span> Grid</span></a></li>
@@ -211,19 +211,16 @@
                                             <div class="accordion-group">
                                                 <div class="accordion-heading">
                                                     <a class="accordion-toggle" data-toggle="collapse" href="#statements" data-original-title="">
-                                                        <i class="icon-list-alt icon-white"></i> <span class="divider-vertical"></span> Frenquent Hashtags <i class="icon-chevron-down icon-white pull-right"></i>
+                                                        <i class="icon-list-alt icon-white"></i> <span class="divider-vertical"></span> Frenquent Words <i class="icon-chevron-down icon-white pull-right"></i>
                                                     </a>
                                                 </div>
                                                 <div id="statements" class="accordion-body collapse in">
                                                     <div id="personProfileD3" class="accordion-inner paddind">
-                                                               <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
               <h1 id = 'titile'> </h1>
-
                 <script src="http://d3js.org/d3.v3.min.js"></script>
                 <script src="js/report.js"></script>
-                     <script>
-
-
+                <script>
                     var diameter = 900,
                             format = d3.format(",d"),
                             color = d3.scale.category20c();
@@ -233,20 +230,12 @@
                             .size([diameter, diameter])
                             .padding(1.5);
 
-                    var svg = d3.select("body").append("svg")
+                    var svg = d3.select("#personProfileD3").append("svg")
                             .attr("width", diameter)
                             .attr("height", diameter)
                             .attr("class", "bubble");
 
-//                    var jsonData = $.ajax({
-//                        url: "/tweetHourReport",
-//                        dataType: "json",
-//                        async: false
-//                    }).responseText;
-
                     var QueryString = function () {
-                        // This function is anonymous, is executed immediately and
-                        // the return value is assigned to QueryString!
                         var query_string = {};
                         var query = window.location.search.substring(1);
                         var vars = query.split("&");
@@ -267,14 +256,14 @@
                         return query_string;
                     } ();
 
-                    document.getElementById('titile').innerHTML = decodeURI(QueryString.name) + " frequent hashtags:";
+                    document.getElementById('titile').innerHTML = decodeURI(QueryString.name) + " frequent words:";
 
                     jQuery.ajax({
                         type: "GET",
-                        url: "/hashtagsByName?screen_name=" + QueryString.screen_name,
-                        cache: false,
+                        url: "/frequentWordsByName?screen_name=" + QueryString.screen_name,
+                        cache: true,
                         success: function(root){
-                            console.log(root);
+                            console.log('root=' + root);
                             if(root.length == 0) {
                                 return;
                             }
@@ -299,6 +288,8 @@
                         }
                     });
 
+
+                    // Returns a flattened hierarchy containing all leaf nodes under the root.
                     function classes(root) {
                         var classes = [];
 
@@ -312,6 +303,7 @@
                     }
 
                     d3.select(self.frameElement).style("height", diameter + "px");
+
                 </script>
 
             </div>

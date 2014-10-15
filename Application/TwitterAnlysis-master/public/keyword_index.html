@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Frequent Hashtags By Name</title>
+        <title>Elements - maniadmin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -22,7 +22,9 @@
             .sidebar-nav {
                 padding: 9px 0;
             }
-
+            .result_wrapper{
+                display: none;
+            }
         </style>
             <!-- colorpicker css -->
         <link href="css/colorpicker.css" rel="stylesheet">
@@ -30,62 +32,12 @@
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
             <!-- media queries css -->
         <link href="css/media-fluid.css" rel="stylesheet">
-
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-colorpicker.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('.togglemenuleft').click(function(){
-                    $('#menu-left').toggleClass('span1');
-                    $('#menu-left').toggleClass('icons-only');
-                    $('#menu-left').toggleClass('span3');
-                    $('#content').toggleClass('span9');
-                    $('#content').toggleClass('span11');
-                    $(this).find('i').toggleClass('icon-circle-arrow-right');
-                    $(this).find('i').toggleClass('icon-circle-arrow-left');
-                    $('#menu-left').find('span').toggle();
-                    $('#menu-left').find('.dropdown').toggle();
-                });
 
-                $('#menu-left a').click(function(){
-                    $('#menu-left').find('a').removeClass('active');
-                    $(this).addClass('active');
-                });
-                // switch style 
-
-                $(".switcher").click(function(){
-                    if($(this).find('i').hasClass('icon-circle-arrow-right'))
-                    $('.theme').animate({left:'0px'},500);
-                    else
-                    $('.theme').animate({left:'-89'},500);
-
-                    $(this).find('i').toggleClass('icon-circle-arrow-right');
-                    $(this).find('i').toggleClass('icon-circle-arrow-left');
-                });
-                // colorpicker
-                $('#cp1').colorpicker({
-                    format: 'hex'
-                });
-                $('#cp2').colorpicker();
-
-                $('#cp3').colorpicker();
-
-                var bodyStyle = $('#frequentWordsByNameD3')[0].style;
-                $('#cp4').colorpicker().on('changeColor', function(ev){
-                    bodyStyle.backgroundColor = ev.color.toHex();
-                });
-                $('a.style').click(function(){
-                    var style = $(this).attr('href');
-                    $('.links-css').attr('href','css/' + style);
-                    return false;
-                });
-            });
-        </script>
     </head>
 
     <body>
@@ -98,7 +50,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="dashboard.html"><img src="img/logo-small.png" alt="logo" /></a>
+                    <a class="brand" href="index.html"><img src="img/logo-small.png" alt="logo" /></a>
                     <ul class="nav pull-left bar-root">
                         <li class="divider-vertical"></li>
                         <li><a href="chat.html" ><i class="icon-comment icon-white"></i><span class="label label-important">6</span></a> </li>
@@ -170,10 +122,11 @@
 
                     <div  class="sidebar-nav">
                         <ul class="nav nav-list">
-                            <li><a href="dashboard.html"><i class="icon-th-large"></i><span> Dashboard</span></a></li>
-                            <li><a href="index.html" class="current"><i class="icon-th"></i><span>Party Members</span></a></li>
+                            <li><a href="index.html"><i class="icon-th-large"></i><span> Dashboard</span></a></li>
+                            <li><a href="widget.html"><i class="icon-th"></i><span> Widgets</span></a></li>
                             <li><a href="tables.html"><i class="icon-list-alt"></i><span> Tables</span></a></li>
                             <li><a href="elements.html"><i class="icon-tasks icon-white"></i><span> Elements</span></a></li>
+                            <li><a href="keyword_index.html"  class="current"><i class="icon-tasks icon-white"></i><span> Keyword Analytics</span></a></li>
                             <li><a href="media.html"><i class="icon-picture"></i><span> Media</span></a></li>
                             <li><a href="forms.html"><i class="icon-align-center"></i><span> Forms</span></a></li>
                             <li><a href="grid.html"><i class="icon-indent-left"></i><span> Grid</span></a></li>
@@ -202,119 +155,46 @@
                 </div>
                 <div id="content" class="span9 section-body">
 
-                    <div id="section-body" class="tabbable">
+                    <div id="section-body" class="tabbable"> <!-- Only required for left/right tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">Keyword Analytics</a></li>
+                        </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
+
                                 <div class="row-fluid">
+                                    <!--Keyword Tool-->
+                                    <div class="span10">
+                                        <input id="txtKeyword" class="span12" type="text" placeholder="Please enter keyword...">
+                                    </div>
+                                    
+                                    <div class="span2">
+                                        <button class="btn btn-primary" id="btn-search"> Search</button>
+
+                                    </div>
+                                    
+                                    
+                                </div>
+
+                                <div class="row-fluid loading" style="display:none">
+                                    <div class="span10 offset1">
+                                        <img style="height:100px;" src="img/loading.gif" alt="loading">
+                                    </div>
+                                </div>
+
+                                <div class="row-fluid result_wrapper">
                                     <div class="span12">
-                                        <div id="accordion4" class="accordion">
+                                        <div id="accordion3" class="accordion">
                                             <div class="accordion-group">
                                                 <div class="accordion-heading">
-                                                    <a class="accordion-toggle" data-toggle="collapse" href="#statements" data-original-title="">
-                                                        <i class="icon-list-alt icon-white"></i> <span class="divider-vertical"></span> Frenquent Hashtags <i class="icon-chevron-down icon-white pull-right"></i>
+                                                    <a class="accordion-toggle" data-toggle="collapse" href="#notification" data-original-title="">
+                                                        <i class="fa fa-smile-o"></i> <span class="divider-vertical"></span> Positive Sentiment - <span class="badge badge-info lblKeyword"></span> <i class="icon-chevron-down icon-white pull-right"></i>
                                                     </a>
                                                 </div>
-                                                <div id="statements" class="accordion-body collapse in">
-                                                    <div id="personProfileD3" class="accordion-inner paddind">
-                                                               <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-              <h1 id = 'titile'> </h1>
+                                                <div id="notification" class="accordion-body collapse in">
+                                                    <div class="accordion-inner paddind">
+                                                        <div id="chart_postive" class="span12"></div>
 
-                <script src="http://d3js.org/d3.v3.min.js"></script>
-                <script src="js/report.js"></script>
-                     <script>
-
-
-                    var diameter = 900,
-                            format = d3.format(",d"),
-                            color = d3.scale.category20c();
-
-                    var bubble = d3.layout.pack()
-                            .sort(null)
-                            .size([diameter, diameter])
-                            .padding(1.5);
-
-                    var svg = d3.select("body").append("svg")
-                            .attr("width", diameter)
-                            .attr("height", diameter)
-                            .attr("class", "bubble");
-
-//                    var jsonData = $.ajax({
-//                        url: "/tweetHourReport",
-//                        dataType: "json",
-//                        async: false
-//                    }).responseText;
-
-                    var QueryString = function () {
-                        // This function is anonymous, is executed immediately and
-                        // the return value is assigned to QueryString!
-                        var query_string = {};
-                        var query = window.location.search.substring(1);
-                        var vars = query.split("&");
-                        for (var i=0;i<vars.length;i++) {
-                            var pair = vars[i].split("=");
-                            // If first entry with this name
-                            if (typeof query_string[pair[0]] === "undefined") {
-                                query_string[pair[0]] = pair[1];
-                                // If second entry with this name
-                            } else if (typeof query_string[pair[0]] === "string") {
-                                var arr = [ query_string[pair[0]], pair[1] ];
-                                query_string[pair[0]] = arr;
-                                // If third or later entry with this name
-                            } else {
-                                query_string[pair[0]].push(pair[1]);
-                            }
-                        }
-                        return query_string;
-                    } ();
-
-                    document.getElementById('titile').innerHTML = decodeURI(QueryString.name) + " frequent hashtags:";
-
-                    jQuery.ajax({
-                        type: "GET",
-                        url: "/hashtagsByName?screen_name=" + QueryString.screen_name,
-                        cache: false,
-                        success: function(root){
-                            console.log(root);
-                            if(root.length == 0) {
-                                return;
-                            }
-                            var node = svg.selectAll(".node")
-                                    .data(bubble.nodes(classes(root))
-                                            .filter(function(d) { return !d.children; }))
-                                    .enter().append("g")
-                                    .attr("class", "node")
-                                    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-                            node.append("title")
-                                    .text(function(d) { return d.className + ": " + format(d.value); });
-
-                            node.append("circle")
-                                    .attr("r", function(d) { return d.r; })
-                                    .style("fill", function(d) { return color(d.packageName); });
-
-                            node.append("text")
-                                    .attr("dy", ".3em")
-                                    .style("text-anchor", "middle")
-                                    .text(function(d) { return d.className.substring(0, d.r / 3); });
-                        }
-                    });
-
-                    function classes(root) {
-                        var classes = [];
-
-                        function recurse(name, node) {
-                            if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-                            else classes.push({packageName: name, className: node.name, value: node.size});
-                        }
-
-                        recurse(null, root);
-                        return {children: classes};
-                    }
-
-                    d3.select(self.frameElement).style("height", diameter + "px");
-                </script>
-
-            </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -322,6 +202,28 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <div class="row-fluid result_wrapper">
+                                    <div class="span12">
+                                        <div id="accordion3" class="accordion">
+                                            <div class="accordion-group">
+                                                <div class="accordion-heading">
+                                                    <a class="accordion-toggle" data-toggle="collapse" href="#notification" data-original-title="">
+                                                        <i class="fa fa-frown-o"></i> <span class="divider-vertical"></span> Negative Sentiment - <span class="badge badge-info lblKeyword"></span> <i class="icon-chevron-down icon-white pull-right"></i>
+                                                    </a>
+                                                </div>
+                                                <div id="notification" class="accordion-body collapse in">
+                                                    <div class="accordion-inner paddind">
+                                                        <div id="chart_negative" class="span12"></div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -342,6 +244,155 @@
         <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-colorpicker.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                Highcharts.setOptions({ colors: ['#1C4989','#F7BF30','#D22337','#59A845','#97CADF','#FDE785','#F5A8B2','#A2CEA3','#EACE89','#1C4989','#F7BF30','#D22337','#59A845','#97CADF','#FDE785','#F5A8B2','#A2CEA3','#EACE89','#1C4989','#F7BF30','#D22337','#59A845','#97CADF','#FDE785','#F5A8B2','#A2CEA3','#EACE89','#1C4989','#F7BF30','#D22337','#59A845','#97CADF','#FDE785','#F5A8B2','#A2CEA3','#EACE89'] }); 
+
+                $('.togglemenuleft').click(function(){
+                    $('#menu-left').toggleClass('span1');
+                    $('#menu-left').toggleClass('icons-only');
+                    $('#menu-left').toggleClass('span3');
+                    $('#content').toggleClass('span9');
+                    $('#content').toggleClass('span11');
+                    $(this).find('i').toggleClass('icon-circle-arrow-right');
+                    $(this).find('i').toggleClass('icon-circle-arrow-left');
+                    $('#menu-left').find('span').toggle();
+                    $('#menu-left').find('.dropdown').toggle();
+                });
+
+                $('#menu-left a').click(function(){
+                    $('#menu-left').find('a').removeClass('active');
+                    $(this).addClass('active');
+                });
+                // switch style 
+
+                $(".switcher").click(function(){
+                    if($(this).find('i').hasClass('icon-circle-arrow-right'))
+                    $('.theme').animate({left:'0px'},500);
+                    else
+                    $('.theme').animate({left:'-89'},500);
+
+                    $(this).find('i').toggleClass('icon-circle-arrow-right');
+                    $(this).find('i').toggleClass('icon-circle-arrow-left');
+                });
+                // colorpicker
+                $('#cp1').colorpicker({
+                    format: 'hex'
+                });
+                $('#cp2').colorpicker();
+
+                $('#cp3').colorpicker();
+
+                var bodyStyle = $('body')[0].style;
+                $('#cp4').colorpicker().on('changeColor', function(ev){
+                    bodyStyle.backgroundColor = ev.color.toHex();
+                });
+                $('a.style').click(function(){
+                    var style = $(this).attr('href');
+                    $('.links-css').attr('href','css/' + style);
+                    return false;
+                });
+
+
+                //New codes
+                $('#btn-search').click(function(){
+                    $(".loading").css("display","block");
+                    
+                    $(".result_wrapper").css("display","none");
+                    $(".lblKeyword").html($("#txtKeyword").val());
+                    
+                    PopulateKeywordChart();
+                    
+                });
+
+            });
+
+            function PopulateKeywordChart()
+            {
+
+                $.ajax({
+                    url : "/tweetSentimentByKeyword?keyword=" + $("#txtKeyword").val(),
+                    type: "GET",
+                    success: function(result)
+                    {
+                        PopulatePositiveChart(result);
+                        PopulateNegativeChart(result);
+                        $(".loading").css("display","none");
+                        $(".result_wrapper").css("display","block");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
+                        alert("Something went wrong!");
+                    }
+                });
+            }
+            function PopulatePositiveChart(data)
+            {
+                $('#chart_postive').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories: data.categories
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Counts'
+                        }
+                    },
+                    legend: {
+                        reversed: true
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: data.positive_series
+                });
+            }
+
+            function PopulateNegativeChart(data)
+            {
+                $('#chart_negative').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories: data.categories
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Counts'
+                        }
+                    },
+                    legend: {
+                        reversed: true
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: data.positive_series
+                });
+            }
+        </script>
+
         
     </body>
 </html>

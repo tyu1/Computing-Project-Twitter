@@ -405,7 +405,7 @@ exports.followedBy = function (req, res) {
 
 exports.weekdayReport = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'ActivenessDuringWeek', params, function (err, body) {
         var weekdays = [];
         if (!err) {
@@ -425,7 +425,7 @@ exports.weekdayReport = function (req, res) {
 
 exports.tweetSourceReport = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'tweet_source', params, function (err, body) {
         var tweetSource = [];
         if (!err) {
@@ -442,7 +442,7 @@ exports.tweetSourceReport = function (req, res) {
 
 exports.tweetHourReport = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'tweet_time', params, function (err, body) {
         var list = [];
         if (!err) {
@@ -460,7 +460,7 @@ exports.tweetHourReport = function (req, res) {
 exports.tweetHourByNameReport = function (req, res) {
     var screenName = req.query.screen_name;
     var params = {group_level: 2, startkey: [screenName, 0],  endkey: [screenName, 23]};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'tweet_time_by_name', params, function (err, body) {
         var list = [];
         if (!err) {
@@ -480,7 +480,7 @@ exports.frequentWordsByName = function (req, res) {
 
     var screenName = req.query.screen_name;
     var params = {key: screenName};
-    var politicianRelationshipDB = nano.use('politicians');
+    var politicianRelationshipDB = nano.use('politician');
     politicianRelationshipDB.view('analysis', 'tweets_by_name', params, function (err, body) {
 
         var wordsMap = {};
@@ -562,7 +562,7 @@ exports.hashtagsByName = function (req, res) {
 
     var screenName = req.query.screen_name;
     var params = {key: screenName};
-    var politicianRelationshipDB = nano.use('politicians');
+    var politicianRelationshipDB = nano.use('politician');
     politicianRelationshipDB.view('analysis', 'tweets_by_name', params, function (err, body) {
 
         var wordsMap = {};
@@ -646,7 +646,7 @@ exports.mentionedPeopleByName = function (req, res) {
 
     var screenName = req.query.screen_name;
     var params = {key: screenName};
-    var politicianRelationshipDB = nano.use('politicians');
+    var politicianRelationshipDB = nano.use('politician');
     politicianRelationshipDB.view('analysis', 'tweets_by_name', params, function (err, body) {
 
         var wordsMap = {};
@@ -725,7 +725,7 @@ exports.mentionedPeopleByName = function (req, res) {
 exports.tweetSentiment2ByKeyword = function (req, res) {
     var keyword = req.query.keyword;
    // var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
 
 
     politicianDB.view('analysis', 'tweets_sentiment', function (err, body) {
@@ -895,37 +895,118 @@ exports.publicTweetsSentimentTimeChange = function (req, res) {
 exports.tweetSentimentByKeyword = function (req, res) {
     var keyword = req.query.keyword;
 
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
 
     var params = {group_level: 1};
-    politicianDB.view('analysis', 'tweets', params, function (err, body) {
-        var list = [];
-        var positiveNum = 0;
-        var negativeNum = 0;
+    politicianDB.view('analysis', 'tweet_sentiment', function (err, body) {
+
+        var liberal_positiveNum = 0;
+        var liberal_negativeNum = 0;
+
+        var labor_positiveNum = 0;
+        var labor_negativeNum = 0;
+
+        var green_positiveNum = 0;
+        var green_negativeNum = 0;
+
+        var nationals_positiveNum = 0;
+        var nationals_negativeNum = 0;
+
+        var categories =["2009","2010","2011","2012","2013","2014"];
+        var positive_data_groupbyYear = {"2009":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2010":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2011":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2012":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2013":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2014":{"liberal": 0, "labor": 0, "green":0, "nationals": 0}
+                                };
+
+        var negative_data_groupbyYear = {"2009":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2010":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2011":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2012":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2013":{"liberal": 0, "labor": 0, "green":0, "nationals": 0},
+                                "2014":{"liberal": 0, "labor": 0, "green":0, "nationals": 0}
+                                };
+
+
         if (!err) {
 
             body.rows.forEach(function (doc) {
                 //console.log(doc);
                 if(doc.key.toLowerCase().indexOf(keyword.toLowerCase()) > -1) {
-                    list.push(doc.key);
+                    //console.log(doc.value);
+                    //
+                    categories.forEach(function (year) {
+                        if(doc.value[1]!=null && doc.value[1].toLowerCase() == "liberal" && doc.value[2].split(" ")[5]==year)
+                        {
+                            if(doc.value[0]==1)
+                            {
+                                positive_data_groupbyYear[year]["liberal"] += 1;
+                            }
+                            else
+                            {
+                                negative_data_groupbyYear[year]["liberal"] += 1;
+                            }
+                        }
+                        else if(doc.value[1]!=null && doc.value[1].toLowerCase() == "labor"&& doc.value[2].split(" ")[5]==year)
+                        {
+                            if(doc.value[0]==1)
+                            {
+                                positive_data_groupbyYear[year]["labor"] += 1;
+                            }
+                            else
+                            {
+                                negative_data_groupbyYear[year]["labor"] += 1;
+                            }
+                        }
+                        else if(doc.value[1]!=null && doc.value[1].toLowerCase() == "green"&& doc.value[2].split(" ")[5]==year)
+                        {
+                            if(doc.value[0]==1)
+                            {
+                                positive_data_groupbyYear[year]["green"] += 1;
+                            }
+                            else
+                            {
+                                negative_data_groupbyYear[year]["green"] += 1;
+                            }
+                        }
+                        else if(doc.value[1]!=null && doc.value[1].toLowerCase() == "nationals"&& doc.value[2].split(" ")[5]==year)
+                        {
+                            if(doc.value[0]==1)
+                            {
+                                positive_data_groupbyYear[year]["nationals"] += 1;
+                            }
+                            else
+                            {
+                                negative_data_groupbyYear[year]["nationals"] += 1;
+                            }
+                        }
+                        
+                    });
+                    
                 }
             });
+            
+            var positive_series = [];
+            var negative_series = [];
 
-            natural.BayesClassifier.load('classifier1.json', null, function(err, classifier) {
-                _.each(list, function(text){
-                    if(classifier.classify(text) == 1 ) {
-                        positiveNum += 1;
-                    } else {
-                        negativeNum += 1;
-                    }
+            var party_array = ["liberal", "labor", "green", "nationals"];
+            party_array.forEach(function (party_name) {
+                var dataPositive_forParty = [];
+                var dataNegative_forParty = [];
+                categories.forEach(function (year) {
+                    dataPositive_forParty.push(positive_data_groupbyYear[year][party_name]);
+                    dataNegative_forParty.push(negative_data_groupbyYear[year][party_name]);
                 });
-                res.send(200, [["positive",positiveNum],["negative", negativeNum]]);
+                positive_series.push({name:party_name, data: dataPositive_forParty});
+                negative_series.push({name:party_name, data: dataNegative_forParty});
             });
-            //console.log(list);
+
+            res.send(200, {categories:categories,positive_series:positive_series,negative_series:negative_series});
 
         } else {
             console.log(err);
-            res.send(200, []);
         }
     });
 };
@@ -935,7 +1016,7 @@ exports.tweetSentimentByKeyword = function (req, res) {
 
 exports.geoLocation = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'geolocation',  function (err, body) {
         var list = [];
         if (!err) {
