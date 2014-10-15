@@ -261,7 +261,7 @@ exports.followedBy = function (req, res) {
 
 exports.weekdayReport = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'ActivenessDuringWeek', params, function (err, body) {
         var weekdays = [];
         if (!err) {
@@ -281,7 +281,7 @@ exports.weekdayReport = function (req, res) {
 
 exports.tweetSourceReport = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'tweet_source', params, function (err, body) {
         var tweetSource = [];
         if (!err) {
@@ -298,7 +298,7 @@ exports.tweetSourceReport = function (req, res) {
 
 exports.tweetHourReport = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'tweet_time', params, function (err, body) {
         var list = [];
         if (!err) {
@@ -316,7 +316,7 @@ exports.tweetHourReport = function (req, res) {
 exports.tweetHourByNameReport = function (req, res) {
     var screenName = req.query.screen_name;
     var params = {group_level: 2, startkey: [screenName, 0],  endkey: [screenName, 23]};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'tweet_time_by_name', params, function (err, body) {
         var list = [];
         if (!err) {
@@ -336,7 +336,7 @@ exports.frequentWordsByName = function (req, res) {
 
     var screenName = req.query.screen_name;
     var params = {key: screenName};
-    var politicianRelationshipDB = nano.use('politicians');
+    var politicianRelationshipDB = nano.use('politician');
     politicianRelationshipDB.view('analysis', 'tweets_by_name', params, function (err, body) {
 
         var wordsMap = {};
@@ -418,7 +418,7 @@ exports.hashtagsByName = function (req, res) {
 
     var screenName = req.query.screen_name;
     var params = {key: screenName};
-    var politicianRelationshipDB = nano.use('politicians');
+    var politicianRelationshipDB = nano.use('politician');
     politicianRelationshipDB.view('analysis', 'tweets_by_name', params, function (err, body) {
 
         var wordsMap = {};
@@ -502,7 +502,7 @@ exports.mentionedPeopleByName = function (req, res) {
 
     var screenName = req.query.screen_name;
     var params = {key: screenName};
-    var politicianRelationshipDB = nano.use('politicians');
+    var politicianRelationshipDB = nano.use('politician');
     politicianRelationshipDB.view('analysis', 'tweets_by_name', params, function (err, body) {
 
         var wordsMap = {};
@@ -581,7 +581,7 @@ exports.mentionedPeopleByName = function (req, res) {
 exports.tweetSentiment2ByKeyword = function (req, res) {
     var keyword = req.query.keyword;
    // var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
 
 
     politicianDB.view('analysis', 'tweets_sentiment', function (err, body) {
@@ -821,7 +821,7 @@ exports.tweetSentimentByKeyword = function (req, res) {
 
 exports.geoLocation = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('politicians');
+    var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'geolocation',  function (err, body) {
         var list = [];
         if (!err) {
