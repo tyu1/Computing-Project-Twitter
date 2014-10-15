@@ -30,7 +30,7 @@ App.Politician = DS.Model.extend({
         return 'tweet_time_by_name_report.html?screen_name=' + this.get('screen_name')+ "&name=" + this.get('name');
     }.property('screen_name', 'name'),
     sentiment_url: function() {
-        return 'keyword_index_grouped_by_politician.html?screen_name=' + this.get('screen_name')+ "&name=" + this.get('name');
+        return 'keyword_index_grouped_by_politician.html?screenName=' + this.get('screen_name')+ "&name=" + this.get('name');
     }.property('screen_name', 'name'),
     average_tweet: function() {
         var today = moment(new Date());
