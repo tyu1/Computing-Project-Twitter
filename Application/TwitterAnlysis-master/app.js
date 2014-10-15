@@ -61,6 +61,9 @@ app.get('/publicTweetSource', politician.publicTweetSource);
 app.get('/publicTweetsSentiment', politician.publicTweetsSentiment);
 app.get('/publicTweetsSentimentTimeChange', politician.publicTweetsSentimentTimeChange)
 
+app.get('/tweetSentimentByKeywordAndPolitician',politician.tweetSentimentByKeywordAndPolitician);
+app.get('/tweetSentimentOverview',politician.tweetSentimentOverview);
+
 
 app.param('politicianId', politician.politician);
 

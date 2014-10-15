@@ -11,22 +11,15 @@ var natural = require('natural'),
     tokenizer = new natural.WordTokenizer(),
     _ = require('lodash');
 
-var liberalPoliticians = ['TonyAbbottMHR', 'SenatorAbetz', 'JohnAlexanderMP', 'KarenAndrewsMP', 'senatorback', 'bobbaldwinmp', 'GuyBarnett', 'corybernardi', 'Birmo',
-    'JulieBishopMP', 'SenatorSue', 'BriggsJamie', 'SenatorBushby', 'steveciobo', 'richardmcolbeck', 'helencoonan', 'MathiasCormann', 'PeterDutton_MP', 'pilbaraboy', 'paulwfletcher',
-    'JoshFrydenberg', 'JoGash', 'NatashaGriggsMP', 'AlexHawkeMP', 'JoeHockey', 'garyhumphries', 'GregHuntMP', 'SteveIronsMP', 'DennisJensenMP', 'EwenforHerbert', 'Craig4Hughes',
-    'AndrewLamingMP', 'sussanley', 'LouiseMarkusMP', 'RussellMatheson', 'ScottMorrisonMP', 'KellyODwyer', 'AndrewRobbMP', 'stuartrobertmp', 'Wyatt_Roy_MP', 'patrickseckermp',
-    'TonySmithMP', 'asouthcottmp', 'SharmanStone', 'DanTehanWannon', 'AlanTudgeMP', 'TurnbullMalcolm', 'BertVanManen', 'KenWyattMP', 'kevinandrewsmp', 'BruceBillsonMP', 'greghuntmp', 'michaelkeenanmp'
-];
-
-var laborPoliticians = ['Mark_Arbib', 'SharonBirdMP', 'Bowenchris',  'Tony_Burke', 'NickChampionMP', 'JasonClareMP', 'trishcrossin', 'KateEllisMP', 'fitzhunter',
-    'stevegeorganas', 'JuliaGillard', 'JillHallMP', 'edhusicMP', 'stephenjonesALP', 'MikeKellyMP', 'CatherineKingMP', 'KateLundy', 'RobMitchellMP',
-    'ShayneNeumannMP', 'Deborah_ONeill', 'JulieOwensMP', 'Louise_Pratt', 'bernieripollmp', 'AmandaRishworth', 'JanelleSaffin', 'SenNickSherry', 'billshortenmp', 'ursulastephens',
-    'DobellThommo', 'KelvinThomsonMP', 'MrKRudd','DBradbury1021','pgarrett',  'SteveGibbonsXMP'
-];
-
-var greenPoliticians = ['AdamBandt', 'BobBrownFndn', 'sarahinthesen8', 'SenatorLudlam', 'senatormilne', 'SenatorSiewert'];
-
-var nationalsPoliticians = ['GChristensenMP', 'Barnaby_Joyce', 'SenatorWacka', 'DarrenChesterMP', 'M_McCormackMP'];
+var liberalPoliticians = ['LouiseAsherMP','TedBaillieu','RobertClarkMP','PhilipDaviesMP','MatthewGuyMP','DavidHodgettMP',
+                          'WendyLovellMP','TerryMulderMP','Vic_Premier','michaelobrienmp','ODonohueMLC','RichPhillipsMLC',
+                           'RyanSmithMP','heidivic','NickWakelingMP','KimWellsMP','Mary_Wooldridge'];
+var laborPoliticians = ['JacintaAllanMP','DanielAndrewsMP','JBrumby','LilyDAmbrosioMP','LukeDonnellan','johnerenmp','MartinFoleyMP',
+                        'DanielleGreenMP','JoeHelper1','JillHennessyMP','SteveHerbertMP','Tim_Holding','HullsRob','NatHutchins',
+                        'GavinJennings','JohnLendersMP','JMaddenMP','JamesMerlinoMP','JennyMikakos','maxVmor','LisanevilleMP','wadenoonan',
+                        'MartinPakulaMP','timpallas','Bronwyn_Pike','RichardsonFiona','AdemSomyurek','BrianTeeMP','rwynnemp'];
+var greenPoliticians = ['GregMLC','ColleenHartland','sueMLC'];
+var nationalsPoliticians = ['TimBullMP','HughDelahunty','DDrumMP','RussellNortheMP','JPowellMP','peterryanMP','PeterWalshMP'];
 
 exports.list = function (req, res) {
     var params = {include_docs: true};
@@ -459,7 +452,7 @@ exports.tweetHourReport = function (req, res) {
 
 exports.tweetHourByNameReport = function (req, res) {
     var screenName = req.query.screen_name;
-    var params = {group_level: 2, startkey: [screenName, 0],  endkey: [screenName, 23]};
+    var params = {group_level: 2};
     var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'tweet_time_by_name', params, function (err, body) {
         var list = [];
@@ -1011,6 +1004,105 @@ exports.tweetSentimentByKeyword = function (req, res) {
     });
 };
 
+
+exports.tweetSentimentByKeywordAndPolitician = function (req, res) {
+    var keyword = req.query.keyword;
+    var politician_screen_name = req.query.screenName;
+
+    var politicianDB = nano.use('politician');
+
+    var params = {startkey: [politician_screen_name], endkey:[politician_screen_name,{}]};
+
+
+    politicianDB.view('analysis', 'tweets_sentiment_by_name', params, function (err, body) {
+        if (!err) {
+            var categories =["2009","2010","2011","2012","2013","2014"];
+
+            var positive_counts_array = {"2009": 0, "2010": 0, "2011":0, "2012": 0, "2013": 0, "2014": 0};
+            var negative_counts_array = {"2009": 0, "2010": 0, "2011":0, "2012": 0, "2013": 0, "2014": 0};
+
+            body.rows.forEach(function (doc) {
+                
+                if(doc.value[1].toLowerCase().indexOf(keyword.toLowerCase()) > -1) {
+
+                    if(doc.value[0] == 1 && categories.indexOf(doc.value[2].split(" ")[5]) > -1)
+                    {
+                        positive_counts_array[doc.value[2].split(" ")[5]] ++;
+                    }
+                    if(doc.value[0] == 0&& categories.indexOf(doc.value[2].split(" ")[5]) > -1)
+                    {
+                        negative_counts_array[doc.value[2].split(" ")[5]] ++;
+                    }
+                
+                }
+            });
+
+            var positive_series = [];
+            var negative_series = [];
+
+            for(var positive_counts_obj in positive_counts_array) {
+              positive_series.push(positive_counts_array[positive_counts_obj]);
+            }
+
+            for(var negative_counts_obj in negative_counts_array) {
+              negative_series.push(negative_counts_array[negative_counts_obj]);
+            }
+
+            var final_series_data = [{name: 'Positive',data: positive_series},{name: 'Negative',data: negative_series}];
+
+            
+            res.send(200, {categories:categories,final_series_data:final_series_data});
+        } else {
+            console.log(err);
+        }
+    });
+};
+
+exports.tweetSentimentOverview = function (req, res) {
+
+    var politicianDB = nano.use('politician');
+
+    politicianDB.view('analysis', 'tweet_sentiment', function (err, body) {
+        if (!err) {
+            var categories =["2009","2010","2011","2012","2013","2014"];
+
+            var positive_counts_array = {"2009": 0, "2010": 0, "2011":0, "2012": 0, "2013": 0, "2014": 0};
+            var negative_counts_array = {"2009": 0, "2010": 0, "2011":0, "2012": 0, "2013": 0, "2014": 0};
+
+            body.rows.forEach(function (doc) {
+                
+                    if(doc.value[0] == 1 && categories.indexOf(doc.value[2].split(" ")[5]) > -1)
+                    {
+                            positive_counts_array[doc.value[2].split(" ")[5]] ++;
+                    }
+                    if(doc.value[0] == 0 && categories.indexOf(doc.value[2].split(" ")[5]) > -1)
+                    {
+                        negative_counts_array[doc.value[2].split(" ")[5]] ++;
+                    }
+                
+            });
+
+            var positive_series = [];
+            var negative_series = [];
+
+            for(var positive_counts_obj in positive_counts_array) {
+              positive_series.push(positive_counts_array[positive_counts_obj]);
+            }
+
+            for(var negative_counts_obj in negative_counts_array) {
+              negative_series.push(negative_counts_array[negative_counts_obj]);
+            }
+
+            var final_series_data = [{name: 'Positive',data: positive_series},{name: 'Negative',data: negative_series}];
+
+            
+            res.send(200, {categories:categories,final_series_data:final_series_data});
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
+};
 
 
 
