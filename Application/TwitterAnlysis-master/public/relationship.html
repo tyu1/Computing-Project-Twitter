@@ -1,130 +1,301 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <head>
+        <meta charset="utf-8">
+        <title>Frequent Words By Name</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-
-    <title>Relationship</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
-    <script src="js/libs/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-
-        var QueryString = function () {
-            // This function is anonymous, is executed immediately and
-            // the return value is assigned to QueryString!
-            var query_string = {};
-            var query = window.location.search.substring(1);
-            var vars = query.split("&");
-            for (var i=0;i<vars.length;i++) {
-                var pair = vars[i].split("=");
-                // If first entry with this name
-                if (typeof query_string[pair[0]] === "undefined") {
-                    query_string[pair[0]] = pair[1];
-                    // If second entry with this name
-                } else if (typeof query_string[pair[0]] === "string") {
-                    var arr = [ query_string[pair[0]], pair[1] ];
-                    query_string[pair[0]] = arr;
-                    // If third or later entry with this name
-                } else {
-                    query_string[pair[0]].push(pair[1]);
-                }
+        <!-- Le styles -->
+            <!-- bootstrap css -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+            <!-- base css -->
+        <link class="links-css" href="css/base.css" rel="stylesheet">
+            <!-- elements page css -->
+        <link href="css/elements.css" rel="stylesheet">
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
             }
-            return query_string;
-        } ();
+            .sidebar-nav {
+                padding: 9px 0;
+            }
 
-        console.log(QueryString.screen_name);
-        google.load("visualization", "1", {packages: ["orgchart"]});
-        google.setOnLoadCallback(drawChart);
+        </style>
+            <!-- colorpicker css -->
+       <link href="css/colorpicker.css" rel="stylesheet">
+            <!-- bootstrap responsive css -->
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+            <!-- media queries css -->
+        <link href="css/media-fluid.css" rel="stylesheet">
 
-        function drawChart() {
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-colorpicker.js"></script>
+        <script src="js/d3.js"></script>
+        <script src="js/d3.layout.cloud.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
 
-            console.log('drawChart');
-            var jsonData = $.ajax({
-                url: "/followedBy?screen_name=" + QueryString.screen_name + "&party=" + QueryString.party,
-                dataType: "json",
-                async: false
-            }).responseText;
+            var QueryString = function () {
+                // This function is anonymous, is executed immediately and
+                // the return value is assigned to QueryString!
+                var query_string = {};
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    // If first entry with this name
+                    if (typeof query_string[pair[0]] === "undefined") {
+                        query_string[pair[0]] = pair[1];
+                        // If second entry with this name
+                    } else if (typeof query_string[pair[0]] === "string") {
+                        var arr = [ query_string[pair[0]], pair[1] ];
+                        query_string[pair[0]] = arr;
+                        // If third or later entry with this name
+                    } else {
+                        query_string[pair[0]].push(pair[1]);
+                    }
+                }
+                return query_string;
+            } ();
 
-            var obj = jQuery.parseJSON(jsonData);
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Name');
-            data.addColumn('string', 'Manager');
-            data.addColumn('string', 'ToolTip');
-            data.addRows(obj);
+            console.log(QueryString.screen_name);
+            google.load("visualization", "1", {packages: ["orgchart"]});
+            google.setOnLoadCallback(drawChart);
 
-            var options = {
-                allowHtml:true
-            };
+            function drawChart() {
 
-            var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
+                console.log('drawChart');
+                var jsonData = $.ajax({
+                    url: "/followedBy?screen_name=" + QueryString.screen_name + "&party=" + QueryString.party,
+                    dataType: "json",
+                    async: false
+                }).responseText;
+                console.log(QueryString.screen_name);
+                var obj = jQuery.parseJSON(jsonData);
+                console.log(obj)
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Name');
+                data.addColumn('string', 'Manager');
+                data.addColumn('string', 'ToolTip');
+                data.addRows(obj);
+
+                var options = {
+                    allowHtml:true
+                };
+
+                var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
 
 
-    </script>
+        </script>
 
-</head>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.togglemenuleft').click(function(){
+                    $('#menu-left').toggleClass('span1');
+                    $('#menu-left').toggleClass('icons-only');
+                    $('#menu-left').toggleClass('span3');
+                    $('#content').toggleClass('span9');
+                    $('#content').toggleClass('span11');
+                    $(this).find('i').toggleClass('icon-circle-arrow-right');
+                    $(this).find('i').toggleClass('icon-circle-arrow-left');
+                    $('#menu-left').find('span').toggle();
+                    $('#menu-left').find('.dropdown').toggle();
+                });
 
-<body>
+                $('#menu-left a').click(function(){
+                    $('#menu-left').find('a').removeClass('active');
+                    $(this).addClass('active');
+                });
+                // switch style 
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Political Tweets Analysis</a>
+                $(".switcher").click(function(){
+                    if($(this).find('i').hasClass('icon-circle-arrow-right'))
+                    $('.theme').animate({left:'0px'},500);
+                    else
+                    $('.theme').animate({left:'-89'},500);
+
+                    $(this).find('i').toggleClass('icon-circle-arrow-right');
+                    $(this).find('i').toggleClass('icon-circle-arrow-left');
+                });
+                // colorpicker
+                $('#cp1').colorpicker({
+                    format: 'hex'
+                });
+                $('#cp2').colorpicker();
+
+                $('#cp3').colorpicker();
+
+                var bodyStyle = $('#personProfileD3')[0].style;
+                $('#cp4').colorpicker().on('changeColor', function(ev){
+                    bodyStyle.backgroundColor = ev.color.toHex();
+                });
+                $('a.style').click(function(){
+                    var style = $(this).attr('href');
+                    $('.links-css').attr('href','css/' + style);
+                    return false;
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="dashboard.html"><img src="img/logo-small.png" alt="logo" /></a>
+                    <ul class="nav pull-left bar-root">
+                        <li class="divider-vertical"></li>
+                        <li><a href="chat.html" ><i class="icon-comment icon-white"></i><span class="label label-important">6</span></a> </li>
+                        <li class="dropdown"><a href="#" data-toggle="dropdown" > <i class="icon-envelope icon-white"></i><span class="label label-important">5 new</span></a> 
+                            <ul class="dropdown-menu">
+                                <li><a href="inbox.html"><img src="img/small/thumb1.png" alt="" /> Subject : Project <p class='help-block'><small>From: ab.alhyane@gmail.com</small></p><span class="label">23/09/2012</span></a></li>
+                                <li class="divider"></li>
+                                <li><a href="inbox.html"><img src="img/small/thumb2.png" alt="" /> Subject : Film <p class='help-block'><small>From: ab.alhyane@gmail.com</small></p><span class="label">21/04/2012</span> </a></li>
+                                <li class="divider"></li>
+                                <li><a href="inbox.html"><img src="img/small/thumb3.png" alt="" /> Subject : Meeting <p class='help-block'><small>From: ab.alhyane@gmail.com</small></p><span class="label">20/02/2012</span></a></li>
+                                <li class="divider"></li>
+                                <li><a href="inbox.html"><img src="img/small/thumb4.png" alt="" /> Subject : Tasks <p class='help-block'><small>From: y.kostali@gmail.com</small></p><span class="label">19/01/2012</span></a></li>
+                                <li class="divider"></li>
+                                <li class="active"><a href="inbox.html"> Show All </a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="#" data-toggle="dropdown" > <i class="icon-refresh icon-white"></i><span class="label label-info">3 Updates</span></a> 
+                            <ul class="dropdown-menu">
+                                <li><a href="#"> Theme </a></li>
+                                <li><a href="#"> Components</a></li>
+                                <li><a href="#"> Plugins</a></li>
+                                <li class="divider"></li>
+                                <li class="active"><a href="#"> Show All </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="group-menu nav-collapse"> 
+                        <ul class="nav pull-right">
+                            <li class="divider-vertical"></li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" href="#">Salutations, Ab Alhyane <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+
+                                        <div class="modal-header">
+
+                                            <h3>Kostali Youssef - Admin</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="span1"><img src="img/avatar/photo.png" alt="avatar" /></div>
+                                                <div class="span3 pull-right">
+                                                    <h5>mail@gmail.com</h5>
+                                                    <a href="#" class="link-modal" >Account</a>  <a href="#" class="link-modal" >Settings-Privacy</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#" class="btn btn-info pull-left">Show my profile</a>
+                                            <a class="btn btn-info" href="login.html">Deconnexion</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form action="#" class="navbar-search pull-right">
+                            <input type="text" placeholder="Search" class="search-query span2" >
+                        </form>
+                    </div>
+
+                </div>
+            </div>
         </div>
-        <div class="navbar-collapse collapse">
 
-        </div>
-    </div>
-</div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div id="menu-left" class="span3">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
+                    <div  class="sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li><a href="dashboard.html"><i class="icon-th-large"></i><span> Dashboard</span></a></li>
+                            <li><a href="index.html"  class="current"><i class="icon-th"></i><span>Party Members</span></a></li>
+                            <li><a href="partyTweetTime.html"><i class="icon-list-alt"></i><span> Party Tweet Time Distro</span></a></li>
+                            <li><a href="tweetSource.html"><i class="icon-tasks"></i><span> Party Tweet Source Distro</span></a></li>
+                            <li><a href="keyword_index.html"><i class="icon-picture"></i><span> Party tweets Sentiment</span></a></li>
+                            <li><a href="follower.html"><i class="icon-align-center"></i><span> Follower Distro</span></a></li>
+                            <li><a href="retweet.html"><i class="icon-indent-left"></i><span> Retweet Distro</span></a></li>
+                            <li><a href="publicTweetsSourceTimeDistro.html"><i class="icon-gift"></i><span> Public Tweets Time/Source Distro</span></a></li>
+                            <li><a href="publicTweetsSentiment.html"><i class="icon-comment"></i><span> Publuc tweets Sentiment</span></a></li>
+                            <li><a href="publicTweetsSentimentTimeChange.html"><i class="icon-calendar"></i><span> Sentiment Time Change </span></a></li>
+                        </ul>
+                        <div class='togglemenuleft'><a class='toggle-menu'><i class="icon-circle-arrow-left icon-white"></i></a></div>
+                    </div>
+                </div>
+                <div id="content" class="span9 section-body">
 
-                <li><a href="index.html">Politician List</a></li>
-
-                <li ><a href="followers_count.html">Popular Politicians</a></li>
-                <li><a href="retweet_count.html">Most Retweeted Politicians</a></li>
-            </ul>
-
-            <ul class="nav nav-sidebar">
-
-                <li><a href="weekday_report.html">Tweet Weekday</a></li>
-                <li><a href="tweet_time_report.html">Tweet Time</a></li>
-                <li><a href="tweetsource_report.html">Tweet Source</a></li>
-                <li><a href="geolocation_report.html">Tweet Geolocation</a></li>
-
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href="tweet_sentiment.html">Tweet Sentiment</a></li>
-                <li><a href="tweet_sentiment2.html">Tweet Sentiment2</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <div id="section-body" class="tabbable">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <div id="accordion4" class="accordion">
+                                            <div class="accordion-group">
+                                                <div class="accordion-heading">
+                                                    <a class="accordion-toggle" data-toggle="collapse" href="#statements" data-original-title="">
+                                                        <i class="icon-list-alt icon-white"></i> <span class="divider-vertical"></span> People Mentioned<i class="icon-chevron-down icon-white pull-right"></i>
+                                                    </a>
+                                                </div>
+                                                <div id="statements" class="accordion-body collapse in">
+                                                    <div id="personProfileD3" class="accordion-inner paddind">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Followed By</h1>
             <div id="chart_div" style="width: 900px; height: 500px;"></div>
 
 
         </div>
-    </div>
-</div>
 
+            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-</body>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p><strong>&copy; Maniadmin 2012</strong></p>
+            </footer>
+           <div class="theme">
+                <h4>Style</h4>
+                    <a class="darkblue style" href="darkblue.css"></a>
+                    <a class="darkred style" href="darkred.css"></a>
+                    <a class="default style" href="base.css"></a>
+                     <a class="switcher" href="#"><i class="icon-circle-arrow-right"></i></a>
+            </div>
+        </div><!--/.fluid-container-->
+
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+    </body>
 </html>

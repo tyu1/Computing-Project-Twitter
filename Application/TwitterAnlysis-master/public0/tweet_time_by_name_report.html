@@ -46,7 +46,7 @@
                 return query_string;
             } ();
             //$("title").text(QueryString.name);
-            document.getElementById('title').innerHTML =  decodeURI(QueryString.name);
+            document.getElementById('title').innerHTML =  decodeURI(QueryString.name) + 'Tweet Time';
             console.log('drawChart');
             ajaxindicatorstart('loading data.. please wait..');
             var jsonData = $.ajax({
