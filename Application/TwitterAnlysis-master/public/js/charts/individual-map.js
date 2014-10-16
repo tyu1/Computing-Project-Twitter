@@ -24,6 +24,7 @@ function showPolygonAreaEdited(e) {
         showPolygonArea({ layer: layer });
     });
 }
+
 function showPolygonArea(e) {
     featureGroup.clearLayers();
     featureGroup.addLayer(e.layer);
@@ -37,7 +38,7 @@ function showPolygonArea(e) {
         geoJsonObject = e.layer.toGeoJSON(),
         objectType = geoJsonObject.geometry.type,
         coordinates = geoJsonObject.geometry.coordinates,
-        baseUrl = "http://115.146.85.249:5984/public/_design/main/_spatial/points?bbox=";
+        baseUrl = "http://115.146.85.249:5984/public/_design/map/_spatial/points?bbox=";
 
 //    var myIcon = L.AwesomeMarkers.icon({
 //        icon: 'twitter',
@@ -78,15 +79,37 @@ function showPolygonArea(e) {
         url: api,
         dataType: 'json',
         success: function (data) {
-            $.each(data.rows, function (index, value) {
-                var longitude = value.geometry.coordinates[0];
-                var latitude = value.geometry.coordinates[1];
-                var tweet = value.value[2];
-                var latlng = L.latLng(latitude, longitude);
-                var marker = L.marker(latlng).addTo(featureGroup);
+            var currentUserScreenName =  QueryString().screen_name;
 
-                marker.bindPopup(tweet);
+//            console.log(currentUserScreenName);
+            $.each(data.rows, function (index, value) {
+                var selectedAreaScreenName  = value.value[4];
+
+
+//                console.log(selectedAreaScreenName);
+
+                if (currentUserScreenName == selectedAreaScreenName) {
+                    console.log("1");
+//                    var longitude = value.geometry.coordinates[0];
+//                    var latitude = value.geometry.coordinates[1];
+//                    var tweet = value.value[2];
+//                    var latlng = L.latLng(latitude, longitude);
+//                    var marker = L.marker(latlng).addTo(featureGroup);
+//
+//                    marker.bindPopup(tweet);
+
+                }
+
             });
+//            $.each(data.rows, function (index, value) {
+//                var longitude = value.geometry.coordinates[0];
+//                var latitude = value.geometry.coordinates[1];
+//                var tweet = value.value[1];
+//                var latlng = L.latLng(latitude, longitude);
+//                var marker = L.marker(latlng).addTo(featureGroup);
+//
+//                marker.bindPopup(tweet);
+//            });
         },
         error: function (data) {
             console.log("error connection");
@@ -95,6 +118,31 @@ function showPolygonArea(e) {
 
 //    e.layer.openPopup();
 }
+
+function QueryString () {
+    // This function is anonymous, is executed immediately and
+    // the return value is assigned to QueryString!
+    var query_string = {};
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        // If first entry with this name
+        if (typeof query_string[pair[0]] === "undefined") {
+            query_string[pair[0]] = pair[1];
+            // If second entry with this name
+        } else if (typeof query_string[pair[0]] === "string") {
+            var arr = [ query_string[pair[0]], pair[1] ];
+            query_string[pair[0]] = arr;
+            // If third or later entry with this name
+        } else {
+            query_string[pair[0]].push(pair[1]);
+        }
+    }
+    return query_string;
+}
+
+document.getElementById('title').innerHTML = decodeURI(QueryString().name) + "\'s sentiment distribution on map";
 
 L.mapbox.featureLayer({
     type: 'Feature',
