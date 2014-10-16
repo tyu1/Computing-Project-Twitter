@@ -127,7 +127,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Retweet count percentage for party'
+                text: 'Retweet Region Distribution for Politician'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -223,7 +223,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Retweet count percentage(Labor)'
+                text: 'Retweet Region Distribution (Labor)'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -322,7 +322,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Retweet count percentage(Liberal)'
+                text: 'Retweet Region Distribution (Liberal)'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -419,7 +419,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Retweet count percentage(Nationals))'
+                text: 'Retweet Region Distribution (Nationals))'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -517,7 +517,7 @@ $(function () {
                 plotShadow: false
             },
             title: {
-                text: 'Retweet count percentage(Green))'
+                text: 'Retweet Region Distribution (Green))'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

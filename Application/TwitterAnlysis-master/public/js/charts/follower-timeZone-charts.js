@@ -74,10 +74,10 @@ $(function () {
                     type: 'bar'
                 },
                 title: {
-                    text: 'Historic World Population by Region'
+                    text: 'Follower Counts and Distribution (In or Out AU)'
                 },
                 subtitle: {
-                    text: 'Source: Wikipedia.org'
+                    text: ''
                 },
                 xAxis: {
                     categories: ['Green','Labor', 'Liberal', 'Nationals'],
@@ -88,7 +88,7 @@ $(function () {
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Population (millions)',
+                        text: 'Counts',
                         align: 'high'
                     },
                     labels: {
@@ -122,10 +122,10 @@ $(function () {
                     name: 'Total Number',
                     data: totalNumberArr
                 }, {
-                    name: 'Count In AU',
+                    name: 'Follower Count In AU',
                     data: inAUArr
                 }, {
-                    name: 'Count Not In AU',
+                    name: 'Follower Count Not In AU',
                     data: notInAUArr
                 }]
              

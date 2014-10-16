@@ -43,7 +43,7 @@ $(function () {
 
             $('#publicPartyTweetTime').highcharts({
                 title: {
-                    text: 'Public tweets Count On Each Party(hour)',
+                    text: 'Public tweets (on Politicians) Counts Across 24 Hours In a Day',
                     x: -20 //center
                 },
                 subtitle: {
@@ -142,7 +142,7 @@ $(function () {
                     plotShadow: false
                 },
                 title: {
-                    text: 'Browser<br>shares',
+                    text: 'Tweets Source',
                     align: 'center',
                     verticalAlign: 'middle',
                     y: 50
