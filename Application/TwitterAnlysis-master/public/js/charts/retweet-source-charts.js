@@ -44,7 +44,7 @@ $(function () {
                     type: 'column'
                 },
                 title: {
-                    text: 'Stacked column chart'
+                    text: 'Tweets Source Distribution For Each Party'
                 },
                 xAxis: {
                     categories: ['green', 'labor', 'liberal', 'nationals']
@@ -52,7 +52,7 @@ $(function () {
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Total fruit consumption'
+                        text: 'Source Distribution'
                     },
                     stackLabels: {
                         enabled: true,
@@ -162,7 +162,7 @@ $(function () {
                     plotShadow: false
                 },
                 title: {
-                    text: 'Browser<br>shares',
+                    text: 'Source Distribution',
                     align: 'center',
                     verticalAlign: 'middle',
                     y: 50

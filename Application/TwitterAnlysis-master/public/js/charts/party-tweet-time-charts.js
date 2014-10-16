@@ -61,7 +61,7 @@ $(function() {
                     plotShadow: false
                 },
                 title: {
-                    text: 'Politician In VIC'
+                    text: 'Politician Tweet Distribution During a Week'
                 },
                 tooltip: {
                     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -136,7 +136,7 @@ $(function () {
 
             $('#partyTweetTime').highcharts({
                 title: {
-                    text: 'Tweets Count for each party',
+                    text: 'Tweets Count Across 24 Hours For Each Party',
                     x: -20 //center
                 },
                 subtitle: {

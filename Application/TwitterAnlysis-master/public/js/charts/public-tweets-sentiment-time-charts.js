@@ -47,7 +47,7 @@ $(function () {
                 type: 'column'
             },
             title: {
-                text: 'Column chart with Pro Changing'
+                text: 'Public Attitude On Labor Changes From 2008 tu 2014 (Labor)'
             },
             xAxis: {
                 categories: ['2008', '2009', '2010', '2011', '2012', '2013', '2014']
@@ -115,7 +115,7 @@ $(function () {
                 type: 'column'
             },
             title: {
-                text: 'Column chart with Pro Changing'
+                text: 'Public Attitude On Labor Changes From 2008 tu 2014 (Liberal)'
             },
             xAxis: {
                 categories: ['2008', '2009', '2010', '2011', '2012', '2013', '2014']
@@ -180,7 +180,7 @@ $(function () {
                 type: 'column'
             },
             title: {
-                text: 'Column chart with Pro Changing'
+                text: 'Public Attitude On Labor Changes From 2008 tu 2014 (Green)'
             },
             xAxis: {
                 categories: ['2008', '2009', '2010', '2011', '2012', '2013', '2014']
@@ -245,7 +245,7 @@ $(function () {
                 type: 'column'
             },
             title: {
-                text: 'Column chart with Pro Changing'
+                text: 'Public Attitude On Labor Changes From 2008 tu 2014 (Nationals)'
             },
             xAxis: {
                 categories: ['2008', '2009', '2010', '2011', '2012', '2013', '2014']
