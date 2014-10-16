@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Frequent Words By Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <!-- bootstrap css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- base css -->
+    <link class="links-css" href="css/base.css" rel="stylesheet">
+    <!-- elements page css -->
+    <link href="css/elements.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+    </style>
+    <!-- colorpicker css -->
+    <link href="css/colorpicker.css" rel="stylesheet">
+    <!-- bootstrap responsive css -->
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- media queries css -->
+    <link href="css/media-fluid.css" rel="stylesheet">
+
+    <!-- mapbox css -->
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.3.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet' />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-colorpicker.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.3.0/mapbox-gl.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-geodesy/v0.1.0/leaflet-geodesy.js'></script>
+    <script src="https://raw.githubusercontent.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.min.js"></script>
+    <script src="js/d3.js"></script>
+    <script src="js/d3.layout.cloud.js"></script>
+    <script src="js/charts/map-charts.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.togglemenuleft').click(function(){
+                $('#menu-left').toggleClass('span1');
+                $('#menu-left').toggleClass('icons-only');
+                $('#menu-left').toggleClass('span3');
+                $('#content').toggleClass('span9');
+                $('#content').toggleClass('span11');
+                $(this).find('i').toggleClass('icon-circle-arrow-right');
+                $(this).find('i').toggleClass('icon-circle-arrow-left');
+                $('#menu-left').find('span').toggle();
+                $('#menu-left').find('.dropdown').toggle();
+            });
+
+            $('#menu-left a').click(function(){
+                $('#menu-left').find('a').removeClass('active');
+                $(this).addClass('active');
+            });
+            // switch style
+
+            $(".switcher").click(function(){
+                if($(this).find('i').hasClass('icon-circle-arrow-right'))
+                    $('.theme').animate({left:'0px'},500);
+                else
+                    $('.theme').animate({left:'-89'},500);
+
+                $(this).find('i').toggleClass('icon-circle-arrow-right');
+                $(this).find('i').toggleClass('icon-circle-arrow-left');
+            });
+            // colorpicker
+            $('#cp1').colorpicker({
+                format: 'hex'
+            });
+            $('#cp2').colorpicker();
+
+            $('#cp3').colorpicker();
+
+            var bodyStyle = $('#personProfileD3')[0].style;
+            $('#cp4').colorpicker().on('changeColor', function(ev){
+                bodyStyle.backgroundColor = ev.color.toHex();
+            });
+            $('a.style').click(function(){
+                var style = $(this).attr('href');
+                $('.links-css').attr('href','css/' + style);
+                return false;
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="dashboard.html"><img src="img/logo-small.png" alt="logo" /></a>
+            <ul class="nav pull-left bar-root">
+                <li class="divider-vertical"></li>
+                <li><a href="chat.html" ><i class="icon-comment icon-white"></i><span class="label label-important">6</span></a> </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" > <i class="icon-envelope icon-white"></i><span class="label label-important">5 new</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="inbox.html"><img src="img/small/thumb1.png" alt="" /> Subject : Project <p class='help-block'><small>From: ab.alhyane@gmail.com</small></p><span class="label">23/09/2012</span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="inbox.html"><img src="img/small/thumb2.png" alt="" /> Subject : Film <p class='help-block'><small>From: ab.alhyane@gmail.com</small></p><span class="label">21/04/2012</span> </a></li>
+                        <li class="divider"></li>
+                        <li><a href="inbox.html"><img src="img/small/thumb3.png" alt="" /> Subject : Meeting <p class='help-block'><small>From: ab.alhyane@gmail.com</small></p><span class="label">20/02/2012</span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="inbox.html"><img src="img/small/thumb4.png" alt="" /> Subject : Tasks <p class='help-block'><small>From: y.kostali@gmail.com</small></p><span class="label">19/01/2012</span></a></li>
+                        <li class="divider"></li>
+                        <li class="active"><a href="inbox.html"> Show All </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" > <i class="icon-refresh icon-white"></i><span class="label label-info">3 Updates</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"> Theme </a></li>
+                        <li><a href="#"> Components</a></li>
+                        <li><a href="#"> Plugins</a></li>
+                        <li class="divider"></li>
+                        <li class="active"><a href="#"> Show All </a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="group-menu nav-collapse">
+                <ul class="nav pull-right">
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href="#">Salutations, Ab Alhyane <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+
+                                <div class="modal-header">
+
+                                    <h3>Kostali Youssef - Admin</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="span1"><img src="img/avatar/photo.png" alt="avatar" /></div>
+                                        <div class="span3 pull-right">
+                                            <h5>mail@gmail.com</h5>
+                                            <a href="#" class="link-modal" >Account</a>  <a href="#" class="link-modal" >Settings-Privacy</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#" class="btn btn-info pull-left">Show my profile</a>
+                                    <a class="btn btn-info" href="login.html">Deconnexion</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form action="#" class="navbar-search pull-right">
+                    <input type="text" placeholder="Search" class="search-query span2" >
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div id="menu-left" class="span3">
+
+            <div  class="sidebar-nav">
+                <ul class="nav nav-list">
+                    <li><a href="dashboard.html"><i class="icon-th-large"></i><span> Dashboard</span></a></li>
+                    <li><a href="index.html"  class="current"><i class="icon-th"></i><span>Party Members</span></a></li>
+                    <li><a href="partyTweetTime.html"><i class="icon-list-alt"></i><span> Party Tweet Time Distro</span></a></li>
+                    <li><a href="tweetSource.html"><i class="icon-tasks"></i><span> Party Tweet Source Distro</span></a></li>
+                    <li><a href="keyword_index.html"><i class="icon-picture"></i><span> Party tweets Sentiment</span></a></li>
+                    <li><a href="follower.html"><i class="icon-align-center"></i><span> Follower Distro</span></a></li>
+                    <li><a href="retweet.html"><i class="icon-indent-left"></i><span> Retweet Distro</span></a></li>
+                    <li><a href="publicTweetsSourceTimeDistro.html"><i class="icon-gift"></i><span> Public Tweets Time/Source Distro</span></a></li>
+                    <li><a href="publicTweetsSentiment.html"><i class="icon-comment"></i><span> Publuc tweets Sentiment</span></a></li>
+                    <li><a href="publicTweetsSentimentTimeChange.html"><i class="icon-calendar"></i><span> Sentiment Time Change </span></a></li>
+                    <li><a href="map.html"><i class="icon-calendar"></i><span> Sentiment View On Map </span></a></li>
+                </ul>
+                <div class='togglemenuleft'><a class='toggle-menu'><i class="icon-circle-arrow-left icon-white"></i></a></div>
+            </div>
+        </div>
+        <div id="content" class="span9 section-body">
+
+            <div id="section-body" class="tabbable">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div id="accordion4" class="accordion">
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <a class="accordion-toggle" data-toggle="collapse" href="#statements" data-original-title="">
+                                                <i class="icon-list-alt icon-white"></i> <span class="divider-vertical"></span> People Mentioned<i class="icon-chevron-down icon-white pull-right"></i>
+                                            </a>
+                                        </div>
+                                        <div id="statements" class="accordion-body collapse in">
+                                            <div id="personProfileD3" class="accordion-inner paddind">
+                                                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                                                    <h1 id = 'title'> </h1>
+                                                    <div id="map" style="width:100%;height:500px;"></div>
+                                                    <script src="js/report.js"></script>
+                                                    <script src="js/charts/individual-map.js"></script>
+                                                    <!--<script>-->
+
+                                                        <!--var QueryString = function () {-->
+                                                            <!--// This function is anonymous, is executed immediately and-->
+                                                            <!--// the return value is assigned to QueryString!-->
+                                                            <!--var query_string = {};-->
+                                                            <!--var query = window.location.search.substring(1);-->
+                                                            <!--var vars = query.split("&");-->
+                                                            <!--for (var i=0;i<vars.length;i++) {-->
+                                                                <!--var pair = vars[i].split("=");-->
+                                                                <!--// If first entry with this name-->
+                                                                <!--if (typeof query_string[pair[0]] === "undefined") {-->
+                                                                    <!--query_string[pair[0]] = pair[1];-->
+                                                                    <!--// If second entry with this name-->
+                                                                <!--} else if (typeof query_string[pair[0]] === "string") {-->
+                                                                    <!--var arr = [ query_string[pair[0]], pair[1] ];-->
+                                                                    <!--query_string[pair[0]] = arr;-->
+                                                                    <!--// If third or later entry with this name-->
+                                                                <!--} else {-->
+                                                                    <!--query_string[pair[0]].push(pair[1]);-->
+                                                                <!--}-->
+                                                            <!--}-->
+                                                            <!--return query_string;-->
+                                                        <!--} ();-->
+
+                                                        <!--document.getElementById('title').innerHTML = decodeURI(QueryString.name) + "\'s sentiment distribution on map";-->
+                                                        <!--var fill = d3.scale.category20();-->
+
+                                                        <!--jQuery.ajax({-->
+                                                            <!--type: "GET",-->
+                                                            <!--url: "",-->
+                                                            <!--cache: true,-->
+                                                            <!--success: function(root) {-->
+
+                                                                <!--console.log(root);-->
+                                                            <!--}-->
+                                                        <!--});-->
+
+                                                        <!--function draw(words) {-->
+                                                            <!--d3.select("#personProfileD3").append("svg")-->
+                                                                    <!--.attr("width", 800)-->
+                                                                    <!--.attr("height", 900)-->
+                                                                    <!--.append("g")-->
+                                                                    <!--.attr("transform", "translate(150,150)")-->
+                                                                    <!--.selectAll("text")-->
+                                                                    <!--.data(words)-->
+                                                                    <!--.enter().append("text")-->
+                                                                    <!--.style("font-size", function(d) { return d.size + "px"; })-->
+                                                                    <!--.style("font-family", "Impact")-->
+                                                                    <!--.style("fill", function(d, i) { return fill(i); })-->
+                                                                    <!--.attr("text-anchor", "middle")-->
+                                                                    <!--.attr("transform", function(d) {-->
+                                                                        <!--return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";-->
+                                                                    <!--})-->
+                                                                    <!--.text(function(d) { return d.text; });-->
+                                                        <!--}-->
+
+                                                    <!--</script>-->
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p><strong>&copy; Maniadmin 2012</strong></p>
+    </footer>
+    <div class="theme">
+        <h4>Style</h4>
+        <a class="darkblue style" href="darkblue.css"></a>
+        <a class="darkred style" href="darkred.css"></a>
+        <a class="default style" href="base.css"></a>
+        <a class="switcher" href="#"><i class="icon-circle-arrow-right"></i></a>
+    </div>
+</div><!--/.fluid-container-->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+</body>
+</html>
