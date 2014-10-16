@@ -452,7 +452,8 @@ exports.tweetHourReport = function (req, res) {
 
 exports.tweetHourByNameReport = function (req, res) {
     var screenName = req.query.screen_name;
-    var params = {group_level: 2};
+    console.log(screenName);
+    var params = {group_level: 2, startkey: [screenName, 0],  endkey: [screenName, 23]};
     var politicianDB = nano.use('politician');
     politicianDB.view('analysis', 'tweet_time_by_name', params, function (err, body) {
         var list = [];
