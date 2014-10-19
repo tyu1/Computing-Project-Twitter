@@ -9,7 +9,7 @@ var politicianInfoDB = nano.use(dbName);
 var politicians = [];
 var natural = require('natural'),
     tokenizer = new natural.WordTokenizer(),
-    _ = require('lodash');
+    _ = require('underscore');
 
 var liberalPoliticians = ['LouiseAsherMP','TedBaillieu','RobertClarkMP','PhilipDaviesMP','MatthewGuyMP','DavidHodgettMP',
                           'WendyLovellMP','TerryMulderMP','Vic_Premier','michaelobrienmp','ODonohueMLC','RichPhillipsMLC',

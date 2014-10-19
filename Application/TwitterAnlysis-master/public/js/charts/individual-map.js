@@ -81,7 +81,7 @@ function showPolygonArea(e) {
         success: function (data) {
             var currentUserScreenName =  QueryString().screen_name;
 
-//            console.log(currentUserScreenName);
+            console.log(data);
             $.each(data.rows, function (index, value) {
                 var selectedAreaScreenName  = value.value[4];
 

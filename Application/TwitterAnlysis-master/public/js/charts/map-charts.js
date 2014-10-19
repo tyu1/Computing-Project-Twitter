@@ -82,10 +82,19 @@ function showPolygonArea(e) {
                 var longitude = value.geometry.coordinates[0];
                 var latitude = value.geometry.coordinates[1];
                 var tweet = value.value[2];
+                var sentiment = value.value[3];
                 var latlng = L.latLng(latitude, longitude);
                 var marker = L.marker(latlng).addTo(featureGroup);
-
-                marker.bindPopup(tweet);
+                console.log(value);
+                var sentimentValue;
+               if(sentiment === 1){
+                 sentimentValue = '||Positive||';
+               }else
+               {
+                sentimentValue = '||Negative||';
+               }
+               var finalPrint = tweet + ' ' + sentimentValue;
+                marker.bindPopup(finalPrint);
             });
         },
         error: function (data) {
