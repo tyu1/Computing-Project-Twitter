@@ -59,7 +59,8 @@ app.get('/partyTweetTimeDay', politician.partyTweetTimeDay);
 app.get('/publicPartyTweetTime', politician.publicPartyTweetTime);
 app.get('/publicTweetSource', politician.publicTweetSource);
 app.get('/publicTweetsSentiment', politician.publicTweetsSentiment);
-app.get('/publicTweetsSentimentTimeChange', politician.publicTweetsSentimentTimeChange)
+app.get('/publicTweetsSentimentTimeChange', politician.publicTweetsSentimentTimeChange);
+app.get('/coordinatesSentiment', politician.coordinatesSentiment);
 
 app.get('/tweetSentimentByKeywordAndPolitician',politician.tweetSentimentByKeywordAndPolitician);
 app.get('/tweetSentimentOverview',politician.tweetSentimentOverview);

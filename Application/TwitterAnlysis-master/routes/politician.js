@@ -61,6 +61,25 @@ exports.followerCounts = function (req, res) {
 };
 
 
+
+exports.coordinatesSentiment = function (req, res) {
+    var publicDB = nano.use('public');
+    publicDB.view('analysis', 'public_coordinates_sentiment', null, function (err, body) {
+        var followers = [];
+        if (!err) {
+            results = body.rows;
+
+            console.log(results);
+            res.send(200, results);
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
+};
+
+
+
 exports.partyDistro = function (req, res) {
     var params = {group_level: 1};
     politicianInfoDB.view('analysis', 'party_distro', params, function (err, body) {
