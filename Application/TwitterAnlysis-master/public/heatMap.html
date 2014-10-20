@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Charts - maniadmin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <!-- bootstrap css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- base css -->
+    <link class="links-css" href="css/base.css" rel="stylesheet">
+    <!-- charts page css -->
+    <link href="css/charts.css" rel="stylesheet">
+    
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+    </style>
+    <!-- bootstrap responsive css -->
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- media queries css -->
+    <link href="css/media-fluid.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.togglemenuleft').click(function(){
+                $('#menu-left').toggleClass('span1');
+                $('#menu-left').toggleClass('icons-only');
+                $('#menu-left').toggleClass('span3');
+                $('#content').toggleClass('span9');
+                $('#content').toggleClass('span11');
+                $(this).find('i').toggleClass('icon-circle-arrow-right');
+                $(this).find('i').toggleClass('icon-circle-arrow-left');
+                $('#menu-left').find('span').toggle();
+                $('#menu-left').find('.dropdown').toggle();
+            });
+
+            $('#menu-left a').click(function(){
+                $('#menu-left').find('a').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+            function initialize() {
+                var mapOptions = {
+                    zoom: 7,
+                    center: new google.maps.LatLng(-37.0000, 144.0000),
+                    mapTypeId: google.maps.MapTypeId.MAP
+                  };
+                var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                var api = "/coordinatesSentiment";
+                        var taxiData = [];
+                        var n = 0;
+
+
+                  $.ajax({
+                    type: 'GET',
+                    url: api,
+                    dataType: 'json',
+                    async: 'false',
+                    success: function (data) {
+                      $.each(data, function (index, value) {
+                        var longtitude = value.value[0].coordinates[0];
+                        var latitude = value.value[0].coordinates[1];
+                        var sentimentWeight = value.value[1];
+                        var weight;
+                        if (sentimentWeight === 0 ){
+                            weight = 0.1;
+                        }
+                        else if (sentimentWeight === 1) {
+                            weight = 20;
+                        }
+                        var location = new google.maps.LatLng(latitude, longtitude);
+                        //var newObject = {'location': location, 'weight': weight};
+                        var newObject = {'location': location};
+                        if (n < 2000) {
+                            taxiData.push(newObject);
+                            n++;
+                        }
+
+                      });
+                      //console.log(taxiData);
+                      //debugger;
+                        var pointArray = new google.maps.MVCArray(taxiData);
+                        console.log(pointArray.length);
+                        var heatmap = new google.maps.visualization.HeatmapLayer({data: pointArray, radius: 20}); 
+
+                        heatmap.setMap(map);
+                    }
+                  });
+            }
+        });
+        // switch style
+
+        $(".switcher").click(function(){
+            if($(this).find('i').hasClass('icon-circle-arrow-right'))
+                $('.theme').animate({left:'0px'},500);
+            else
+                $('.theme').animate({left:'-89'},500);
+
+            $(this).find('i').toggleClass('icon-circle-arrow-right');
+            $(this).find('i').toggleClass('icon-circle-arrow-left');
+        });
+    </script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="index.html"><img src="img/logo-small.png" alt="logo" /></a>
+           
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div id="menu-left" class="span3">
+
+            <div  class="sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li><a href="dashboard.html" ><i class="icon-th-large"></i><span> Dashboard</span></a></li>
+                            <li><a href="index.html"><i class="icon-th"></i><span>Party Members</span></a></li>
+                            <li><a href="partyTweetTime.html"><i class="icon-list-alt"></i><span> Party Tweet Time Distro</span></a></li>
+                            <li><a href="tweetSource.html"><i class="icon-tasks"></i><span> Party Tweet Source Distro</span></a></li>
+                            <li><a href="keyword_index.html"><i class="icon-picture"></i><span> Party tweets Sentiment</span></a></li>
+                            <li><a href="follower.html"><i class="icon-align-center"></i><span> Follower Distro</span></a></li>
+                            <li><a href="retweet.html"><i class="icon-indent-left"></i><span> Retweet Distro</span></a></li>
+                            <li><a href="publicTweetsSourceTimeDistro.html"><i class="icon-gift"></i><span> Public Tweets Time/Source Distro</span></a></li>
+                            <li><a href="publicTweetsSentiment.html"><i class="icon-comment"></i><span> Publuc tweets Sentiment</span></a></li>
+                            <li><a href="publicTweetsSentimentTimeChange.html"><i class="icon-calendar"></i><span> Sentiment Time Change </span></a></li>
+                            <li><a href="map.html"  class="current"><i class="icon-calendar"></i><span> Sentiment View On Map </span></a></li>
+                        </ul>
+                        <div class='togglemenuleft'><a class='toggle-menu'><i class="icon-circle-arrow-left icon-white"></i></a></div>
+                    </div>
+        </div>
+        <div id="content" class="span9 section-body">
+            <div id="section-body" class="tabbable">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">Widget</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div id="accordion1" class="accordion">
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <a class="accordion-toggle" data-toggle="collapse" href="#event" data-original-title="">
+                                                <i class="icon-bookmark icon-white"></i> <span class="divider-vertical"></span> Vic Map <i class="icon-chevron-down icon-white pull-right"></i>
+                                            </a>
+                                        </div>
+                                        <div id="event" class="accordion-body collapse in">
+                                            <div class="accordion-inner">
+                                                <!-- chart container -->
+                                                <div id="map-canvas" style="height:500px; width:auto;"></div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p><strong>&copy; POLITICIAN SENTIMENT 2014</strong></p>
+    </footer>
+    <div class="theme">
+        <h4>Style</h4>
+        <a class="darkblue style" href="darkblue.css"></a>
+        <a class="darkred style" href="darkred.css"></a>
+        <a class="default style" href="base.css"></a>
+        <a class="switcher" href="#"><i class="icon-circle-arrow-right"></i></a>
+    </div>
+</div><!--/.fluid-container-->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- <script src="js/jquery.min.js"></script> -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/charts/jquery.flot.js"></script>
+<script src="js/charts/jquery.flot.resize.js"></script>
+<script src="js/charts/jquery.flot.pie.js"></script>
+<script src="js/charts/charts-page.js"></script>
+
+<!-- <script src="js/charts/heatmap.js"></script>   -->
+
+<script type="text/javascript">
+    
+
+</script>
+
+</body>
+</html>
