@@ -34,6 +34,90 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.togglemenuleft').click(function(){
+                $('#menu-left').toggleClass('span1');
+                $('#menu-left').toggleClass('icons-only');
+                $('#menu-left').toggleClass('span3');
+                $('#content').toggleClass('span9');
+                $('#content').toggleClass('span11');
+                $(this).find('i').toggleClass('icon-circle-arrow-right');
+                $(this).find('i').toggleClass('icon-circle-arrow-left');
+                $('#menu-left').find('span').toggle();
+                $('#menu-left').find('.dropdown').toggle();
+            });
+
+            $('#menu-left a').click(function(){
+                $('#menu-left').find('a').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+            function initialize() {
+                var mapOptions = {
+                    zoom: 7,
+                    center: new google.maps.LatLng(-37.0000, 144.0000),
+                    mapTypeId: google.maps.MapTypeId.MAP
+                  };
+                var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                var api = "/coordinatesSentiment";
+                        var taxiData = [];
+                        var n = 0;
+
+
+                  $.ajax({
+                    type: 'GET',
+                    url: api,
+                    dataType: 'json',
+                    async: 'false',
+                    success: function (data) {
+                      $.each(data, function (index, value) {
+                        var longtitude = value.value[0].coordinates[0];
+                        var latitude = value.value[0].coordinates[1];
+                        var sentimentWeight = value.value[1];
+                        var weight;
+                        if (sentimentWeight === 0 ){
+                            weight = 0.1;
+                        }
+                        else if (sentimentWeight === 1) {
+                            weight = 20;
+                        }
+                        var location = new google.maps.LatLng(latitude, longtitude);
+                        //var newObject = {'location': location, 'weight': weight};
+                        var newObject = {'location': location};
+                        if (n < 2000) {
+                            taxiData.push(newObject);
+                            n++;
+                        }
+
+                      });
+                      //console.log(taxiData);
+                      //debugger;
+                        var pointArray = new google.maps.MVCArray(taxiData);
+                        console.log(pointArray.length);
+                        var heatmap = new google.maps.visualization.HeatmapLayer({data: pointArray, radius: 20}); 
+
+                        heatmap.setMap(map);
+                    }
+                  });
+            }
+        });
+        // switch style
+
+        $(".switcher").click(function(){
+            if($(this).find('i').hasClass('icon-circle-arrow-right'))
+                $('.theme').animate({left:'0px'},500);
+            else
+                $('.theme').animate({left:'-89'},500);
+
+            $(this).find('i').toggleClass('icon-circle-arrow-right');
+            $(this).find('i').toggleClass('icon-circle-arrow-left');
+        });
+    </script>
 
 </head>
 
@@ -123,46 +207,17 @@
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery.min.js"></script>
+<!-- <script src="js/jquery.min.js"></script> -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/charts/jquery.flot.js"></script>
 <script src="js/charts/jquery.flot.resize.js"></script>
 <script src="js/charts/jquery.flot.pie.js"></script>
 <script src="js/charts/charts-page.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
-<script src="js/charts/heatmap.js"></script>    
+
+<!-- <script src="js/charts/heatmap.js"></script>   -->
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('.togglemenuleft').click(function(){
-            $('#menu-left').toggleClass('span1');
-            $('#menu-left').toggleClass('icons-only');
-            $('#menu-left').toggleClass('span3');
-            $('#content').toggleClass('span9');
-            $('#content').toggleClass('span11');
-            $(this).find('i').toggleClass('icon-circle-arrow-right');
-            $(this).find('i').toggleClass('icon-circle-arrow-left');
-            $('#menu-left').find('span').toggle();
-            $('#menu-left').find('.dropdown').toggle();
-        });
-
-        $('#menu-left a').click(function(){
-            $('#menu-left').find('a').removeClass('active');
-            $(this).addClass('active');
-        });
-
-    });
-    // switch style
-
-    $(".switcher").click(function(){
-        if($(this).find('i').hasClass('icon-circle-arrow-right'))
-            $('.theme').animate({left:'0px'},500);
-        else
-            $('.theme').animate({left:'-89'},500);
-
-        $(this).find('i').toggleClass('icon-circle-arrow-right');
-        $(this).find('i').toggleClass('icon-circle-arrow-left');
-    });
+    
 
 </script>
 
