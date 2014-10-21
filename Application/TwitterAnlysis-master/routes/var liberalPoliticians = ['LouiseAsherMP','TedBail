@@ -1,0 +1,87 @@
+var liberalPoliticians = ['LouiseAsherMP','TedBaillieu','RobertClarkMP','PhilipDaviesMP','MatthewGuyMP','DavidHodgettMP',
+                          'WendyLovellMP','TerryMulderMP','Vic_Premier','michaelobrienmp','ODonohueMLC','RichPhillipsMLC',
+                           'RyanSmithMP','heidivic','NickWakelingMP','KimWellsMP','Mary_Wooldridge'];
+var laborPoliticians = ['JacintaAllanMP','DanielAndrewsMP','JBrumby','LilyDAmbrosioMP','LukeDonnellan','johnerenmp','MartinFoleyMP',
+                        'DanielleGreenMP','JoeHelper1','JillHennessyMP','SteveHerbertMP','Tim_Holding','HullsRob','NatHutchins',
+                        'GavinJennings','JohnLendersMP','JMaddenMP','JamesMerlinoMP','JennyMikakos','maxVmor','LisanevilleMP','wadenoonan',
+                        'MartinPakulaMP','timpallas','Bronwyn_Pike','RichardsonFiona','AdemSomyurek','BrianTeeMP','rwynnemp'];
+var greenPoliticians = ['GregMLC','ColleenHartland','sueMLC'];
+var nationalsPoliticians = ['TimBullMP','HughDelahunty','DDrumMP','RussellNortheMP','JPowellMP','peterryanMP','PeterWalshMP'];
+
+
+
+function(doc) {
+  var myDate = new Date(doc.created_at)
+  var arr = doc.text.toString().toLowerCase();
+  if(arr.indexOf('vic_premier')>-1){
+   emit(['vic_premier', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }else if(arr.indexOf(tedbaillieu)>-1){
+   emit(['tedbaillieu', myDate.getFullYear(), doc.sentiment], 1)
+  }
+
+
+}

@@ -55,7 +55,51 @@
                 $(this).addClass('active');
             });
 
-            google.maps.event.addDomListener(window, 'load', initialize);
+            if(typeof(Number.prototype.toRad) === "undefined") {
+                Number.prototype.toRad = function () {
+                    return this * Math.PI / 180;
+                }
+            }
+            function getDistance(start, end, decimals) {
+            //console.log('getDistance');
+            //console.log(start);
+            //console.log(end);
+            decimals = decimals || 2;
+            var earthRadius = 6371; // km
+            lat1 = parseFloat(start.latitude);
+            lat2 = parseFloat(end.latitude);
+            //console.log(lat1);
+            //console.log(end.latitude);
+            lon1 = parseFloat(start.longitude);
+            lon2 = parseFloat(end.longitude);
+         
+            var dLat = (lat2 - lat1).toRad();
+            var dLon = (lon2 - lon1).toRad();
+            var lat1 = lat1.toRad();
+            var lat2 = lat2.toRad();
+         
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = earthRadius * c;
+            return Math.round(d * Math.pow(10, decimals)) / Math.pow(10, decimals);
+        };
+
+
+        var bendigoLocation = new Object();
+        bendigoLocation.latitude = -37.0000
+        bendigoLocation.longitude = 144.0000
+        var melbourneLocaiton = new Object();
+        melbourneLocaiton.latitude = -37.8136
+        melbourneLocaiton.longitude = 144.9631
+        var swanHillLocation = new Object();
+        swanHillLocation.latitude = -35.557898
+        swanHillLocation.longitude = 143.435451
+        var portlandLocation = new Object();
+        portlandLocation.latitude = -38.021427
+        portlandLocation.longitude = 142.111821
+        var distance;
+        google.maps.event.addDomListener(window, 'load', initialize);
 
             function initialize() {
                 var mapOptions = {
@@ -68,6 +112,10 @@
                         var taxiData = [];
                         var n = 0;
 
+                         var melbourneTotalWeight = 0;
+                         var bendigoTotalWeight = 0;
+                         var swanHillTotalWeight= 0;
+                         var portlandTotalWeight = 0;
 
                   $.ajax({
                     type: 'GET',
@@ -78,28 +126,63 @@
                       $.each(data, function (index, value) {
                         var longtitude = value.value[0].coordinates[0];
                         var latitude = value.value[0].coordinates[1];
+                        var latlong = new Object();
+                        latlong.latitude = latitude
+                        latlong.longitude = longtitude
                         var sentimentWeight = value.value[1];
                         var weight;
+                       
                         if (sentimentWeight === 0 ){
-                            weight = 0.1;
+                            weight = -1;
                         }
                         else if (sentimentWeight === 1) {
-                            weight = 20;
+                            weight = 1;
                         }
-                        var location = new google.maps.LatLng(latitude, longtitude);
-                        //var newObject = {'location': location, 'weight': weight};
-                        var newObject = {'location': location};
-                        if (n < 2000) {
-                            taxiData.push(newObject);
-                            n++;
+                        var melbournedistance = getDistance(latlong, melbourneLocaiton, 2)
+                        var distance_bendigo = getDistance(latlong, bendigoLocation, 2)
+                        var distance_swanHill = getDistance(latlong, swanHillLocation, 2)
+                        var distance_portland = getDistance(latlong, portlandLocation, 2)
+                        if(melbournedistance < 50){
+                            melbourneTotalWeight = melbourneTotalWeight + weight
+                            
+                        }
+                        if(distance_bendigo < 50){
+                            bendigoTotalWeight = bendigoTotalWeight + weight
+                            
+                        }
+                        if(distance_swanHill < 50){
+                            swanHillTotalWeight = swanHillTotalWeight + weight
+                            
+                        }if(distance_portland < 50){
+                            portlandTotalWeight = portlandTotalWeight + weight
                         }
 
+                        
+                        
+                        //var newObject = {'location': location, 'weight': weight};
+                       
                       });
+console.log(melbourneTotalWeight);
+console.log(bendigoTotalWeight);
+console.log(swanHillTotalWeight);
+console.log(portlandTotalWeight);
+                        
+                        var location_melbouren = new google.maps.LatLng(-37.8136, 144.9631);
+                        var location_bendigo = new google.maps.LatLng(-37.0000, 144.0000);
+                        var location_swanhill = new google.maps.LatLng(-35.5578, 143.4354);
+                         var location_portland = new google.maps.LatLng(-38.021427, 142.111821);
+                        
+                        taxiData.push({'location': location_melbouren, 'weight': melbourneTotalWeight},
+                            {'location': location_bendigo, 'weight': bendigoTotalWeight},
+                            {'location': location_swanhill, 'weight':swanHillTotalWeight},
+                            {'location': location_portland, 'weight':portlandTotalWeight}
+                            );
+
                       //console.log(taxiData);
                       //debugger;
                         var pointArray = new google.maps.MVCArray(taxiData);
                         console.log(pointArray.length);
-                        var heatmap = new google.maps.visualization.HeatmapLayer({data: pointArray, radius: 20}); 
+                        var heatmap = new google.maps.visualization.HeatmapLayer({data: pointArray, radius: 80}); 
 
                         heatmap.setMap(map);
                     }
@@ -154,7 +237,8 @@
                             <li><a href="publicTweetsSourceTimeDistro.html"><i class="icon-gift"></i><span> Public Tweets Time/Source Distro</span></a></li>
                             <li><a href="publicTweetsSentiment.html"><i class="icon-comment"></i><span> Publuc tweets Sentiment</span></a></li>
                             <li><a href="publicTweetsSentimentTimeChange.html"><i class="icon-calendar"></i><span> Sentiment Time Change </span></a></li>
-                            <li><a href="map.html"  class="current"><i class="icon-calendar"></i><span> Sentiment View On Map </span></a></li>
+                            <li><a href="map.html"><i class="icon-calendar"></i><span> Sentiment View On Map </span></a></li>
+                             <li><a href="heatMap.html" class = "current"><i class="icon-calendar"></i><span> Sentiment Heatmap </span></a></li>
                         </ul>
                         <div class='togglemenuleft'><a class='toggle-menu'><i class="icon-circle-arrow-left icon-white"></i></a></div>
                     </div>

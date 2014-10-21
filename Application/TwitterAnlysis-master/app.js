@@ -61,6 +61,7 @@ app.get('/publicTweetSource', politician.publicTweetSource);
 app.get('/publicTweetsSentiment', politician.publicTweetsSentiment);
 app.get('/publicTweetsSentimentTimeChange', politician.publicTweetsSentimentTimeChange);
 app.get('/coordinatesSentiment', politician.coordinatesSentiment);
+app.get('/individualTweetsSentiment', politician.individualTweetsSentiment);
 
 app.get('/tweetSentimentByKeywordAndPolitician',politician.tweetSentimentByKeywordAndPolitician);
 app.get('/tweetSentimentOverview',politician.tweetSentimentOverview);

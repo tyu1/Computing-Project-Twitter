@@ -191,6 +191,21 @@ exports.publicTweetSource = function (req, res) {
         res.send(200, results)
     });
 };
+exports.individualTweetsSentiment = function (req, res) {
+    var params = {group_level: 3};
+    var politicianDB = nano.use('public');
+    politicianDB.view('analysis', 'individual-tweets-sentiment', params, function (err, body) {
+        var results = [];
+        if (err) {
+            console.log("err:", err);
+            res.send(200, []);
+            return false;
+        }
+        results = body.rows;
+        console.log(results);
+        res.send(200, results)
+    });
+};
 exports.tweetDistro = function (req, res) {
     var params = {group_level: 1};
     var politicianDB = nano.use('politician');
