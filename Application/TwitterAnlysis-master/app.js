@@ -30,22 +30,18 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/list', politician.list);
 app.get('/politicians', politician.list);
-app.get('/followersCounts', politician.followerCounts);
 app.get('/partyDistro', politician.partyDistro);
 app.get('/tweetsCounts', politician.tweetsCounts);
 app.get('/friendsCounts', politician.friendsCounts);
 app.get('/retweetCounts', politician.retweetCounts);
 app.get('/politicians/:politicianId', politician.show);
 app.get('/followedBy', politician.followedBy);
-app.get('/weekdayReport', politician.weekdayReport);
-app.get('/tweetSourceReport',politician.tweetSourceReport);
 app.get('/tweetHourReport',politician.tweetHourReport);
 app.get('/frequentWordsByName',politician.frequentWordsByName);
 app.get('/hashtagsByName',politician.hashtagsByName);
 app.get('/mentionedPeopleByName',politician.mentionedPeopleByName);
 app.get('/tweetHourByNameReport',politician.tweetHourByNameReport);
 app.get('/tweetSentimentByKeyword',politician.tweetSentimentByKeyword);
-app.get('/tweetSentiment2ByKeyword',politician.tweetSentiment2ByKeyword);
 app.get('/geoLocation',politician.geoLocation);
 app.get('/partyTweetTime', politician.partyTweetTime);
 app.get('/partySentiment', politician.partySentiment);
@@ -62,9 +58,9 @@ app.get('/publicTweetsSentiment', politician.publicTweetsSentiment);
 app.get('/publicTweetsSentimentTimeChange', politician.publicTweetsSentimentTimeChange);
 app.get('/coordinatesSentiment', politician.coordinatesSentiment);
 app.get('/individualTweetsSentiment', politician.individualTweetsSentiment);
-
 app.get('/tweetSentimentByKeywordAndPolitician',politician.tweetSentimentByKeywordAndPolitician);
 app.get('/tweetSentimentOverview',politician.tweetSentimentOverview);
+app.get('/sentimentRanking',politician.sentimentRanking);
 
 
 app.param('politicianId', politician.politician);

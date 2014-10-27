@@ -137,6 +137,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row-fluid result_wrapper_overview">
+                                    <div class="span12">
+                                        <div id="accordionOverview2" class="accordion">
+                                            <div class="accordion-group">
+                                                <div class="accordion-heading">
+                                                    <a class="accordion-toggle" data-toggle="collapse" href="#notificationOverview3" data-original-title="">
+                                                        <i class="fa fa-frown-o"></i> <span class="divider-vertical"></span> Neutral Sentiment - Political Parties <i class="icon-chevron-down icon-white pull-right"></i>
+                                                    </a>
+                                                </div>
+                                                <div id="notificationOverview2" class="accordion-body collapse in" style = "overflow-x: auto">
+                                                    <div class="accordion-inner paddind">
+                                                        <div id="chart_neutral_overview" style="width:880px"></div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- TAB: keyword grouped by parties -->
                             <div class="tab-pane" id="tab2">
@@ -194,6 +214,26 @@
                                                 <div id="notification2" class="accordion-body collapse in" style = "overflow-x: auto">
                                                     <div class="accordion-inner paddind">
                                                         <div id="chart_negative" style="width:880px"></div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row-fluid result_wrapper">
+                                    <div class="span12">
+                                        <div id="accordion33" class="accordion">
+                                            <div class="accordion-group">
+                                                <div class="accordion-heading">
+                                                    <a class="accordion-toggle" data-toggle="collapse" href="#notification3" data-original-title="">
+                                                        <i class="fa fa-frown-o"></i> <span class="divider-vertical"></span> Neutral Sentiment - <span class="badge badge-info lblKeyword"></span> <i class="icon-chevron-down icon-white pull-right"></i>
+                                                    </a>
+                                                </div>
+                                                <div id="notification2" class="accordion-body collapse in" style = "overflow-x: auto">
+                                                    <div class="accordion-inner paddind">
+                                                        <div id="chart_neutral" style="width:880px"></div>
 
                                                     </div>
                                                 </div>
@@ -335,6 +375,7 @@
                     {
                         PopulatePositiveChart(result,"chart_postive");
                         PopulateNegativeChart(result,"chart_negative");
+                        PopulateNeutralChart(result,"chart_neutral");
                         $(".loading").css("display","none");
                         $(".result_wrapper").css("display","block");
                     },
@@ -355,6 +396,7 @@
                     {
                         PopulatePositiveChart(result,"chart_postive_overview");
                         PopulateNegativeChart(result,"chart_negative_overview");
+                        PopulateNeutralChart(result,"chart_neutral_overview");
                         $(".loading_overview").css("display","none");
                         $(".result_wrapper_overview").css("display","block");
                         
@@ -413,6 +455,30 @@
                         reversed: true
                     },
                     series: data.positive_series
+                });
+            }
+             function PopulateNeutralChart(data,chartId)
+            {
+                $('#'+chartId).highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories: data.categories
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Counts'
+                        }
+                    },
+                    legend: {
+                        reversed: true
+                    },
+                    series: data.neutral_series
                 });
             }
 

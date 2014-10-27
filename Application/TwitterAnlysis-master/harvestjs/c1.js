@@ -4,16 +4,16 @@ var natural = require('natural'),
 var reader = require("buffered-reader");
 var DataReader = reader.DataReader;
 String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g, '');};
-new DataReader("test.csv", {
+new DataReader("train.csv", {
     encoding: "utf8"
 })
     .on("error", function(error) {
         console.log(error);
     })
     .on("line", function(line, nextByteOffset) {
-        var values = line.split(',');
-        console.log(values[3] + " class=" + values[1].trim());
-        classifier.addDocument(values[3], values[1].trim());
+        var values = line.split(',').replace(/\"/g, '');
+        console.log(values[5] + " class=" + values[0].trim());
+        classifier.addDocument(values[5], values[0].trim());
 
     })
     .on("end", function() {
