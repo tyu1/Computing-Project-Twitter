@@ -96,7 +96,7 @@ $(function () {
                     }
                 },
                 tooltip: {
-                    valueSuffix: ' millions'
+                    valueSuffix: ''
                 },
                 plotOptions: {
                     bar: {

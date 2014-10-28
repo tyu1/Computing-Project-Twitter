@@ -60,7 +60,8 @@ app.get('/coordinatesSentiment', politician.coordinatesSentiment);
 app.get('/individualTweetsSentiment', politician.individualTweetsSentiment);
 app.get('/tweetSentimentByKeywordAndPolitician',politician.tweetSentimentByKeywordAndPolitician);
 app.get('/tweetSentimentOverview',politician.tweetSentimentOverview);
-app.get('/sentimentRanking',politician.sentimentRanking);
+app.get('/sentimentPositiveRanking',politician.sentimentPositiveRanking);
+app.get('/sentimentNegativeRanking', politician.sentimentNegativeRanking);
 
 
 app.param('politicianId', politician.politician);

@@ -67,6 +67,7 @@
                             <li><a href="partyTweetTime.html"><i class="icon-list-alt"></i><span> Party Tweet Time Distro</span></a></li>
                             <li><a href="tweetSource.html"><i class="icon-tasks"></i><span> Party Tweet Source Distro</span></a></li>
                             <li><a href="keyword_index.html"><i class="icon-picture"></i><span> Party tweets Sentiment</span></a></li>
+                             <li><a href="sentimentTweetCount.html" class = 'current'><i class="icon-align-center"></i><span> sentimentTweetCount</span></a></li>
                             <li><a href="follower.html"><i class="icon-align-center"></i><span> Follower Distro</span></a></li>
                             <li><a href="retweet.html" class="current"><i class="icon-indent-left"></i><span> Retweet Distro</span></a></li>
                             <li><a href="publicTweetsSourceTimeDistro.html"><i class="icon-gift"></i><span> Public Tweets Time/Source Distro</span></a></li>
@@ -96,7 +97,7 @@
                                                 </div>
                                                 <div id="control" class="accordion-body collapse in">
                                                     <div class="accordion-inner paddind">
-                                                        <div id="retweetsRanking">retweetsRanking</div>
+                                                        <div id="sentimentPositiveRanking">sentimentPositiveRanking</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,101 +106,26 @@
                                     </div>
                                  
                                 </div>
-                                <div class="row-fluid">
-                                       <div class="span12">
-                                        <div id="accordion2" class="accordion">
+                                 <div class="row-fluid">
+                                    <div class="span12">
+                                        <div id="accordion1" class="accordion">
                                             <div class="accordion-group">
                                                 <div class="accordion-heading">
-                                                    <a class="accordion-toggle" data-toggle="collapse" href="#statements" data-original-title="">
-                                                        <i class="icon-list-alt icon-white"></i> <span class="divider-vertical"></span> Retweet Region Disribution For All Politician IN VIC<i class="icon-chevron-down icon-white pull-right"></i>
+                                                    <a class="accordion-toggle" data-toggle="collapse" href="#control" data-original-title="">
+                                                        <i class="icon-list-alt icon-white"></i> <span class="divider-vertical"></span> Retweets Ranking <i class="icon-chevron-down icon-white pull-right"></i>
                                                     </a>
                                                 </div>
-                                                <div id="statements" class="accordion-body collapse in">
+                                                <div id="control" class="accordion-body collapse in">
                                                     <div class="accordion-inner paddind">
-                                                        <div id="partyRetweetRanking">partyRetweetRanking</div>
+                                                        <div id="sentimentNegativeRanking">sentimentNegativeRanking</div>
                                                     </div>
                                                 </div>
                                             </div>
 
                                         </div>
                                     </div>
+                                 
                                 </div>
-
-                               <div class="row-fluid">
-                                    <!--Tabs2-->
-                                    <div class="span6">
-                                        <div id="accordion3" class="accordion">
-                                            <div class="accordion-group">
-                                                <div class="accordion-heading">
-                                                    <a href="#aborRetweet" data-toggle="collapse" class="accordion-toggle in">
-                                                        <i class="icon-bullhorn icon-white"></i> <span class="divider-vertical"></span> Retweet Region Disribution For Labor<i class="icon-chevron-down icon-white pull-right"></i>
-                                                    </a>
-                                                </div>
-                                                <div id="aborRetweet" class="accordion-body collapse in">
-                                                    <div class="accordion-inner paddind">
-                                                        <div id="laborRetweetTimeZone">laborRetweetTimeZone</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="span6">
-                                        <div id="accordion4" class="accordion">
-                                            <div class="accordion-group">
-                                                <div class="accordion-heading">
-                                                    <a href="#liberalRetweet" data-toggle="collapse" class="accordion-toggle in">
-                                                        <i class="icon-calendar icon-white"></i> <span class="divider-vertical"></span>Retweet Region Disribution For Liberal <i class="icon-chevron-down icon-white pull-right"></i>
-                                                    </a>
-                                                </div>
-                                                <div id="liberalRetweet" class="accordion-body collapse in">
-                                                    <div class="accordion-inner paddind">
-                                                        <div id="liberalRetweetTimeZone">liberalRetweetTimeZone</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row-fluid">
-                                    <!--Tabs2-->
-                                    <div class="span6">
-                                        <div id="accordion5" class="accordion">
-                                            <div class="accordion-group">
-                                                <div class="accordion-heading">
-                                                    <a href="#nationalsRetweet" data-toggle="collapse" class="accordion-toggle in">
-                                                        <i class="icon-bullhorn icon-white"></i> <span class="divider-vertical"></span>Retweet Region Disribution For Nationals <i class="icon-chevron-down icon-white pull-right"></i>
-                                                    </a>
-                                                </div>
-                                                <div id="nationalsRetweet" class="accordion-body collapse in">
-                                                    <div class="accordion-inner paddind">
-                                                        <div id="nationalsRetweetTimeZone">nationalsRetweetTimeZone</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="span6">
-                                        <div id="accordion6" class="accordion">
-                                            <div class="accordion-group">
-                                                <div class="accordion-heading">
-                                                    <a href="#greenRetweet" data-toggle="collapse" class="accordion-toggle in">
-                                                        <i class="icon-calendar icon-white"></i> <span class="divider-vertical"></span>Retweet Region Disribution For Green <i class="icon-chevron-down icon-white pull-right"></i>
-                                                    </a>
-                                                </div>
-                                                <div id="greenRetweet" class="accordion-body collapse in">
-                                                    <div class="accordion-inner paddind">
-                                                        <div id="greenRetweetTimeZone">greenRetweetTimeZone</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
                                                     <br />
                                                     </div>
                                                 </div>
@@ -236,7 +162,7 @@
         <script src="js/highcharts.js"></script>
         <script src="js/jquery.tokeninput.js"></script>
         <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/charts/popularity-charts.js"></script>
+        <script src="js/charts/sentiment-ranking-charts.js"></script>
     
         <script type="text/javascript">
             $(document).ready(function(){

@@ -87,11 +87,13 @@ function showPolygonArea(e) {
                 var marker = L.marker(latlng).addTo(featureGroup);
                 console.log(value);
                 var sentimentValue;
-               if(sentiment === 1){
+               if(sentiment > 0){
                  sentimentValue = '||Positive||';
-               }else
+               }else if(sentiment < 0)
                {
                 sentimentValue = '||Negative||';
+               }else {
+                 sentimentValue = '||Neutral||'
                }
                var finalPrint = tweet + ' ' + sentimentValue;
                 marker.bindPopup(finalPrint);

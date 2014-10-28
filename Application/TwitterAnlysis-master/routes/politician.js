@@ -889,18 +889,38 @@ exports.geoLocation = function (req, res) {
         }
     });
 };
-exports.sentimentRanking = function (req, res) {
-    var screenName = req.query.screen_name;
-    console.log(screenName);
-    var params = {group_level: 2, key: [screenName, 'positive'], descending : true};
+exports.sentimentPositiveRanking = function (req, res) {
+    var params = {descending: true, group_level:1};
     var politicianDB = nano.use('politician_tweets');
-    politicianDB.view('analysis', 'sentiment_ranking', params, function (err, body) {
-        var list = [];
+    politicianDB.view('analysis', 'sentiment_positive_ranking', params, function (err, body) {
+        var data = [];
         if (!err) {
-            list = body.rows;
+            data = body.rows;
 
-            //console.log(list);
-            res.send(200, list);
+            console.log(data);
+            var slicedFollows = data.slice(0, 10);
+            console.log(slicedFollows);
+
+            res.send(200, data);
+        } else {
+            console.log(err);
+            res.send(200, []);
+        }
+    });
+};
+exports.sentimentNegativeRanking = function (req, res) {
+    var params = {descending: true, group_level:1};
+    var politicianDB = nano.use('politician_tweets');
+    politicianDB.view('analysis', 'sentiment_negative_ranking', params, function (err, body) {
+        var data = [];
+        if (!err) {
+            data = body.rows;
+
+            console.log(data);
+            var slicedFollows = data.slice(0, 10);
+            console.log(slicedFollows);
+
+            res.send(200, data);
         } else {
             console.log(err);
             res.send(200, []);
@@ -913,7 +933,7 @@ exports.sentimentRanking = function (req, res) {
 
 exports.publicPartyTweetTime = function (req, res) {
     var params = {group_level: 2};
-    var politicianDB = nano.use('public');
+    var politicianDB = nano.use('public_tweets');
     politicianDB.view('analysis', 'public_party_tweet_time', params, function (err, body) {
         var results = [];
         if (err) {
@@ -929,7 +949,7 @@ exports.publicPartyTweetTime = function (req, res) {
 
 
 exports.coordinatesSentiment = function (req, res) {
-    var publicDB = nano.use('public');
+    var publicDB = nano.use('public_tweets');
     publicDB.view('analysis', 'public_coordinates_sentiment', null, function (err, body) {
         var followers = [];
         if (!err) {
@@ -947,7 +967,7 @@ exports.coordinatesSentiment = function (req, res) {
 
 exports.publicTweetSource = function (req, res) {
     var params = {group_level: 1};
-    var politicianDB = nano.use('public');
+    var politicianDB = nano.use('public_tweets');
     politicianDB.view('analysis', 'public_tweet_source', params, function (err, body) {
         var results = [];
         if (err) {
@@ -962,7 +982,7 @@ exports.publicTweetSource = function (req, res) {
 };
 exports.individualTweetsSentiment = function (req, res) {
     var params = {group_level: 3};
-    var politicianDB = nano.use('public');
+    var politicianDB = nano.use('public_tweets');
     politicianDB.view('analysis', 'individual-tweets-sentiment', params, function (err, body) {
         var results = [];
         if (err) {
@@ -978,7 +998,7 @@ exports.individualTweetsSentiment = function (req, res) {
 
 exports.publicTweetsSentiment = function (req, res) {
     var params = {group_level: 2};
-    var politicianDB = nano.use('public');
+    var politicianDB = nano.use('public_tweets');
     politicianDB.view('analysis', 'public _party_sentiment', params, function (err, body) {
         var list = [];
         if (!err) {
@@ -994,7 +1014,7 @@ exports.publicTweetsSentiment = function (req, res) {
 };
 exports.publicTweetsSentimentTimeChange = function (req, res) {
     var params = {group_level: 3};
-    var politicianDB = nano.use('public');
+    var politicianDB = nano.use('public_tweets');
     politicianDB.view('analysis', 'public_party_counts', params, function (err, body) {
         var list = [];
         if (!err) {

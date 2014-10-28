@@ -10,12 +10,13 @@ $(function () {
         }).responseText;
 
         var results = jQuery.parseJSON(jsonData);
-        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo;
+        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo,
+            nationalsNeutralNo,greenNeutralNo,laborNeutralNo,liberalNeutralNo;
         _.forEach(results, function(publicTweetsInfo) {
             var publicTweetsParty = publicTweetsInfo.key[0];
             var publicTweetsSen = publicTweetsInfo.key[1];
             var tweetsNo = publicTweetsInfo.value;
-            if(publicTweetsSen === 1){
+            if(publicTweetsSen == 'positive'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsPostiveNo = tweetsNo;
@@ -31,7 +32,7 @@ $(function () {
                           break;
                 }
 
-            }else{
+            }else if(publicTweetsSen == 'negative'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsNegativeNo = tweetsNo;
@@ -48,6 +49,22 @@ $(function () {
                 }
 
 
+            }else{
+                switch (publicTweetsParty){
+                    case null:
+                         nationalsNeutralNo = tweetsNo;
+                         break;
+                    case 'green':
+                         greenNeutralNo = tweetsNo;
+                         break;
+                    case 'labor':
+                         laborNeutralNo = tweetsNo;
+                         break;
+                    case 'liberal':
+                          liberalNeutralNo = tweetsNo;
+                          break;
+                      }
+
             }
         });
         
@@ -61,9 +78,11 @@ $(function () {
         //var nationalsNegativepro = nationalsNegativeNo/ (nationalsPostiveNo + nationalsNegativeNo);
         var positiveTotalNo = liberalPositiveNo + laborPositiveNo + greenPositiveNo+ nationalsPostiveNo;
         var negativeTotalNo =liberalNegativeNo + laborNegativeNo+ greenNegativeNo+ nationalsNegativeNo;
-        var totalNo = positiveTotalNo + negativeTotalNo;
+        var neutralTotalNo = nationalsNeutralNo + greenNeutralNo + laborNeutralNo + liberalNeutralNo;
+        var totalNo = positiveTotalNo + negativeTotalNo + neutralTotalNo;
         var postiveTotalPro = positiveTotalNo / totalNo;
         var negativeTotalPro =negativeTotalNo / totalNo;
+        var neutralTotalPro = neutralTotalNo / totalNo;
         $('#publicTweetsSentimentAll').highcharts({
             chart: {
                 plotBackgroundColor: null,
@@ -91,7 +110,8 @@ $(function () {
                 name: 'Tweets Sentiment',
                 data: [
                     ['Positive',   postiveTotalPro],
-                    ['negative',       negativeTotalPro]
+                    ['negative',       negativeTotalPro],
+                    ['neutral', neutralTotalPro]
                 ]
             }]
         });
@@ -110,12 +130,13 @@ $(function () {
         }).responseText;
 
         var results = jQuery.parseJSON(jsonData);
-        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo;
+        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo,
+            nationalsNeutralNo,greenNeutralNo,laborNeutralNo,liberalNeutralNo;
         _.forEach(results, function(publicTweetsInfo) {
             var publicTweetsParty = publicTweetsInfo.key[0];
             var publicTweetsSen = publicTweetsInfo.key[1];
             var tweetsNo = publicTweetsInfo.value;
-            if(publicTweetsSen === 1){
+            if(publicTweetsSen == 'positive'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsPostiveNo = tweetsNo;
@@ -131,7 +152,7 @@ $(function () {
                           break;
                 }
 
-            }else{
+            }else if(publicTweetsSen == 'negative'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsNegativeNo = tweetsNo;
@@ -148,14 +169,31 @@ $(function () {
                 }
 
 
-            }
+            }else{
+                switch (publicTweetsParty){
+                    case null:
+                         nationalsNeutralNo = tweetsNo;
+                         break;
+                    case 'green':
+                         greenNeutralNo = tweetsNo;
+                         break;
+                    case 'labor':
+                         laborNeutralNo = tweetsNo;
+                         break;
+                    case 'liberal':
+                          liberalNeutralNo = tweetsNo;
+                          break;
+
+                    }
+                }
         });
         
-        var liberalPositivePro = liberalPositiveNo / (liberalPositiveNo + liberalNegativeNo);
+        var liberalPositivePro = liberalPositiveNo / (liberalPositiveNo + liberalNegativeNo + liberalNeutralNo);
         //var laborPositivePro = laborPositiveNo / (laborPositiveNo + laborNegativeNo);
         //var greenPositivePro = greenPositiveNo / (greenPositiveNo + greenNegativeNo);
         //var nationalsPostivepro = nationalsPostiveNo/ (nationalsPostiveNo + nationalsNegativeNo);
-        var liberalNegativePro = liberalNegativeNo / (liberalPositiveNo + liberalNegativeNo);
+        var liberalNegativePro = liberalNegativeNo / (liberalPositiveNo + liberalNegativeNo + liberalNeutralNo);
+        var liberalNeutralPro = liberalNeutralNo / (liberalPositiveNo + liberalNegativeNo + liberalNeutralNo);
         //var laborNegativePro = laborNegativeNo / (laborPositiveNo + laborNegativeNo);
         //var greenNegativePro = greenNegativeNo / (greenPositiveNo + greenNegativeNo);
         //var nationalsNegativepro = nationalsNegativeNo/ (nationalsPostiveNo + nationalsNegativeNo);
@@ -191,7 +229,8 @@ $(function () {
                 name: 'Tweets Sentiment',
                 data: [
                     ['Positive',   liberalPositivePro],
-                    ['negative',       liberalNegativePro]
+                    ['negative',       liberalNegativePro],
+                    ['neutral', liberalNeutralPro]
                 ]
             }]
         });
@@ -210,12 +249,13 @@ $(function () {
         }).responseText;
 
         var results = jQuery.parseJSON(jsonData);
-        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo;
+        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo,
+            nationalsNeutralNo,greenNeutralNo,laborNeutralNo,liberalNeutralNo;
         _.forEach(results, function(publicTweetsInfo) {
             var publicTweetsParty = publicTweetsInfo.key[0];
             var publicTweetsSen = publicTweetsInfo.key[1];
             var tweetsNo = publicTweetsInfo.value;
-            if(publicTweetsSen === 1){
+           if(publicTweetsSen == 'positive'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsPostiveNo = tweetsNo;
@@ -231,7 +271,7 @@ $(function () {
                           break;
                 }
 
-            }else{
+            }else if(publicTweetsSen == 'negative'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsNegativeNo = tweetsNo;
@@ -248,15 +288,32 @@ $(function () {
                 }
 
 
-            }
+            }else{
+                switch (publicTweetsParty){
+                    case null:
+                         nationalsNeutralNo = tweetsNo;
+                         break;
+                    case 'green':
+                         greenNeutralNo = tweetsNo;
+                         break;
+                    case 'labor':
+                         laborNeutralNo = tweetsNo;
+                         break;
+                    case 'liberal':
+                          liberalNeutralNo = tweetsNo;
+                          break;
+
+                    }
+                }
         });
         
         //var liberalPositivePro = liberalPositiveNo / (liberalPositiveNo + liberalNegativeNo);
-        var laborPositivePro = laborPositiveNo / (laborPositiveNo + laborNegativeNo);
+        var laborPositivePro = laborPositiveNo / (laborPositiveNo + laborNegativeNo+ laborNeutralNo);
         //var greenPositivePro = greenPositiveNo / (greenPositiveNo + greenNegativeNo);
         //var nationalsPostivepro = nationalsPostiveNo/ (nationalsPostiveNo + nationalsNegativeNo);
         //var liberalNegativePro = liberalNegativeNo / (liberalPositiveNo + liberalNegativeNo);
-        var laborNegativePro = laborNegativeNo / (laborPositiveNo + laborNegativeNo);
+        var laborNegativePro = laborNegativeNo / (laborPositiveNo + laborNegativeNo + laborNeutralNo);
+        var laborNeutralPro = laborNeutralNo / (laborPositiveNo + laborNegativeNo + laborNeutralNo);
         //var greenNegativePro = greenNegativeNo / (greenPositiveNo + greenNegativeNo);
         //var nationalsNegativepro = nationalsNegativeNo/ (nationalsPostiveNo + nationalsNegativeNo);
         //var positiveTotalNo = liberalPositiveNo + laborPositiveNo + greenPositiveNo+ nationalsPostiveNo;
@@ -291,7 +348,9 @@ $(function () {
                 name: 'Tweet Sentiment',
                 data: [
                     ['Positive',   laborPositivePro],
-                    ['negative',       laborNegativePro]
+                    ['negative',       laborNegativePro],
+                     ['neutral', laborNeutralPro]
+
                 ]
             }]
         });
@@ -310,12 +369,13 @@ $(function () {
         }).responseText;
 
         var results = jQuery.parseJSON(jsonData);
-        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo;
+        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo,
+            nationalsNeutralNo,greenNeutralNo,laborNeutralNo,liberalNeutralNo;
         _.forEach(results, function(publicTweetsInfo) {
             var publicTweetsParty = publicTweetsInfo.key[0];
             var publicTweetsSen = publicTweetsInfo.key[1];
             var tweetsNo = publicTweetsInfo.value;
-            if(publicTweetsSen === 1){
+             if(publicTweetsSen == 'positive'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsPostiveNo = tweetsNo;
@@ -331,7 +391,7 @@ $(function () {
                           break;
                 }
 
-            }else{
+            }else if(publicTweetsSen == 'negative'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsNegativeNo = tweetsNo;
@@ -348,16 +408,33 @@ $(function () {
                 }
 
 
-            }
+            }else{
+                switch (publicTweetsParty){
+                    case null:
+                         nationalsNeutralNo = tweetsNo;
+                         break;
+                    case 'green':
+                         greenNeutralNo = tweetsNo;
+                         break;
+                    case 'labor':
+                         laborNeutralNo = tweetsNo;
+                         break;
+                    case 'liberal':
+                          liberalNeutralNo = tweetsNo;
+                          break;
+
+                    }
+                }
         });
         
        // var liberalPositivePro = liberalPositiveNo / (liberalPositiveNo + liberalNegativeNo);
         //var laborPositivePro = laborPositiveNo / (laborPositiveNo + laborNegativeNo);
-        var greenPositivePro = greenPositiveNo / (greenPositiveNo + greenNegativeNo);
+        var greenPositivePro = greenPositiveNo / (greenPositiveNo + greenNegativeNo + greenNeutralNo);
         //var nationalsPostivepro = nationalsPostiveNo/ (nationalsPostiveNo + nationalsNegativeNo);
         //var liberalNegativePro = liberalNegativeNo / (liberalPositiveNo + liberalNegativeNo);
         //var laborNegativePro = laborNegativeNo / (laborPositiveNo + laborNegativeNo);
-        var greenNegativePro = greenNegativeNo / (greenPositiveNo + greenNegativeNo);
+        var greenNegativePro = greenNegativeNo / (greenPositiveNo + greenNegativeNo + greenNeutralNo);
+        var greenNeutralPro = greenNeutralNo / (greenPositiveNo + greenNegativeNo + greenNeutralNo);
         //var nationalsNegativepro = nationalsNegativeNo/ (nationalsPostiveNo + nationalsNegativeNo);
         //var positiveTotalNo = liberalPositiveNo + laborPositiveNo + greenPositiveNo+ nationalsPostiveNo;
         //var negtiveTotalNo =liberalNegativeNo + laborNegativeNo+ greenNegativeNo+ nationalsNegativeNo;
@@ -391,7 +468,8 @@ $(function () {
                 name: 'Tweet Sentiment',
                 data: [
                     ['Positive',   greenPositivePro],
-                    ['negative',       greenNegativePro]
+                    ['negative',       greenNegativePro],
+                    ['neutral', greenNeutralPro]
                 ]
             }]
         });
@@ -410,12 +488,13 @@ $(function () {
         }).responseText;
 
         var results = jQuery.parseJSON(jsonData);
-        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo;
+        var nationalsPostiveNo,greenPositiveNo,laborPositiveNo,liberalPositiveNo,nationalsNegativeNo,greenNegativeNo,laborNegativeNo,liberalNegativeNo,
+            nationalsNeutralNo,greenNeutralNo,laborNeutralNo,liberalNeutralNo;
         _.forEach(results, function(publicTweetsInfo) {
             var publicTweetsParty = publicTweetsInfo.key[0];
             var publicTweetsSen = publicTweetsInfo.key[1];
             var tweetsNo = publicTweetsInfo.value;
-            if(publicTweetsSen === 1){
+            if(publicTweetsSen == 'positive'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsPostiveNo = tweetsNo;
@@ -431,7 +510,7 @@ $(function () {
                           break;
                 }
 
-            }else{
+            }else if(publicTweetsSen == 'negative'){
                 switch (publicTweetsParty){
                     case null:
                          nationalsNegativeNo = tweetsNo;
@@ -448,17 +527,34 @@ $(function () {
                 }
 
 
-            }
+            }else{
+                switch (publicTweetsParty){
+                    case null:
+                         nationalsNeutralNo = tweetsNo;
+                         break;
+                    case 'green':
+                         greenNeutralNo = tweetsNo;
+                         break;
+                    case 'labor':
+                         laborNeutralNo = tweetsNo;
+                         break;
+                    case 'liberal':
+                          liberalNeutralNo = tweetsNo;
+                          break;
+
+                    }
+                }
         });
         
        // var liberalPositivePro = liberalPositiveNo / (liberalPositiveNo + liberalNegativeNo);
        // var laborPositivePro = laborPositiveNo / (laborPositiveNo + laborNegativeNo);
        // var greenPositivePro = greenPositiveNo / (greenPositiveNo + greenNegativeNo);
-        var nationalsPostivepro = nationalsPostiveNo/ (nationalsPostiveNo + nationalsNegativeNo);
+        var nationalsPostivepro = nationalsPostiveNo/ (nationalsPostiveNo + nationalsNegativeNo + nationalsNeutralNo);
        // var liberalNegativePro = liberalNegativeNo / (liberalPositiveNo + liberalNegativeNo);
        // var laborNegativePro = laborNegativeNo / (laborPositiveNo + laborNegativeNo);
        // var greenNegativePro = greenNegativeNo / (greenPositiveNo + greenNegativeNo);
-        var nationalsNegativepro = nationalsNegativeNo/ (nationalsPostiveNo + nationalsNegativeNo);
+        var nationalsNegativepro = nationalsNegativeNo/ (nationalsPostiveNo + nationalsNegativeNo +nationalsNeutralNo );
+        var nationalsNeutralPro =nationalsNeutralNo / (nationalsPostiveNo + nationalsNegativeNo +nationalsNeutralNo );
        // var positiveTotalNo = liberalPositiveNo + laborPositiveNo + greenPositiveNo+ nationalsPostiveNo;
        // var negtiveTotalNo =liberalNegativeNo + laborNegativeNo+ greenNegativeNo+ nationalsNegativeNo;
        // var totalNo = positiveTotalNo + negativeTotalNo;
@@ -491,7 +587,8 @@ $(function () {
                 name: 'Tweet Sentiment',
                 data: [
                     ['Positive',   nationalsPostivepro],
-                    ['negative',       nationalsNegativepro]
+                    ['negative',       nationalsNegativepro],
+                    ['neutral',  nationalsNeutralPro]
                 ]
             }]
         });
