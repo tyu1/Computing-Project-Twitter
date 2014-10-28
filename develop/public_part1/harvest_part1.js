@@ -3,6 +3,7 @@ var twitter = require('twit')
 var util = require('util'),
     async = require('async'),
     CronJob = require('cron').CronJob;
+var sentiment = require('sentiment');
 var T = new twitter({
 consumer_key: "HtOkLlq07rkGkQMOMAODqv9Y0",
 consumer_secret: "AL7o9Veqr6vW5hq9hulgEWLMCnZePVAv2hXRxznM4TkcsqbaS0",
@@ -61,6 +62,27 @@ var politicians = _.union(
  
 );
 
+var politiciansLiberal = _.union(
+  liberalPoliticians,
+   liberalPoliticians_name
+ 
+);
+var politiciansLabor = _.union(
+  laborPoliticians,
+   laborPoliticians_name
+ 
+);
+var politiciansGreen = _.union(
+  greenPoliticians,
+   greenPoliticians_name
+ 
+);
+var politiciansNationals = _.union(
+  nationalsPoliticians,
+   nationalsPoliticians_name
+ 
+);
+
 
 //define distance
 if(typeof(Number.prototype.toRad) === "undefined") {
@@ -92,36 +114,59 @@ getDistance = function(start, end, decimals) {
 
 
 //get tweets streaming
-var victoria1 = ['143.33','-39.22','148.88','-35.98']
+var victoria1 = ['143.33','-39.22','148.88','-35.98'];
+public_tweetDB = nano.use('public_tweets');
 var writeToDB = function(){
  var stream = T.stream('statuses/filter', { locations: victoria1})
   stream.on('tweet', function(tweet){
     console.log(tweet.text);
-    var item = tweet.text.toString().toLowerCase(); 
+    var text = tweet.text.toString().toLowerCase(); 
       for(i =0; i<politicians.length; i++){
-        if(item.indexOf(politicians[i].toLowerCase()) > -1){
+        var party;
+        if(text.indexOf(politicians[i].toLowerCase())> -1){
+            for(var i = 0; i<politiciansLiberal.length; i++){
+            if(text.indexOf(politiciansLiberal[i].toLowerCase())> -1){
+            party = 'liberal'
+            } else {
+              for(var j = 0; j<politiciansLabor.length; j++){
+                if(text.indexOf(politiciansLabor[j].toLowerCase())> -1){
+                   party = 'labor'
+                }else{
+                  for(var k = 0; k< politiciansGreen.length; k++){
+                    if(text.indexOf(politiciansGreen[k].toLowerCase())> -1){
+                      party = 'green'
+                    }else{
+                      for(var n = 0; n < politiciansNationals; n++){
+                        if(text.indexOf(politiciansNationals[n].toLowerCase())> -1){
+                          party = 'nationals'
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            } 
+          }
+          tweet.party = party;
           tweet._id = tweet.id_str;
+          var result = sentiment(text);
+          doc.sentiment = result;
           public_tweetDB.insert(tweet, function(err, body, header){
-           if(err){
-              console.log("err "+err.message);
+          if(err){
+            console.log("err "+err.message);
             }else{
-              console.log(tweet.id +' tweets have inserted to db');
+            console.log(tweet.id +' tweets have inserted to db');
             }
-          
           });
-              getTweets(tweet.user.id);
-           
-       }
+          getTweets(tweet.user.id);
+        }
+
+      
      }
   });
 }
 
-// var melbourneLocaiton = new Object();
-// melbourneLocaiton.latitude= -37.8136
-// melbourneLocaiton.longitude=  144.9631
-
-
-//get tweets by id 
+public_tweetDB = nano.use('public_tweets');
 var getTweets = function(id){
   for (i = 1; i <= 16; i++) {
     T.get('statuses/user_timeline', {
@@ -135,38 +180,51 @@ var getTweets = function(id){
         console.log('id=' + id);
       } else {
         _.each(tweets, function(tweet) {
-          for(i = 0; i< politicians.length; i++){
-          if(tweet.text.toString().toLowerCase().indexOf(politicians[i].toLowerCase())>-1){
-           // console.log(item.coordinates.coordinates);
-          //  var location = new Object();
-           
+          var text = tweet.text.toString().toLowerCase(); 
+          for(i =0; i<politicians.length; i++){
+            if(text.indexOf(politicians[i].toLowerCase())> -1){
 
-          //  if(tweet.coordinates != null && tweet.coordinates != 'null'){
-          //   location.latitude = tweet.coordinates.coordinates[1];
-          //   location.longitude = tweet.coordinates.coordinates[0];
-          //   // console.log('location=' + location);
-          //   var distance = getDistance(location, melbourneLocaiton, 2);
-          //  // console.log('distance=' + distance);
-          // }else{
-          //   var distance  = 1000;
-
-          // }
-            
-          // if(tweet.user.time_zone.toLowerCase() === 'melbourne'  || distance < 350 || tweet.user.location.toLowerCase() === 'melbourne' || tweet.user.location.toLowerCase() === 'victoria'){
-              tweet._id = tweet.id_str;
-              public_tweetDB.insert(tweet, function(err, body, header) {
-                if (err) {
-                  console.log('[insert] ', err.message);
-                  console.log('id=' +id);
-                } else {
-                  console.log('====================');
-                  console.log(id + ' tweets insert');
-                  console.log('====================');
+            var party;
+            for(var i = 0; i<politiciansLiberal.length; i++){
+              if(text.indexOf(politiciansLiberal[i].toLowerCase())> -1){
+                party = 'liberal'
+              } else {
+                for(var j = 0; j<politiciansLabor.length; j++){
+                  if(text.indexOf(politiciansLabor[j].toLowerCase())> -1){
+                     party = 'labor'
+                  }else{
+                    for(var k = 0; k< politiciansGreen.length; k++){
+                      if(text.indexOf(politiciansGreen[k].toLowerCase())> -1){
+                        party = 'green'
+                      }else{
+                        for(var n = 0; n < politiciansNationals.length; n++){
+                          if(text.indexOf(politiciansNationals[n].toLowerCase())> -1){
+                            party = null
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
+              } 
+             }
+            tweet.party = party;
+            tweet._id = tweet.id_str;
+            var result = sentiment(text);
+            doc.sentiment = result;
+            public_tweetDB.insert(tweet, function(err, body, header) {
+              if (err) {
+                console.log('[insert] ', err.message);
+                console.log('id=' +id);
+              } else {
+                console.log('====================');
+                console.log(id + ' tweets insert');
+                console.log('====================');
+              }
 
-              });
-         //}
-        }
+            });
+         }
+
       }
     });
   }
